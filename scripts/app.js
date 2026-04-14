@@ -105,6 +105,7 @@ function updateLangUI() {
 
     // Update Nav
     const data = portfolioData[currentLang].nav;
+    
     document.getElementById('nav-about').textContent = data.about;
     document.getElementById('nav-cv').textContent = data.cv;
     document.getElementById('nav-certificates').textContent = data.certificates;
@@ -153,7 +154,7 @@ function renderContent() {
     // About
     const aboutText = document.getElementById('about-text');
     if (aboutText) {
-        aboutText.innerHTML = `<p style="font-size: 1.2rem; max-width: 850px; color: var(--text-muted)">${data.about.text}</p>`;
+        aboutText.innerHTML = `<p style="font-size: 1.2rem; max-width: 850px; color: var(--text-color);">${data.about.text}</p>`;
     }
 
     // Initial Projects Render
@@ -163,11 +164,13 @@ function renderContent() {
     const experienceTimeline = document.getElementById('experience-timeline');
     if (experienceTimeline) {
         experienceTimeline.innerHTML = data.experience.items.map(e => `
-            <div class="timeline-item fade-in visible">
-                <div class="timeline-date">${e.period}</div>
-                <h3>${e.role}</h3>
-                <p style="color: var(--accent-color); font-weight: 600; font-size: 1.1rem;">${e.organization}</p>
-                <p style="margin-top: 0.75rem; color: var(--text-muted);">${e.description}</p>
+            <div class="card fade-in visible" style="cursor: default;">
+                <div class="card-content" style="display: flex; flex-direction: column; height: 100%;">
+                    <div style="font-size: 0.85rem; color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">${e.period}</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">${e.role}</h3>
+                    <p style="color: var(--text-color); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">${e.organization}</p>
+                    ${e.description ? `<div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-top: auto;">${e.description}</div>` : ''}
+                </div>
             </div>
         `).join('');
     }

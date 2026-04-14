@@ -18,7 +18,7 @@ export const portfolioData = {
                 superprof: "https://www.superprof.ma/Scidelo",
                 phone: "+212 777 647 362"
             },
-            image: "assets/images/photo1.jpg"
+            image: "assets/images/SARY1.jpeg"
         },
         about: {
             title: "À propos",
@@ -37,7 +37,7 @@ export const portfolioData = {
                     image: "assets/images/brasrobotPH1.png",
                     links: {
                         github: "#",
-                        report: "assets/pdfs/report1.pdf"
+                        report: "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
                     },
                     details: `
 ### Résumé du Projet (Abstract)
@@ -169,6 +169,37 @@ C'est le cœur du projet. Comparaison entre deux méthodes de développement :
     <img src="assets/images/Image5.png" alt="Optimisation" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 </div>
                     `
+                },
+                {
+                    id: 4,
+                    title: "Oscilloscope Virtuel & Générateur de Signaux",
+                    category: "Instrumentation & Signal",
+                    tags: ["LabVIEW", "Instrumentation", "Signal", "IHM", "Simulation"],
+                    description: "Développement d'un instrument de mesure complet sous LabVIEW avec gestion d'IHM et traitement de signaux.",
+                    image: "assets/images/Labview3.png",
+                    links: {
+                        report: "assets/pdfs/RAPPORT_LABVIEW.pdf"
+                    },
+                    details: `
+### Introduction
+L'instrumentation virtuelle représente une avancée majeure pour l'analyse accessible et performante des signaux électriques, permettant de remplacer du matériel coûteux par des solutions logicielles flexibles et évolutives.
+
+### Fonctionnalités Clés
+- **Générateur de signaux multi-formes** : Création de signaux sinusoïdaux, carrés, triangulaires et en dents de scie.
+- **Interface intuitive (IHM)** : Face avant conçue pour imiter parfaitement un oscilloscope réel pour une prise en main immédiate.
+- **Outils de mesure intégrés** : Utilisation de curseurs de mesure précis et réglage dynamique des échelles (Volt/Div et ms/Div).
+
+### Réalisation Technique
+Le projet repose sur la **Programmation Graphique** via le *Block Diagram* de LabVIEW. La logique s'articule autour de **structures de boucles (While Loops)** pour l'exécution continue et de **structures de cas (Case Structures)** pour gérer efficacement les choix de formes d'ondes et l'ajustement des paramètres (Volt/Div et ms/Div). Les propriétés du graphique (*Waveform Graph*) sont manipulées dynamiquement pour assurer un affichage en temps réel réactif et fidèle.
+
+### Galerie de Captures
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 2rem 0;">
+    <img src="assets/images/Labview1.png" alt="Interface LabVIEW 1" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="assets/images/Labview2.png" alt="Interface LabVIEW 2" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="assets/images/Labview3.png" alt="Face Avant LabVIEW" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="assets/images/Labview4.png" alt="Block Diagram LabVIEW" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+</div>
+                    `
                 }
             ]
         },
@@ -176,16 +207,112 @@ C'est le cœur du projet. Comparaison entre deux méthodes de développement :
             title: "Expériences & Engagements",
             items: [
                 {
-                    role: "Animateur d'ateliers robotique",
-                    organization: "Centre de Robotique pour Enfants",
-                    period: "2023 - Présent",
-                    description: "Initiation des jeunes (8-14 ans) aux concepts de base de l'électronique et de la programmation avec Lego Mindstorms et Arduino."
+                    role: "Stagiaire",
+                    organization: "<a href='https://www.amendis.ma' target='_blank' class='highlight-link'>Amendis (Groupe Veolia)</a>, Tanger",
+                    period: "Juil. 2025 - Août 2025",
+                    description: "<ul style='margin-left: 20px; list-style-type: disc;'><li>Immersion au département Électricité : analyse des réseaux de distribution (HTB/HTA vers MT/BT).</li><li>Découverte du Bureau Central de Conduite (BCC) et supervision via systèmes SCADA (Siemens).</li></ul>"
                 },
                 {
-                    role: "Tuteur Sciences & Technologie",
-                    organization: "Superprof",
-                    period: "2022 - Présent",
-                    description: "Accompagnement d'élèves en mathématiques, physique et initiation à l'ingénierie."
+                    role: "Rédacteur Technique (Freelance)",
+                    organization: "<a href='https://www.alphorm.com' target='_blank' class='highlight-link'>Alphorm</a>",
+                    period: "Août 2024 - Mars 2025",
+                    description: "<ul style='margin-left: 20px; list-style-type: disc;'><li>Rédaction d'articles techniques spécialisés (3D, Animation, technologies).</li><li>Analyse de sujets complexes et vulgarisation pour le blog de la plateforme.</li></ul>"
+                },
+                {
+                    role: "Professeur Particulier",
+                    organization: "<a href='https://www.superprof.ma' target='_blank' class='highlight-link'>Superprof</a>",
+                    period: "2023 - Présent",
+                    description: "<ul style='margin-left: 20px; list-style-type: disc;'><li>Cours de mathématiques, sciences et technologie.</li><li>Développement de méthodes pédagogiques personnalisées et accompagnement scolaire.</li></ul>"
+                },
+                {
+                    role: "Animateur d'ateliers robotique pour enfants",
+                    organization: "STEAM Academy",
+                    period: "Sept. 2025 - Présent",
+                    description: ""
+                },
+                {
+                    role: "Responsable Logistique",
+                    organization: "TSINGY MAROC (Section Tanger)",
+                    period: "Sept. 2022 - Sept. 2024",
+                    description: "Gestion des stocks, inventaires et organisation d'événements (ex: célébration de l'Aid)."
+                },
+                {
+                    role: "Adjoint chargé académique",
+                    organization: "EISCLUB (ENSA International Students Club)",
+                    period: "Sept. 2023 - Sept. 2024",
+                    description: "Suivi de l'évolution académique des étudiants étrangers et gestion de projets associatifs."
+                },
+                {
+                    role: "Professeur de sciences (Maths, Physique, SVT)",
+                    organization: "Centre Safouane",
+                    period: "Sept. 2023 - Sept. 2024",
+                    description: ""
+                },
+                {
+                    role: "Membre de la commission logistique et accueil",
+                    organization: "<a href='http://cesamcentrale.org/category/sections-cesam/tanger/' target='_blank' class='highlight-link'>CESAM Tanger</a>",
+                    period: "Lors des journées culturelles",
+                    description: ""
+                },
+                {
+                    role: "Figurant lors de la cérémonie d'ouverture",
+                    organization: "FIFA Club World Cup 2023",
+                    period: "2023",
+                    description: ""
+                },
+                {
+                    role: "Dramaturge et acteur",
+                    organization: "<a href='http://ojafricains.org' target='_blank' class='highlight-link'>OJA</a> et <a href='http://fitut.ma' target='_blank' class='highlight-link'>FITUT</a>",
+                    period: "Divers",
+                    description: "Pièce \"Amour interdit\"."
+                },
+                {
+                    role: "Trésorier",
+                    organization: "MPISERVY (Madagascar)",
+                    period: "2018 - 2021",
+                    description: "Gestion de la caisse et des adhésions."
+                },
+                {
+                    role: "Formateur humanitaire",
+                    organization: "Ministère de la Santé (Madagascar)",
+                    period: "Août 2018",
+                    description: "Formation sur l'utilisation de tablettes pour les populations rurales."
+                },
+                {
+                    role: "Membre Actif",
+                    organization: "Engineer Career Club",
+                    period: "Depuis sept. 2024",
+                    description: ""
+                },
+                {
+                    role: "Membre Actif",
+                    organization: "EnsaTronics RoboCrew (Club GSEA)",
+                    period: "Depuis sept. 2024",
+                    description: ""
+                },
+                {
+                    role: "Membre Actif",
+                    organization: "<a href='http://ojafricains.org' target='_blank' class='highlight-link'>OJA (Organisation des Jeunes Africains)</a>",
+                    period: "En cours",
+                    description: ""
+                },
+                {
+                    role: "Membre actif",
+                    organization: "<a href='https://www.ensamaroc.com/events/6' target='_blank' class='highlight-link'>Enactus ENSA Tanger</a>",
+                    period: "Sept. 2024 - Janv. 2025",
+                    description: ""
+                },
+                {
+                    role: "Membre actif",
+                    organization: "Club Computer Science (CSC)",
+                    period: "Sept. 2022 - Janv. 2023",
+                    description: ""
+                },
+                {
+                    role: "Membre Actif",
+                    organization: "<a href='http://cesamcentrale.org/category/sections-cesam/tanger/' target='_blank' class='highlight-link'>CESAM Tanger</a>",
+                    period: "Depuis sept. 2022",
+                    description: ""
                 }
             ]
         },
@@ -234,11 +361,21 @@ C'est le cœur du projet. Comparaison entre deux méthodes de développement :
             ]
         },
         education: {
-            title: "Parcours & CV",
+            title: "Parcours",
             downloadCV: "Télécharger mon CV (PDF)",
             items: [
-                { degree: "Cycle d'Ingénieur (2ème année)", institution: "Université Abdelmalek Essaâdi", period: "2023 - 2026", details: "Spécialité EEAA" },
-                { degree: "Classes Préparatoires (CPGE)", institution: "...", period: "2021 - 2023", details: "Filière MPSI/MP" }
+                { 
+                    degree: "Cycle d'Ingénieur en Génie des Systèmes Électroniques et Automatiques (GSEA)", 
+                    institution: "<a href='http://www.ensat.ac.ma' target='_blank' class='highlight-link'>ENSA TANGER (École Nationale des Sciences Appliquées)</a>", 
+                    period: "2022 - 2027 (En cours)", 
+                    details: "Actuellement en 2ème année du cycle ingénieur." 
+                },
+                { 
+                    degree: "Licence 1 – Mathématiques et Informatique pour les Sciences Sociales (MISS)", 
+                    institution: "<a href='http://www.univ-fianarantsoa.mg' target='_blank' class='highlight-link'>Université de Fianarantsoa (Madagascar)</a>", 
+                    period: "Nov. 2021 - Juil. 2022", 
+                    details: "" 
+                }
             ]
         },
         actions: {
@@ -267,7 +404,7 @@ C'est le cœur du projet. Comparaison entre deux méthodes de développement :
                 superprof: "https://www.superprof.ma/Scidelo",
                 phone: "+212 777 647 362"
             },
-            image: "assets/images/photo1.jpg"
+            image: "assets/images/SARY1.jpeg"
         },
         about: {
             title: "About",
@@ -286,7 +423,7 @@ C'est le cœur du projet. Comparaison entre deux méthodes de développement :
                     image: "assets/images/brasrobotPH1.png",
                     links: {
                         github: "#",
-                        report: "assets/pdfs/report1.pdf"
+                        report: "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
                     },
                     details: `
 ### Project Abstract
@@ -418,6 +555,37 @@ This is the core of the project. A comparison between two development methods:
     <img src="assets/images/Image5.png" alt="Optimization" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 </div>
                     `
+                },
+                {
+                    id: 4,
+                    title: "Virtual Oscilloscope & Signal Generator",
+                    category: "Instrumentation & Signal",
+                    tags: ["LabVIEW", "Instrumentation", "Signal", "HMI", "Simulation"],
+                    description: "Development of a comprehensive measuring instrument in LabVIEW with HMI management and signal processing.",
+                    image: "assets/images/Labview3.png",
+                    links: {
+                        report: "assets/pdfs/RAPPORT_LABVIEW.pdf"
+                    },
+                    details: `
+### Introduction
+Virtual instrumentation represents a major breakthrough for accessible and high-performance analysis of electrical signals, making it possible to replace expensive hardware with flexible and scalable software solutions.
+
+### Key Features
+- **Multi-waveform signal generator**: Creation of sine, square, triangle, and sawtooth waves.
+- **Intuitive Interface (HMI)**: Front panel designed to perfectly mimic a real oscilloscope for immediate usability.
+- **Integrated measurement tools**: Use of precise measurement cursors and dynamic scale adjustment (Volt/Div and ms/Div).
+
+### Technical Implementation
+The project relies on **Graphical Programming** via the LabVIEW *Block Diagram*. The logic is built around **While Loops** for continuous execution and **Case Structures** to effectively manage waveform choices and parameter adjustments (Volt/Div and ms/Div). The graph properties (*Waveform Graph*) are dynamically manipulated to ensure responsive and accurate real-time display.
+
+### Capture Gallery
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 2rem 0;">
+    <img src="assets/images/Labview1.png" alt="LabVIEW Interface 1" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="assets/images/Labview2.png" alt="LabVIEW Interface 2" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="assets/images/Labview3.png" alt="LabVIEW Front Panel" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="assets/images/Labview4.png" alt="LabVIEW Block Diagram" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+</div>
+                    `
                 }
             ]
         },
@@ -425,16 +593,112 @@ This is the core of the project. A comparison between two development methods:
             title: "Experience & Engagement",
             items: [
                 {
-                    role: "Robotics Workshop Instructor",
-                    organization: "Robotics Center for Children",
-                    period: "2023 - Present",
-                    description: "Introducing young people (8-14 years old) to basic electronics and programming concepts with Lego Mindstorms and Arduino."
+                    role: "Intern",
+                    organization: "<a href='https://www.amendis.ma' target='_blank' class='highlight-link'>Amendis (Groupe Veolia)</a>, Tangier",
+                    period: "Jul. 2025 - Aug. 2025",
+                    description: "<ul style='margin-left: 20px; list-style-type: disc;'><li>Immersion in the Electricity department: analysis of distribution networks (HTB/HTA to MT/BT).</li><li>Discovery of the Central Control Desk (BCC) and supervision via SCADA systems (Siemens).</li></ul>"
                 },
                 {
-                    role: "Science & Technology Tutor",
-                    organization: "Superprof",
-                    period: "2022 - Present",
-                    description: "Supporting students in mathematics, physics, and introduction to engineering."
+                    role: "Technical Writer (Freelance)",
+                    organization: "<a href='https://www.alphorm.com' target='_blank' class='highlight-link'>Alphorm</a>",
+                    period: "Aug. 2024 - Mar. 2025",
+                    description: "<ul style='margin-left: 20px; list-style-type: disc;'><li>Writing specialized technical articles (3D, Animation, technologies).</li><li>Analyzing complex topics and popularizing them for the platform's blog.</li></ul>"
+                },
+                {
+                    role: "Private Tutor",
+                    organization: "<a href='https://www.superprof.ma' target='_blank' class='highlight-link'>Superprof</a>",
+                    period: "2023 - Present",
+                    description: "<ul style='margin-left: 20px; list-style-type: disc;'><li>Mathematics, science, and technology courses.</li><li>Development of personalized teaching methods and academic support.</li></ul>"
+                },
+                {
+                    role: "Children's Robotics Workshop Instructor",
+                    organization: "STEAM Academy",
+                    period: "Sep. 2025 - Present",
+                    description: ""
+                },
+                {
+                    role: "Logistics Manager",
+                    organization: "TSINGY MAROC (Tangier Section)",
+                    period: "Sep. 2022 - Sep. 2024",
+                    description: "Inventory management, event organization (e.g., Eid celebration)."
+                },
+                {
+                    role: "Academic Deputy",
+                    organization: "EISCLUB (ENSA International Students Club)",
+                    period: "Sep. 2023 - Sep. 2024",
+                    description: "Monitoring the academic progress of foreign students and managing associative projects."
+                },
+                {
+                    role: "Science Teacher (Math, Physics, Biology)",
+                    organization: "Safouane Center",
+                    period: "Sep. 2023 - Sep. 2024",
+                    description: ""
+                },
+                {
+                    role: "Logistics and Reception Committee Member",
+                    organization: "<a href='http://cesamcentrale.org/category/sections-cesam/tanger/' target='_blank' class='highlight-link'>CESAM Tangier</a>",
+                    period: "During Cultural Days",
+                    description: ""
+                },
+                {
+                    role: "Extra at the Opening Ceremony",
+                    organization: "FIFA Club World Cup 2023",
+                    period: "2023",
+                    description: ""
+                },
+                {
+                    role: "Playwright and Actor",
+                    organization: "<a href='http://ojafricains.org' target='_blank' class='highlight-link'>OJA</a> and <a href='http://fitut.ma' target='_blank' class='highlight-link'>FITUT</a>",
+                    period: "Various",
+                    description: "Play \"Amour interdit\" (Forbidden Love)."
+                },
+                {
+                    role: "Treasurer",
+                    organization: "MPISERVY (Madagascar)",
+                    period: "2018 - 2021",
+                    description: "Cash and membership management."
+                },
+                {
+                    role: "Humanitarian Trainer",
+                    organization: "Ministry of Public Health (Madagascar)",
+                    period: "Aug. 2018",
+                    description: "Training rural populations on using tablets."
+                },
+                {
+                    role: "Active Member",
+                    organization: "Engineer Career Club",
+                    period: "Since Sep. 2024",
+                    description: ""
+                },
+                {
+                    role: "Active Member",
+                    organization: "EnsaTronics RoboCrew (GSEA Club)",
+                    period: "Since Sep. 2024",
+                    description: ""
+                },
+                {
+                    role: "Active Member",
+                    organization: "<a href='http://ojafricains.org' target='_blank' class='highlight-link'>OJA (Organization of African Youth)</a>",
+                    period: "Ongoing",
+                    description: ""
+                },
+                {
+                    role: "Active Member",
+                    organization: "<a href='https://www.ensamaroc.com/events/6' target='_blank' class='highlight-link'>Enactus ENSA Tangier</a>",
+                    period: "Sep. 2024 - Jan. 2025",
+                    description: ""
+                },
+                {
+                    role: "Active Member",
+                    organization: "Computer Science Club (CSC)",
+                    period: "Sep. 2022 - Jan. 2023",
+                    description: ""
+                },
+                {
+                    role: "Active Member",
+                    organization: "<a href='http://cesamcentrale.org/category/sections-cesam/tanger/' target='_blank' class='highlight-link'>CESAM Tangier</a>",
+                    period: "Since Sep. 2022",
+                    description: ""
                 }
             ]
         },
@@ -483,11 +747,21 @@ This is the core of the project. A comparison between two development methods:
             ]
         },
         education: {
-            title: "Education & CV",
+            title: "Parcours",
             downloadCV: "Download my CV (PDF)",
             items: [
-                { degree: "Engineering Degree (2nd year)", institution: "Abdelmalek Essaâdi University", period: "2023 - 2026", details: "EEAA Specialty" },
-                { degree: "Preparatory Classes (CPGE)", institution: "...", period: "2021 - 2023", details: "MPSI/MP Stream" }
+                { 
+                    degree: "Engineering Degree in Electronic Systems and Automation (GSEA)", 
+                    institution: "<a href='http://www.ensat.ac.ma' target='_blank' class='highlight-link'>ENSA TANGER (École Nationale des Sciences Appliquées)</a>", 
+                    period: "2022 - 2027 (Ongoing)", 
+                    details: "Currently in the 2nd year of the engineering cycle." 
+                },
+                { 
+                    degree: "Bachelor 1 – Mathematics and Computer Science for Social Sciences (MISS)", 
+                    institution: "<a href='http://www.univ-fianarantsoa.mg' target='_blank' class='highlight-link'>Université de Fianarantsoa (Madagascar)</a>", 
+                    period: "Nov. 2021 - Jul. 2022", 
+                    details: "" 
+                }
             ]
         },
         actions: {
