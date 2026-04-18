@@ -139,6 +139,10 @@ function renderContent() {
                 <div style="margin-top: 2.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap;">
                     <a href="mailto:${data.identity.contacts.email}" class="btn">${data.actions.contact}</a>
                     <a href="https://${data.identity.contacts.linkedin}" class="btn" style="background: var(--text-color); color: var(--bg-color)" target="_blank">${data.actions.linkedin}</a>
+                    <a href="tel:${data.identity.contacts.phone.replace(/ /g, '')}" class="btn" style="background: transparent; color: var(--text-color); border: 2px solid var(--text-color); display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        ${data.identity.contacts.phone}
+                    </a>
                 </div>
             </div>
         `;
@@ -183,7 +187,7 @@ function renderContent() {
                 <div class="timeline-date">${e.period}</div>
                 <h3>${e.degree}</h3>
                 <p style="color: var(--accent-color); font-weight: 600; font-size: 1.1rem;">${e.institution}</p>
-                <p style="margin-top: 0.75rem; color: var(--text-muted);">${e.details}</p>
+                ${e.details ? `<p style="margin-top: 0.75rem; color: var(--text-muted);">${e.details}</p>` : ''}
             </div>
         `).join('');
         
