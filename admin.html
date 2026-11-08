@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio d'Édition Portfolio | Tsikomia Scidelo ANDRIASAHY</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090d16;
+            --panel: #111827;
+            --card: #1e293b;
+            --border: rgba(255, 255, 255, 0.12);
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --accent: #3b82f6;
+            --emerald: #10b981;
+            --danger: #ef4444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 5rem;
+        }
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(17, 24, 39, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .topbar h1 { font-size: 1.2rem; font-weight: 800; }
+        .actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-success { background: var(--emerald); color: white; }
+        .btn-success:hover { background: #059669; }
+        .btn-outline { background: transparent; border-color: var(--border); color: var(--text); }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-danger { background: rgba(239,68,68,0.15); color: #f87171; border-color: rgba(239,68,68,0.3); }
+        .btn-danger:hover { background: var(--danger); color: white; }
+
+        .container { max-width: 1150px; margin: 2rem auto; padding: 0 1.5rem; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.75rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .tab-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .item-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        input, textarea, select {
+            width: 100%;
+            background: #090d16;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.7rem 0.9rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.92rem;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        textarea { min-height: 110px; resize: vertical; }
+        .help-banner {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.75rem;
+            font-size: 0.92rem;
+            color: #cbd5e1;
+        }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--emerald);
+            color: white;
+            padding: 0.9rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div>
+            <h1>⚡ Studio d'Administration du Portfolio</h1>
+            <p style="font-size: 0.82rem; color: var(--muted);">Modifiez vos projets, vidéos et expériences sans toucher au code</p>
+        </div>
+        <div class="actions">
+            <select id="edit-lang" style="width: auto; font-weight: 700;">
+                <option value="fr">🇫🇷 Éditer la version Française (FR)</option>
+                <option value="en">🇬🇧 Edit English Version (EN)</option>
+            </select>
+            <button class="btn btn-outline" id="copy-btn">📋 Copier content.js</button>
+            <button class="btn btn-success" id="download-btn">💾 Télécharger content.js</button>
+            <a href="index.html" class="btn btn-primary">👁️ Voir le Portfolio</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="help-banner">
+            <strong>Comment mettre à jour votre portfolio en 3 étapes simples :</strong><br>
+            1. Modifiez ou ajoutez vos <strong>Projets</strong> (avec vidéos YouTube ou MP4), <strong>Expériences</strong> ou <strong>Profil</strong> ci-dessous.<br>
+            2. Cliquez sur <strong>💾 Télécharger content.js</strong> en haut à droite.<br>
+            3. Remplacez le fichier <code>data/content.js</code> par le fichier téléchargé et faites <code>git push</code> !
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="projects">🚀 Projets &amp; Vidéos</button>
+            <button class="tab-btn" data-tab="experience">💼 Expériences &amp; R&amp;D</button>
+            <button class="tab-btn" data-tab="identity">👤 Profil &amp; Objectif PFE</button>
+        </div>
+
+        <div id="tab-content"></div>
+    </div>
+
+    <div id="toast" class="toast">✅ Fichier content.js prêt !</div>
+
+    <script type="module">
+        import { portfolioData } from './data/content.js';
+
+        // Deep clone so we can edit freely
+        const state = JSON.parse(JSON.stringify(portfolioData));
+        let lang = 'fr';
+        let activeTab = 'projects';
+
+        const tabContent = document.getElementById('tab-content');
+        const langSelect = document.getElementById('edit-lang');
+
+        langSelect.addEventListener('change', (e) => {
+            lang = e.target.value;
+            render();
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.tab-btn.active')?.classList.remove('active');
+                btn.classList.add('active');
+                activeTab = btn.dataset.tab;
+                render();
+            });
+        });
+
+        function render() {
+            const d = state[lang];
+            if (activeTab === 'projects') renderProjectsTab(d);
+            else if (activeTab === 'experience') renderExperienceTab(d);
+            else if (activeTab === 'identity') renderIdentityTab(d);
+        }
+
+        function renderProjectsTab(d) {
+            tabContent.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                    <h2>Projets (${d.projects.items.length})</h2>
+                    <button class="btn btn-primary" id="add-project-btn">➕ Ajouter un Nouveau Projet</button>
+                </div>
+                <div id="projects-list">
+                    ${d.projects.items.map((p, idx) => `
+                        <div class="item-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h3 style="color: var(--accent);">#${idx + 1} — ${p.title}</h3>
+                                <button class="btn btn-danger" data-del-proj="${idx}">🗑️ Supprimer</button>
+                            </div>
+                            <div class="form-grid">
+                                <div>
+                                    <label>Titre du Projet</label>
+                                    <input type="text" data-proj="${idx}" data-field="title" value="${escapeAttr(p.title)}">
+                                </div>
+                                <div>
+                                    <label>Catégorie (Filtre)</label>
+                                    <input type="text" data-proj="${idx}" data-field="category" value="${escapeAttr(p.category)}">
+                                </div>
+                                <div>
+                                    <label>Image de couverture (Chemin)</label>
+                                    <input type="text" data-proj="${idx}" data-field="image" value="${escapeAttr(p.image)}" placeholder="assets/images/mon_projet.png">
+                                </div>
+                                <div>
+                                    <label>🎥 Vidéo Démo (Lien YouTube ou fichier MP4)</label>
+                                    <input type="text" data-proj="${idx}" data-field="video" value="${escapeAttr(p.video || '')}" placeholder="https://youtu.be/... ou assets/videos/demo.mp4">
+                                </div>
+                                <div>
+                                    <label>Tags / Mots-clés (séparés par des virgules)</label>
+                                    <input type="text" data-proj="${idx}" data-field="tags" value="${escapeAttr((p.tags || []).join(', '))}">
+                                </div>
+                                <div>
+                                    <label>📄 Rapport PDF (Optionnel)</label>
+                                    <input type="text" data-proj="${idx}" data-field="report" value="${escapeAttr((p.links && p.links.report) || '')}" placeholder="assets/pdfs/RAPPORT.pdf">
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label>Résumé court (Affiché sur la carte)</label>
+                                <input type="text" data-proj="${idx}" data-field="description" value="${escapeAttr(p.description)}">
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label>Galerie d'images (Chemins séparés par des virgules)</label>
+                                <input type="text" data-proj="${idx}" data-field="gallery" value="${escapeAttr((p.gallery || []).join(', '))}">
+                            </div>
+                            <div>
+                                <label>Description détaillée (Supporte ### Titres, - Listes à puces, **Gras**)</label>
+                                <textarea data-proj="${idx}" data-field="details">${p.details || ''}</textarea>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            document.getElementById('add-project-btn').onclick = () => {
+                const newId = Date.now();
+                d.projects.items.unshift({
+                    id: newId,
+                    title: "Nouveau Projet d'Ingénierie",
+                    category: "Systèmes Embarqués",
+                    tags: ["STM32", "C/C++", " Temps Réel"],
+                    description: "Court résumé du projet affiché sur la carte principale.",
+                    image: "assets/images/amr_ros2.svg",
+                    video: "",
+                    gallery: [],
+                    links: {},
+                    details: "### Résumé du Projet\nDécrivez ici le contexte et les objectifs.\n\n### Réalisation Technique\n- Point technique 1\n- Point technique 2"
+                });
+                render();
+            };
+
+            tabContent.querySelectorAll('[data-del-proj]').forEach(btn => {
+                btn.onclick = () => {
+                    const idx = Number(btn.dataset.delProj);
+                    d.projects.items.splice(idx, 1);
+                    render();
+                };
+            });
+
+            tabContent.querySelectorAll('[data-proj]').forEach(input => {
+                input.addEventListener('input', () => {
+                    const idx = Number(input.dataset.proj);
+                    const field = input.dataset.field;
+                    const proj = d.projects.items[idx];
+                    if (field === 'tags' || field === 'gallery') {
+                        proj[field] = input.value.split(',').map(s => s.trim()).filter(Boolean);
+                    } else if (field === 'report') {
+                        proj.links = proj.links || {};
+                        if (input.value.trim()) proj.links.report = input.value.trim();
+                        else delete proj.links.report;
+                    } else {
+                        proj[field] = input.value;
+                    }
+                });
+            });
+        }
+
+        function renderExperienceTab(d) {
+            tabContent.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                    <h2>Expériences (${d.experience.items.length})</h2>
+                    <button class="btn btn-primary" id="add-exp-btn">➕ Ajouter une Expérience</button>
+                </div>
+                <div>
+                    ${d.experience.items.map((e, idx) => `
+                        <div class="item-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h3 style="color: var(--accent);">${e.role} — ${e.organization}</h3>
+                                <button class="btn btn-danger" data-del-exp="${idx}">🗑️ Supprimer</button>
+                            </div>
+                            <div class="form-grid">
+                                <div>
+                                    <label>Poste / Rôle</label>
+                                    <input type="text" data-exp="${idx}" data-field="role" value="${escapeAttr(e.role)}">
+                                </div>
+                                <div>
+                                    <label>Entreprise / Organisation</label>
+                                    <input type="text" data-exp="${idx}" data-field="organization" value="${escapeAttr(e.organization)}">
+                                </div>
+                                <div>
+                                    <label>Lien Web de l'entreprise</label>
+                                    <input type="text" data-exp="${idx}" data-field="organizationUrl" value="${escapeAttr(e.organizationUrl || '')}">
+                                </div>
+                                <div>
+                                    <label>Période</label>
+                                    <input type="text" data-exp="${idx}" data-field="period" value="${escapeAttr(e.period)}">
+                                </div>
+                                <div>
+                                    <label>Type</label>
+                                    <select data-exp="${idx}" data-field="type">
+                                        <option value="pro" ${e.type !== 'assoc' ? 'selected' : ''}>R&D / Professionnel</option>
+                                        <option value="assoc" ${e.type === 'assoc' ? 'selected' : ''}>Leadership / Associatif</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label>Mots-clés techniques (séparés par des virgules)</label>
+                                    <input type="text" data-exp="${idx}" data-field="tags" value="${escapeAttr((e.tags || []).join(', '))}">
+                                </div>
+                            </div>
+                            <div>
+                                <label>Missions / Réalisations (1 puce par ligne)</label>
+                                <textarea data-exp="${idx}" data-field="bullets">${(e.bullets || []).join('\n')}</textarea>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            document.getElementById('add-exp-btn').onclick = () => {
+                d.experience.items.unshift({
+                    type: "pro",
+                    role: "Ingénieur Stagiaire PFE",
+                    organization: "Nom de l'Entreprise",
+                    organizationUrl: "",
+                    location: "Maroc / France",
+                    period: "Fév. 2027 - Août 2027",
+                    tags: ["Systèmes Embarqués", "Automatique"],
+                    bullets: ["Réalisation principale 1", "Réalisation principale 2"]
+                });
+                render();
+            };
+
+            tabContent.querySelectorAll('[data-del-exp]').forEach(btn => {
+                btn.onclick = () => {
+                    d.experience.items.splice(Number(btn.dataset.delExp), 1);
+                    render();
+                };
+            });
+
+            tabContent.querySelectorAll('[data-exp]').forEach(input => {
+                input.addEventListener('input', () => {
+                    const idx = Number(input.dataset.exp);
+                    const field = input.dataset.field;
+                    const exp = d.experience.items[idx];
+                    if (field === 'tags') {
+                        exp.tags = input.value.split(',').map(s => s.trim()).filter(Boolean);
+                    } else if (field === 'bullets') {
+                        exp.bullets = input.value.split('\n').map(s => s.trim()).filter(Boolean);
+                    } else {
+                        exp[field] = input.value;
+                    }
+                });
+            });
+        }
+
+        function renderIdentityTab(d) {
+            tabContent.innerHTML = `
+                <div class="panel">
+                    <h2 style="margin-bottom: 1.25rem;">Identité &amp; Positionnement</h2>
+                    <div class="form-grid">
+                        <div>
+                            <label>Nom Complet</label>
+                            <input type="text" id="id-name" value="${escapeAttr(d.identity.name)}">
+                        </div>
+                        <div>
+                            <label>Titre Principal</label>
+                            <input type="text" id="id-title" value="${escapeAttr(d.identity.title)}">
+                        </div>
+                        <div>
+                            <label>Bandeau de Disponibilité (PFE / Emploi)</label>
+                            <input type="text" id="id-badge" value="${escapeAttr(d.identity.availabilityBadge || '')}">
+                        </div>
+                        <div>
+                            <label>École / Institution</label>
+                            <input type="text" id="id-inst" value="${escapeAttr(d.identity.institution)}">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label>Texte de Présentation (À propos)</label>
+                        <textarea id="about-text-input">${d.about.text}</textarea>
+                    </div>
+                    <div>
+                        <label>Encadré Objectif PFE</label>
+                        <textarea id="about-pfe-input" style="min-height: 70px;">${d.about.pfeHighlight || ''}</textarea>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('id-name').oninput = e => d.identity.name = e.target.value;
+            document.getElementById('id-title').oninput = e => d.identity.title = e.target.value;
+            document.getElementById('id-badge').oninput = e => d.identity.availabilityBadge = e.target.value;
+            document.getElementById('id-inst').oninput = e => d.identity.institution = e.target.value;
+            document.getElementById('about-text-input').oninput = e => d.about.text = e.target.value;
+            document.getElementById('about-pfe-input').oninput = e => d.about.pfeHighlight = e.target.value;
+        }
+
+        function escapeAttr(str) {
+            return String(str || '').replace(/"/g, '&quot;');
+        }
+
+        function generateContentJs() {
+            return `export const portfolioData = ${JSON.stringify(state, null, 4)};\n`;
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3500);
+        }
+
+        document.getElementById('download-btn').addEventListener('click', () => {
+            const blob = new Blob([generateContentJs()], { type: 'text/javascript;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'content.js';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('✅ content.js téléchargé ! Placez-le dans le dossier data/');
+        });
+
+        document.getElementById('copy-btn').addEventListener('click', async () => {
+            await navigator.clipboard.writeText(generateContentJs());
+            showToast('📋 Code copié dans le presse-papiers !');
+        });
+
+        render();
+    </script>
+</body>
+</html>

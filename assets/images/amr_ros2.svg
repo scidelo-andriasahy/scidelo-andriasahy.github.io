@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070d19"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="cyanGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="emeraldGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(148,163,184,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect width="1200" height="720" fill="url(#grid)"/>
+
+  <!-- Header Banner -->
+  <rect x="50" y="36" width="1100" height="68" rx="14" fill="rgba(15,23,42,0.85)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
+  <circle cx="85" cy="70" r="8" fill="#10b981"/>
+  <text x="110" y="65" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">ROS 2 HUMBLE — AUTONOMOUS MOBILE ROBOT (AMR) ARCHITECTURE</text>
+  <text x="110" y="88" fill="#94a3b8" font-family="monospace" font-size="14">URDF/Xacro • Gazebo Digital Twin • Graph-SLAM (Ceres) • Nav2 Stack (A* / DWB) • TF2 Sync</text>
+
+  <!-- Left Column: Digital Twin & Sensors -->
+  <g transform="translate(50, 135)">
+    <rect width="320" height="530" rx="16" fill="rgba(15,23,42,0.75)" stroke="rgba(6,182,212,0.4)" stroke-width="1.5"/>
+    <rect width="320" height="44" rx="16" fill="url(#cyanGlow)"/>
+    <text x="160" y="28" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">1. JUMEAU NUMÉRIQUE &amp; CAPTEURS</text>
+
+    <!-- Robot Lidar Graphic -->
+    <circle cx="160" cy="145" r="68" fill="rgba(6,182,212,0.07)" stroke="#06b6d4" stroke-dasharray="6,6" stroke-width="1.5"/>
+    <circle cx="160" cy="145" r="45" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="132" y="117" width="56" height="56" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="160" cy="145" r="14" fill="#06b6d4"/>
+    <line x1="160" y1="145" x2="215" y2="105" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="160" y1="145" x2="225" y2="155" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="160" y1="145" x2="105" y2="110" stroke="#22d3ee" stroke-width="2"/>
+    <text x="160" y="235" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700">/scan (LiDAR 2D 360°)</text>
+
+    <!-- Blocks -->
+    <rect x="24" y="260" width="272" height="72" rx="10" fill="#1e293b" stroke="rgba(148,163,184,0.25)"/>
+    <text x="40" y="288" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Modèle URDF / Xacro</text>
+    <text x="40" y="312" fill="#94a3b8" font-family="monospace" font-size="12">Inerties, collisions, cinématique diff.</text>
+
+    <rect x="24" y="350" width="272" height="72" rx="10" fill="#1e293b" stroke="rgba(148,163,184,0.25)"/>
+    <text x="40" y="378" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Fusion IMU &amp; Odométrie</text>
+    <text x="40" y="402" fill="#94a3b8" font-family="monospace" font-size="12">/imu/data + /odom &rarr; robot_localization</text>
+
+    <rect x="24" y="440" width="272" height="68" rx="10" fill="#1e293b" stroke="rgba(6,182,212,0.4)"/>
+    <text x="40" y="468" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Arbre de Repères TF2</text>
+    <text x="40" y="490" fill="#cbd5e1" font-family="monospace" font-size="12">map &rarr; odom &rarr; base_link &rarr; laser_frame</text>
+  </g>
+
+  <!-- Center Column: Graph-SLAM & Mapping -->
+  <g transform="translate(440, 135)">
+    <rect width="320" height="530" rx="16" fill="rgba(15,23,42,0.75)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+    <rect width="320" height="44" rx="16" fill="url(#purpleGlow)"/>
+    <text x="160" y="28" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">2. GRAPH-SLAM &amp; LOCALISATION</text>
+
+    <!-- Occupancy Grid Graphic -->
+    <g transform="translate(40, 72)">
+      <rect width="240" height="145" rx="10" fill="#090d16" stroke="#6366f1" stroke-width="1.5"/>
+      <!-- Pose Graph nodes -->
+      <polyline points="35,115 75,85 125,95 165,55 205,40" fill="none" stroke="#a855f7" stroke-width="3"/>
+      <circle cx="35" cy="115" r="6" fill="#38bdf8"/>
+      <circle cx="75" cy="85" r="6" fill="#38bdf8"/>
+      <circle cx="125" cy="95" r="6" fill="#38bdf8"/>
+      <circle cx="165" cy="55" r="6" fill="#38bdf8"/>
+      <circle cx="205" cy="40" r="7" fill="#10b981"/>
+      <path d="M 35 115 Q 120 20 205 40" fill="none" stroke="#f43f5e" stroke-dasharray="4,4" stroke-width="1.5"/>
+      <text x="120" y="133" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="12">Loop Closure &amp; Pose Graph</text>
+    </g>
+
+    <rect x="24" y="245" width="272" height="80" rx="10" fill="#1e293b" stroke="rgba(148,163,184,0.25)"/>
+    <text x="40" y="275" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">SLAM Toolbox (Asynchrone)</text>
+    <text x="40" y="298" fill="#94a3b8" font-family="monospace" font-size="12">Cartographie 2D OccupancyGrid</text>
+    <text x="40" y="315" fill="#a855f7" font-family="monospace" font-size="12">Fermeture de boucle temps réel</text>
+
+    <rect x="24" y="342" width="272" height="80" rx="10" fill="#1e293b" stroke="rgba(148,163,184,0.25)"/>
+    <text x="40" y="372" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Solveur Non-Linéaire Ceres</text>
+    <text x="40" y="395" fill="#94a3b8" font-family="monospace" font-size="12">Optimisation par moindres carrés</text>
+    <text x="40" y="412" fill="#a855f7" font-family="monospace" font-size="12">Correction de dérive odométrique</text>
+
+    <rect x="24" y="440" width="272" height="68" rx="10" fill="#1e293b" stroke="rgba(168,85,247,0.4)"/>
+    <text x="40" y="468" fill="#c084fc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Localisation AMCL / SLAM</text>
+    <text x="40" y="490" fill="#cbd5e1" font-family="monospace" font-size="12">Estimation robuste de pose (x, y, θ)</text>
+  </g>
+
+  <!-- Right Column: Nav2 Stack & Physical Deployment -->
+  <g transform="translate(830, 135)">
+    <rect width="320" height="530" rx="16" fill="rgba(15,23,42,0.75)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"/>
+    <rect width="320" height="44" rx="16" fill="url(#emeraldGlow)"/>
+    <text x="160" y="28" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">3. NAVIGATION NAV2 &amp; RÉEL</text>
+
+    <!-- Costmap & Trajectory Graphic -->
+    <g transform="translate(40, 72)">
+      <rect width="240" height="145" rx="10" fill="#090d16" stroke="#10b981" stroke-width="1.5"/>
+      <!-- Obstacles with inflation -->
+      <circle cx="95" cy="65" r="26" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-dasharray="3,3"/>
+      <circle cx="95" cy="65" r="12" fill="#ef4444"/>
+      <circle cx="165" cy="95" r="24" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-dasharray="3,3"/>
+      <circle cx="165" cy="95" r="10" fill="#ef4444"/>
+      <!-- A* / DWB Smooth Curve -->
+      <path d="M 25 120 C 50 20, 130 20, 215 35" fill="none" stroke="#10b981" stroke-width="3.5"/>
+      <circle cx="25" cy="120" r="6" fill="#38bdf8"/>
+      <circle cx="215" cy="35" r="7" fill="#10b981"/>
+      <text x="120" y="133" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="12">Global A* + Local DWB</text>
+    </g>
+
+    <rect x="24" y="245" width="272" height="80" rx="10" fill="#1e293b" stroke="rgba(148,163,184,0.25)"/>
+    <text x="40" y="275" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Costmaps 2D Multicouches</text>
+    <text x="40" y="298" fill="#94a3b8" font-family="monospace" font-size="12">Static + Obstacle + Inflation Layer</text>
+    <text x="40" y="315" fill="#34d399" font-family="monospace" font-size="12">Évitement dynamique temps réel</text>
+
+    <rect x="24" y="342" width="272" height="80" rx="10" fill="#1e293b" stroke="rgba(148,163,184,0.25)"/>
+    <text x="40" y="372" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Planification Globale &amp; Locale</text>
+    <text x="40" y="395" fill="#94a3b8" font-family="monospace" font-size="12">NavFn / A* (Global Planner)</text>
+    <text x="40" y="412" fill="#34d399" font-family="monospace" font-size="12">DWB Controller (/cmd_vel)</text>
+
+    <rect x="24" y="440" width="272" height="68" rx="10" fill="#1e293b" stroke="rgba(16,185,129,0.4)"/>
+    <text x="40" y="468" fill="#34d399" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Validation &amp; Déploiement</text>
+    <text x="40" y="490" fill="#cbd5e1" font-family="monospace" font-size="12">Sim-to-Real &amp; Synchronisation TF</text>
+  </g>
+
+  <!-- Connecting Arrows -->
+  <path d="M 375 400 L 435 400" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 765 400 L 825 400" stroke="#a855f7" stroke-width="3"/>
+</svg>

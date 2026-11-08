@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgPwr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <pattern id="gridPwr" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(148,163,184,0.07)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#bgPwr)"/>
+  <rect width="1200" height="720" fill="url(#gridPwr)"/>
+
+  <!-- Header -->
+  <rect x="50" y="36" width="1100" height="68" rx="14" fill="rgba(15,23,42,0.9)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+  <circle cx="85" cy="70" r="8" fill="#f59e0b"/>
+  <text x="110" y="65" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">ONDULEUR HYBRIDE &amp; MPPT ENTRELACÉ 3 PHASES (24V / 350VDC / 230VAC)</text>
+  <text x="110" y="88" fill="#94a3b8" font-family="monospace" font-size="14">KiCad PCB • Simulation Proteus • MATLAB/Simulink • Algorithme MPPT P&amp;O • Régulation PID</text>
+
+  <!-- Stage 1: PV + 3-Phase Interleaved MPPT -->
+  <g transform="translate(50, 140)">
+    <rect width="330" height="250" rx="16" fill="rgba(15,23,42,0.8)" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="330" height="40" rx="16" fill="url(#amberGrad)"/>
+    <text x="165" y="26" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">ÉTAGE 1 : BOOST MPPT ENTRELACÉ 3Φ</text>
+    <text x="25" y="75" fill="#fde68a" font-family="monospace" font-size="14" font-weight="700">Entrée PV &rarr; Bus Batterie 24V DC</text>
+    <text x="25" y="105" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• 3 cellules Boost déphasées de 120°</text>
+    <text x="25" y="132" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Réduction de l'ondulation courant ΔI</text>
+    <text x="25" y="159" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Algorithme MPPT Perturb &amp; Observe</text>
+    <text x="25" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Profil de charge batterie multi-états</text>
+    <rect x="25" y="202" width="280" height="32" rx="8" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.4)"/>
+    <text x="165" y="223" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="13">PWM 0° / 120° / 240° + Boucle PID</text>
+  </g>
+
+  <!-- Stage 2: DC-DC Boost 24V to 350VDC -->
+  <g transform="translate(435, 140)">
+    <rect width="330" height="250" rx="16" fill="rgba(15,23,42,0.8)" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect width="330" height="40" rx="16" fill="url(#blueGrad)"/>
+    <text x="165" y="26" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">ÉTAGE 2 : ÉLÉVATEUR 24V &rarr; 350V DC</text>
+    <text x="25" y="75" fill="#7dd3fc" font-family="monospace" font-size="14" font-weight="700">Bus Haute Tension Continu (HVDC)</text>
+    <text x="25" y="105" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Isolation &amp; élévation haute efficacité</text>
+    <text x="25" y="132" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Stabilisation du bus 350V DC</text>
+    <text x="25" y="159" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Dimensionnement MOSFETs &amp; Transfo</text>
+    <text x="25" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Routage PCB puissance sous KiCad</text>
+    <rect x="25" y="202" width="280" height="32" rx="8" fill="rgba(56,189,248,0.15)" stroke="rgba(56,189,248,0.4)"/>
+    <text x="165" y="223" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="13">Régulation Tension Bus 350V DC</text>
+  </g>
+
+  <!-- Stage 3: DC-AC Inverter 350VDC to 230VAC -->
+  <g transform="translate(820, 140)">
+    <rect width="330" height="250" rx="16" fill="rgba(15,23,42,0.8)" stroke="#10b981" stroke-width="1.5"/>
+    <rect width="330" height="40" rx="16" fill="url(#greenGrad)"/>
+    <text x="165" y="26" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">ÉTAGE 3 : ONDULEUR 350VDC &rarr; 230VAC</text>
+    <text x="25" y="75" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="700">Sortie Pure Sinus 230V AC / 50Hz</text>
+    <text x="25" y="105" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Pont en H complet + commande SPWM</text>
+    <text x="25" y="132" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Filtre LC de sortie (THD faible)</text>
+    <text x="25" y="159" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Gestion hybride PV / Batterie / Réseau</text>
+    <text x="25" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14">• Validation transitoire sous Simulink</text>
+    <rect x="25" y="202" width="280" height="32" rx="8" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)"/>
+    <text x="165" y="223" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="13">SPWM Sinus + Filtre LC + Sync Réseau</text>
+  </g>
+
+  <!-- Bottom Control & Simulation Panel -->
+  <g transform="translate(50, 425)">
+    <rect width="1100" height="245" rx="16" fill="rgba(15,23,42,0.85)" stroke="rgba(148,163,184,0.3)" stroke-width="1.5"/>
+    <text x="35" y="40" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">ARCHITECTURE DE CONTRÔLE &amp; CONCEPTION MATÉRIELLE (FORTICO R&amp;D)</text>
+
+    <!-- Simulink Sine & MPPT Curves -->
+    <rect x="35" y="60" width="480" height="160" rx="12" fill="#090d16" stroke="#334155"/>
+    <text x="55" y="88" fill="#94a3b8" font-family="monospace" font-size="13">Simulink — Suivi MPPT P&amp;O &amp; Sortie 230V AC 50Hz</text>
+    <path d="M 55 150 Q 95 90, 135 150 T 215 150 T 295 150 T 375 150 T 455 150" fill="none" stroke="#10b981" stroke-width="3"/>
+    <path d="M 55 190 L 140 125 L 485 125" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <text x="390" y="115" fill="#f59e0b" font-family="monospace" font-size="12">V_bus = 350V DC</text>
+    <text x="390" y="185" fill="#10b981" font-family="monospace" font-size="12">V_ac = 230V RMS</text>
+
+    <!-- KiCad / Proteus Specs -->
+    <rect x="545" y="60" width="520" height="160" rx="12" fill="#1e293b" stroke="rgba(59,130,246,0.3)"/>
+    <text x="570" y="92" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Livrables d'Ingénierie R&amp;D :</text>
+    <text x="570" y="122" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="14">1. Schématique &amp; PCB KiCad : Isolation galvanique, pistes fort courant</text>
+    <text x="570" y="150" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="14">2. Co-simulation Proteus : Drivers MOSFETs, boucles de retour ADC</text>
+    <text x="570" y="178" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="14">3. Modèle MATLAB/Simulink : Régulateurs PID &amp; logique hybride réseau</text>
+    <text x="570" y="204" fill="#fbbf24" font-family="monospace" font-size="13">Stage R&amp;D Ingénieur Électronique de Puissance — Fortico (2026)</text>
+  </g>
+</svg>

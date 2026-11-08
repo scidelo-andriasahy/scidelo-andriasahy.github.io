@@ -3,9 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANDRIASAHY Tsikomia Scidelo | Portfolio Ingénieur</title>
-    <meta name="description" content="Portfolio de ANDRIASAHY Tsikomia Scidelo, étudiant ingénieur spécialisé en électronique, automatique et robotique.">
+    <title>Tsikomia Scidelo ANDRIASAHY | Ingénieur Systèmes Embarqués &amp; Automatique</title>
+    <meta name="description" content="Portfolio de Tsikomia Scidelo ANDRIASAHY, élève-ingénieur en Systèmes Électroniques et Automatiques (GSEA - ENSA Tanger). Projets R&amp;D en systèmes embarqués (STM32, DSP, PIC), robotique autonome ROS 2, électronique de puissance, LabVIEW et IA embarquée.">
+    <meta name="author" content="Tsikomia Scidelo ANDRIASAHY">
+    <meta name="keywords" content="Tsikomia Scidelo Andriasahy, Scidelo Andriasahy, Ingénieur Systèmes Embarqués, Automatique, Robotique, GSEA, ENSA Tanger, ROS 2, STM32, MATLAB Simulink, LabVIEW, Électronique de puissance, Stage PFE">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://scidelo-andriasahy.github.io/">
+
+    <!-- Open Graph / LinkedIn / Partage Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scidelo-andriasahy.github.io/">
+    <meta property="og:title" content="Tsikomia Scidelo ANDRIASAHY | Ingénieur Systèmes Embarqués &amp; Automatique">
+    <meta property="og:description" content="Élève-ingénieur GSEA (ENSA Tanger) spécialisé en systèmes embarqués, électronique de puissance, robotique ROS 2, instrumentation LabVIEW et IA embarquée.">
+    <meta property="og:image" content="https://scidelo-andriasahy.github.io/assets/images/SARY1.jpeg">
+
+    <!-- Polices Google Fonts (Inter, Playfair Display, Fira Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/main.css">
+
+    <!-- Données structurées Schema.org (JSON-LD) pour le référencement Google du nom complet -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tsikomia Scidelo ANDRIASAHY",
+      "givenName": "Tsikomia Scidelo",
+      "familyName": "ANDRIASAHY",
+      "alternateName": [
+        "Scidelo Andriasahy",
+        "ANDRIASAHY Tsikomia Scidelo"
+      ],
+      "jobTitle": "Ingénieur Systèmes Embarqués & Automatique",
+      "url": "https://scidelo-andriasahy.github.io/",
+      "image": "https://scidelo-andriasahy.github.io/assets/images/SARY1.jpeg",
+      "email": "mailto:scideloandriasahy@gmail.com",
+      "telephone": "+212777647362",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tanger",
+        "addressCountry": "MA"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "École Nationale des Sciences Appliquées de Tanger (ENSA Tanger) - Université Abdelmalek Essaâdi",
+          "url": "https://ensat.ac.ma/Portail/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Université de Fianarantsoa",
+          "url": "https://www.univ-fianarantsoa.mg/"
+        }
+      ],
+      "knowsAbout": [
+        "Systèmes Embarqués",
+        "Automatique",
+        "Robotique Autonome ROS 2",
+        "Électronique de Puissance",
+        "Instrumentation LabVIEW",
+        "MATLAB/Simulink",
+        "STM32",
+        "DSP TMS320C6713",
+        "Intelligence Artificielle Embarquée"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/scidelo",
+        "https://github.com/scidelo-andriasahy",
+        "https://scidelo-andriasahy.github.io/"
+      ]
+    }
+    </script>
 </head>
 <body>
     <div class="bg-mesh bg-mesh-1"></div>
@@ -13,13 +83,14 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">ANDRIASAHY Tsikomia Scidelo</a>
+                <a href="#" class="logo">Tsikomia Scidelo ANDRIASAHY</a>
                 <ul class="nav-links">
                     <li><a href="#about" id="nav-about">À propos</a></li>
-                    <li><a href="#cv" id="nav-cv">CV</a></li>
-                    <li><a href="#certificates" id="nav-certificates">Certificats</a></li>
+                    <li><a href="#skills" id="nav-skills">Compétences</a></li>
                     <li><a href="#projects" id="nav-projects">Projets</a></li>
                     <li><a href="#experience" id="nav-experience">Expériences</a></li>
+                    <li><a href="#cv" id="nav-cv">Formation &amp; CV</a></li>
+                    <li><a href="#certificates" id="nav-certificates">Certificats</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">
@@ -39,10 +110,10 @@
     <main>
         <section id="hero" class="container hero fade-in">
             <div class="hero-content" id="hero-content">
-                <!-- Data will be injected here -->
+                <!-- Contenu injecté dynamiquement depuis data/content.js -->
             </div>
             <div class="hero-image" id="hero-image">
-                <img src="assets/images/photo1.jpg" alt="ANDRIASAHY Tsikomia Scidelo">
+                <img src="assets/images/SARY1.jpeg" alt="Tsikomia Scidelo ANDRIASAHY - Ingénieur Systèmes Embarqués &amp; Automatique">
             </div>
         </section>
 
@@ -51,56 +122,66 @@
             <div id="about-text"></div>
         </section>
 
+        <section id="skills" class="container fade-in">
+            <h2 class="section-title">Compétences Techniques</h2>
+            <div class="skills-grid" id="skills-grid">
+                <!-- Compétences injectées dynamiquement -->
+            </div>
+        </section>
+
         <section id="projects" class="container fade-in">
-            <h2 class="section-title">Projets</h2>
+            <h2 class="section-title">Projets Techniques &amp; R&amp;D</h2>
             <div class="filter-bar" id="category-filters">
                 <button class="filter-btn active" data-category="all">Tous</button>
-                <!-- Categories will be injected here -->
             </div>
             <div class="grid" id="projects-grid">
-                <!-- Projects go here -->
+                <!-- Projets injectés dynamiquement -->
             </div>
         </section>
 
         <section id="experience" class="container fade-in">
-            <h2 class="section-title">Expériences & Engagements</h2>
+            <h2 class="section-title">Expériences &amp; Engagements</h2>
+            <div class="filter-bar" id="experience-filters"></div>
             <div class="grid" id="experience-timeline">
-                <!-- Experiences go here -->
+                <!-- Expériences injectées dynamiquement -->
             </div>
         </section>
 
         <section id="cv" class="container fade-in">
-            <h2 class="section-title">Parcours</h2>
+            <h2 class="section-title">Formation &amp; Parcours</h2>
             <div class="timeline" id="education-timeline">
-                <!-- Education goes here -->
+                <!-- Formation injectée dynamiquement -->
             </div>
-            <div style="margin-top: 3rem; text-align: center;">
-                <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn" download>Télécharger mon CV (PDF)</a>
+            <div style="margin-top: 3rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn" download id="download-cv-btn">Télécharger mon CV (PDF)</a>
+                <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn btn-outline" target="_blank" id="view-cv-btn">Consulter le CV en ligne</a>
             </div>
         </section>
 
         <section id="certificates" class="container fade-in">
-            <h2 class="section-title">Certificats</h2>
+            <h2 class="section-title">Certifications &amp; Distinctions</h2>
             <div id="certificates-content">
-                <!-- Certificates sections go here -->
+                <!-- Certificats injectés dynamiquement -->
             </div>
         </section>
     </main>
 
-    <footer class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.9rem;">
-        <p>&copy; 2026 ANDRIASAHY Tsikomia Scidelo. Conçu avec excellence.</p>
+    <footer class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+        <p style="font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">Tsikomia Scidelo ANDRIASAHY — Ingénieur Systèmes Embarqués &amp; Automatique</p>
+        <p style="margin-bottom: 1rem;">Tanger, Maroc (Mobilité internationale) • <a href="mailto:scideloandriasahy@gmail.com" class="highlight-link">scideloandriasahy@gmail.com</a> • <a href="https://www.linkedin.com/in/scidelo" target="_blank" rel="noopener" class="highlight-link">LinkedIn</a> • <a href="https://github.com/scidelo-andriasahy" target="_blank" rel="noopener" class="highlight-link">GitHub</a></p>
+        <p style="font-size: 0.85rem; opacity: 0.8;">&copy; 2026 Tsikomia Scidelo ANDRIASAHY. Tous droits réservés. • <a href="admin.html" class="highlight-link" style="font-size: 0.85rem;">Studio d'édition rapide</a></p>
     </footer>
 
     <div id="project-modal" class="modal" style="display:none; position: fixed; inset:0; z-index: 2000;">
-        <div id="modal-scroll-area" style="position: absolute; inset:0; background: rgba(0,0,0,0.8); overflow-y: auto; padding: 2rem; cursor: pointer;">
-            <div class="modal-content container" style="background: var(--bg-color); border-radius: 12px; padding: 3rem; margin-top: 5vh; margin-bottom: 5vh; min-height: 80vh; position: relative; cursor: default;">
+        <div id="modal-scroll-area" style="position: absolute; inset:0; background: rgba(0,0,0,0.82); backdrop-filter: blur(6px); overflow-y: auto; padding: 2rem; cursor: pointer;">
+            <div class="modal-content container" style="background: var(--bg-color); border-radius: 20px; padding: 3rem; margin-top: 4vh; margin-bottom: 4vh; min-height: 80vh; position: relative; cursor: default; border: 1px solid var(--border-color);">
                 <div id="modal-body"></div>
             </div>
         </div>
-        <button id="close-modal" class="close-modal-fixed">&times;</button>
+        <button id="close-modal" class="close-modal-fixed" aria-label="Fermer">&times;</button>
     </div>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <button id="back-to-top" class="back-to-top" aria-label="Retour en haut">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
     <div id="lightbox" class="lightbox" style="display:none;">
@@ -108,7 +189,7 @@
         <button id="lightbox-prev" class="lightbox-nav" style="display:none;">&#10094;</button>
         <button id="lightbox-next" class="lightbox-nav" style="display:none;">&#10095;</button>
         <div style="position: absolute; bottom: 2rem; display: flex; justify-content: center; width: 100%; z-index: 10001;" id="lightbox-actions"></div>
-        <img id="lightbox-img" src="" alt="Zoomed image">
+        <img id="lightbox-img" src="" alt="Aperçu agrandi">
     </div>
 
     <script type="module" src="scripts/app.js"></script>
