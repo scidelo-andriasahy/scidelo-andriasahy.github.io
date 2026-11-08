@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio d'Édition Portfolio | Tsikomia Scidelo ANDRIASAHY</title>
+    <title>Accès Privé — Studio Portfolio | Tsikomia Scidelo ANDRIASAHY</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +28,52 @@
             line-height: 1.6;
             padding-bottom: 5rem;
         }
+
+        /* Écran de verrouillage */
+        #auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, #1e293b 0%, #090d16 70%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .auth-box {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .auth-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.75rem;
+        }
+        .auth-error {
+            color: #f87171;
+            font-size: 0.85rem;
+            margin-top: 0.75rem;
+            display: none;
+            font-weight: 600;
+        }
+
+        #studio-app {
+            display: none;
+        }
+
         .topbar {
             position: sticky;
             top: 0;
@@ -148,43 +194,113 @@
     </style>
 </head>
 <body>
-    <div class="topbar">
-        <div>
-            <h1>⚡ Studio d'Administration du Portfolio</h1>
-            <p style="font-size: 0.82rem; color: var(--muted);">Modifiez vos projets, vidéos et expériences sans toucher au code</p>
-        </div>
-        <div class="actions">
-            <select id="edit-lang" style="width: auto; font-weight: 700;">
-                <option value="fr">🇫🇷 Éditer la version Française (FR)</option>
-                <option value="en">🇬🇧 Edit English Version (EN)</option>
-            </select>
-            <button class="btn btn-outline" id="copy-btn">📋 Copier content.js</button>
-            <button class="btn btn-success" id="download-btn">💾 Télécharger content.js</button>
-            <a href="index.html" class="btn btn-primary">👁️ Voir le Portfolio</a>
+    <!-- Écran de Verrouillage par Code Secret (Hachage SHA-256) -->
+    <div id="auth-overlay">
+        <div class="auth-box">
+            <div class="auth-icon">🔒</div>
+            <h2 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Accès Administrateur</h2>
+            <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                Espace réservé à <strong>Tsikomia Scidelo ANDRIASAHY</strong>. Entrez votre code d'accès pour déverrouiller le studio.
+            </p>
+            <form id="auth-form">
+                <input type="password" id="auth-password" placeholder="Code d'accès secret..." autocomplete="current-password" style="text-align: center; font-size: 1.05rem; margin-bottom: 1rem;" required>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                    Déverrouiller le Studio
+                </button>
+                <p id="auth-error" class="auth-error">❌ Code d'accès incorrect.</p>
+            </form>
+            <div style="margin-top: 1.5rem;">
+                <a href="index.html" style="color: var(--muted); font-size: 0.85rem; text-decoration: none;">&larr; Retourner au Portfolio public</a>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="help-banner">
-            <strong>Comment mettre à jour votre portfolio en 3 étapes simples :</strong><br>
-            1. Modifiez ou ajoutez vos <strong>Projets</strong> (avec vidéos YouTube ou MP4), <strong>Expériences</strong> ou <strong>Profil</strong> ci-dessous.<br>
-            2. Cliquez sur <strong>💾 Télécharger content.js</strong> en haut à droite.<br>
-            3. Remplacez le fichier <code>data/content.js</code> par le fichier téléchargé et faites <code>git push</code> !
+    <!-- Interface du Studio (Affichée uniquement après authentification) -->
+    <div id="studio-app">
+        <div class="topbar">
+            <div>
+                <h1>⚡ Studio d'Administration du Portfolio</h1>
+                <p style="font-size: 0.82rem; color: var(--muted);">Session propriétaire déverrouillée • Modifiez vos projets, vidéos et expériences</p>
+            </div>
+            <div class="actions">
+                <select id="edit-lang" style="width: auto; font-weight: 700;">
+                    <option value="fr">🇫🇷 Éditer la version Française (FR)</option>
+                    <option value="en">🇬🇧 Edit English Version (EN)</option>
+                </select>
+                <button class="btn btn-outline" id="copy-btn">📋 Copier content.js</button>
+                <button class="btn btn-success" id="download-btn">💾 Télécharger content.js</button>
+                <a href="index.html" class="btn btn-primary">👁️ Voir le Portfolio</a>
+                <button class="btn btn-danger" id="lock-btn" title="Verrouiller la session">🔒 Verrouiller</button>
+            </div>
         </div>
 
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="projects">🚀 Projets &amp; Vidéos</button>
-            <button class="tab-btn" data-tab="experience">💼 Expériences &amp; R&amp;D</button>
-            <button class="tab-btn" data-tab="identity">👤 Profil &amp; Objectif PFE</button>
-        </div>
+        <div class="container">
+            <div class="help-banner">
+                <strong>Comment mettre à jour votre portfolio en 3 étapes simples :</strong><br>
+                1. Modifiez ou ajoutez vos <strong>Projets</strong> (avec vidéos YouTube ou MP4), <strong>Expériences</strong> ou <strong>Profil</strong> ci-dessous.<br>
+                2. Cliquez sur <strong>💾 Télécharger content.js</strong> en haut à droite.<br>
+                3. Remplacez le fichier <code>data/content.js</code> dans votre dossier local par le fichier téléchargé et faites <code>git push</code> (seul votre compte GitHub a le droit de publier sur le site) !
+            </div>
 
-        <div id="tab-content"></div>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="projects">🚀 Projets &amp; Vidéos</button>
+                <button class="tab-btn" data-tab="experience">💼 Expériences &amp; R&amp;D</button>
+                <button class="tab-btn" data-tab="identity">👤 Profil &amp; Objectif PFE</button>
+            </div>
+
+            <div id="tab-content"></div>
+        </div>
     </div>
 
     <div id="toast" class="toast">✅ Fichier content.js prêt !</div>
 
     <script type="module">
         import { portfolioData } from './data/content.js';
+
+        // Empreinte cryptographique SHA-256 du code d'accès (aucun mot de passe en clair dans le code)
+        const ADMIN_HASH = 'cf1ca981a15b2b43e3d10c918f58b8fca20ce0ce8475fb3d20e3c5d3c6af71df';
+        const SESSION_KEY = 'scidelo_admin_unlocked';
+
+        async function sha256(str) {
+            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        const authOverlay = document.getElementById('auth-overlay');
+        const studioApp = document.getElementById('studio-app');
+        const authForm = document.getElementById('auth-form');
+        const authPassword = document.getElementById('auth-password');
+        const authError = document.getElementById('auth-error');
+
+        function unlockStudio() {
+            authOverlay.style.display = 'none';
+            studioApp.style.display = 'block';
+            render();
+        }
+
+        if (sessionStorage.getItem(SESSION_KEY) === ADMIN_HASH) {
+            unlockStudio();
+        }
+
+        authForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const enteredHash = await sha256(authPassword.value.trim());
+            if (enteredHash === ADMIN_HASH) {
+                sessionStorage.setItem(SESSION_KEY, ADMIN_HASH);
+                authError.style.display = 'none';
+                authPassword.value = '';
+                unlockStudio();
+            } else {
+                authError.style.display = 'block';
+                authPassword.select();
+            }
+        });
+
+        document.getElementById('lock-btn').addEventListener('click', () => {
+            sessionStorage.removeItem(SESSION_KEY);
+            studioApp.style.display = 'none';
+            authOverlay.style.display = 'flex';
+        });
 
         // Deep clone so we can edit freely
         const state = JSON.parse(JSON.stringify(portfolioData));
@@ -277,7 +393,7 @@
                     id: newId,
                     title: "Nouveau Projet d'Ingénierie",
                     category: "Systèmes Embarqués",
-                    tags: ["STM32", "C/C++", " Temps Réel"],
+                    tags: ["STM32", "C/C++", "Temps Réel"],
                     description: "Court résumé du projet affiché sur la carte principale.",
                     image: "assets/images/amr_ros2.svg",
                     video: "",
@@ -371,8 +487,8 @@
                     role: "Ingénieur Stagiaire PFE",
                     organization: "Nom de l'Entreprise",
                     organizationUrl: "",
-                    location: "Maroc / France",
-                    period: "Fév. 2027 - Août 2027",
+                    location: "Maroc / International",
+                    period: "Janv. 2027 - Juil. 2027",
                     tags: ["Systèmes Embarqués", "Automatique"],
                     bullets: ["Réalisation principale 1", "Réalisation principale 2"]
                 });
@@ -473,8 +589,6 @@
             await navigator.clipboard.writeText(generateContentJs());
             showToast('📋 Code copié dans le presse-papiers !');
         });
-
-        render();
     </script>
 </body>
 </html>

@@ -711,6 +711,12 @@ function closeLightbox() {
 
 function setupKeyboardShortcuts() {
     document.addEventListener('keydown', (e) => {
+        // Raccourci secret Propriétaire : Ctrl + Shift + A ouvre le Studio d'édition
+        if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+            e.preventDefault();
+            window.location.href = 'admin.html';
+            return;
+        }
         const lightbox = document.getElementById('lightbox');
         const modal = document.getElementById('project-modal');
         if (e.key === 'Escape') {
