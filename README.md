@@ -6,7 +6,7 @@
 
 Bienvenue sur le dépôt officiel du portfolio d'ingénierie de **Tsikomia Scidelo ANDRIASAHY**, élève-ingénieur en dernière année du cycle **Génie des Systèmes Électroniques et Automatiques (GSEA)** à l'**École Nationale des Sciences Appliquées de Tanger (ENSA Tanger — Université Abdelmalek Essaâdi)**.
 
-> 🎯 **Disponibilité Stage PFE (6 mois) dès Février 2027**  
+> 🎯 **Disponibilité Stage PFE dès Mi-Janvier 2027 (Mobilité Nationale Maroc & Internationale • Toutes modalités)**  
 > **Domaines ciblés :** Systèmes Embarqués, Automatique Avancée, Robotique Autonome (ROS 2), Électronique de Puissance, Instrumentation (LabVIEW) & Intelligence Artificielle Embarquée.
 
 ---

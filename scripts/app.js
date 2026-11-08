@@ -196,7 +196,7 @@ function renderContent() {
                     <p style="font-size: 1.15rem; color: var(--text-color); margin-bottom: 1.5rem; line-height: 1.8;">${data.about.text}</p>
                     ${data.about.pfeHighlight ? `
                         <div class="pfe-callout">
-                            <strong>🎯 Objectif PFE (Février 2027 — 6 mois) :</strong> ${data.about.pfeHighlight}
+                            <strong>🎯 ${currentLang === 'fr' ? 'Disponibilité Stage PFE (Dès Mi-Janvier 2027 — Mobilité Maroc & International)' : 'PFE Internship Availability (From Mid-January 2027 — National & International Mobility)'} :</strong> ${data.about.pfeHighlight}
                         </div>
                     ` : ''}
                 </div>

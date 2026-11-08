@@ -26,9 +26,9 @@ export const portfolioData = {
         identity: {
             name: "Tsikomia Scidelo ANDRIASAHY",
             title: "Élève-Ingénieur en Systèmes Électroniques et Automatiques (GSEA)",
-            availabilityBadge: "🎯 Recherche Stage PFE (6 mois) dès Février 2027 — Systèmes Embarqués, Automatique, Robotique & IA",
+            availabilityBadge: "🎯 Disponible dès Mi-Janvier 2027 pour Stage PFE — Mobilité Nationale (Maroc) & Internationale • Toutes modalités",
             institution: "École Nationale des Sciences Appliquées de Tanger (ENSA Tanger) — Université Abdelmalek Essaâdi (3ème année / Dernière année)",
-            location: "Tanger, Maroc (Mobilité internationale)",
+            location: "Tanger, Maroc (Mobilité Nationale & Internationale)",
             specialties: [
                 "Systèmes Embarqués (STM32, DSP, PIC)",
                 "Électronique de Puissance & MPPT",
@@ -49,7 +49,7 @@ export const portfolioData = {
         about: {
             title: "Profil & Objectif PFE",
             text: "Élève-ingénieur en dernière année du cycle Génie des Systèmes Électroniques et Automatiques (GSEA) à l'ENSA de Tanger, je me spécialise en systèmes embarqués, instrumentation, électronique de puissance, traitement du signal et automatique avancée. Fort de réalisations concrètes en R&D industrielle (conception d'onduleur hybride MPPT triphasé chez Fortico, diagnostic par imagerie thermique et IA embarquée sur nœuds IoT chez Smart Automation Technologies, bancs de mesure LabVIEW et robotique autonome sous ROS 2), j'associe maîtrise matérielle des capteurs/actionneurs et modélisation prédictive sous MATLAB/Simulink, C/C++ (MISRA C) et Python.",
-            pfeHighlight: "Je recherche un stage de fin d'études (PFE) de 6 mois à partir de février 2027 afin de concevoir des systèmes embarqués critiques, développer des lois de commande intelligentes ou déployer des outils d'aide à la décision et de maintenance prédictive.",
+            pfeHighlight: "Disponible dès mi-janvier 2027 pour mon stage de fin d'études (PFE, 4 à 6 mois). Je suis ouvert à toute opportunité et à toute modalité de stage (présentiel, hybride, R&D industrielle ou laboratoire), avec une mobilité totale au Maroc (nationale) comme à l'international.",
             languages: [
                 { lang: "Français", level: "Courant (Bilingue professionnel)" },
                 { lang: "Anglais", level: "Technique (Lu, écrit, documentation R&D)" },
@@ -547,9 +547,9 @@ Conception intégrale d'une bascule JK synchrone à partir de portes élémentai
         identity: {
             name: "Tsikomia Scidelo ANDRIASAHY",
             title: "Final-Year Engineering Student in Electronic Systems & Automation (GSEA)",
-            availabilityBadge: "🎯 Seeking 6-Month Graduation Internship (PFE) starting February 2027 — Embedded Systems, Control, Robotics & AI",
+            availabilityBadge: "🎯 Available from Mid-January 2027 for Graduation Internship (PFE) — National (Morocco) & International Mobility • All Modalities",
             institution: "National School of Applied Sciences of Tangier (ENSA Tangier) — Abdelmalek Essaâdi University (Final Year)",
-            location: "Tangier, Morocco (International Mobility)",
+            location: "Tangier, Morocco (National & International Mobility)",
             specialties: [
                 "Embedded Systems (STM32, DSP, PIC)",
                 "Power Electronics & MPPT",
@@ -570,7 +570,7 @@ Conception intégrale d'une bascule JK synchrone à partir de portes élémentai
         about: {
             title: "Profile & PFE Objective",
             text: "Final-year engineering student in Electronic Systems and Automation (GSEA) at ENSA Tangier, specializing in embedded systems, instrumentation, power electronics, signal processing, and advanced control. Backed by hands-on R&D experience (3-phase interleaved MPPT hybrid inverter design at Fortico, thermal imaging diagnostics with embedded AI on IoT nodes at Smart Automation Technologies, LabVIEW test benches, and autonomous mobile robotics with ROS 2), I combine physical sensor/actuator mastery with predictive modeling in MATLAB/Simulink, C/C++ (MISRA C), and Python.",
-            pfeHighlight: "I am looking for a 6-month graduation internship (PFE) starting in February 2027 to design critical embedded systems, develop intelligent control laws, or deploy predictive maintenance and decision-support tools.",
+            pfeHighlight: "Available starting mid-January 2027 for my graduation internship (PFE, 4 to 6 months). I am open to all opportunities and internship modalities (on-site, hybrid, industrial R&D, or research lab), with full national (across Morocco) and international mobility.",
             languages: [
                 { lang: "French", level: "Fluent (Full professional proficiency)" },
                 { lang: "English", level: "Technical (Reading, writing, R&D documentation)" },
