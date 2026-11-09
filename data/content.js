@@ -4,7 +4,7 @@
  * ============================================================================
  */
 
-const portfolioData = {
+var portfolioData = {
     "entityLinks": {
         "ENSA Tanger": "https://ensat.ac.ma/Portail/",
         "ENSA de Tanger": "https://ensat.ac.ma/Portail/",

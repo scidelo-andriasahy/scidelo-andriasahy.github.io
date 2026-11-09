@@ -1,4 +1,4 @@
-const portfolioData = window.portfolioData;
+var portfolioData = window.portfolioData;
 
 let currentLang = 'fr';
 let currentExpFilter = 'all';

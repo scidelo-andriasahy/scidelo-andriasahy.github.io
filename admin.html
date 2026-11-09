@@ -270,7 +270,7 @@
 
     <script src="data/content.js"></script>
     <script>
-        const portfolioData = window.portfolioData;
+        var portfolioData = window.portfolioData;
 
         const ADMIN_HASH = 'b9a4f20ed1837192a323a2c1387e88dfad6b759ba80710847f6695c0eeb540eb';
         const SESSION_KEY = 'scidelo_admin_unlocked';
@@ -834,7 +834,7 @@
         }
 
         function generateContentJs() {
-            return `const portfolioData = ${JSON.stringify(state, null, 4)};\n\nif (typeof window !== 'undefined') {\n    window.portfolioData = portfolioData;\n}\n`;
+            return `var portfolioData = ${JSON.stringify(state, null, 4)};\n\nif (typeof window !== 'undefined') {\n    window.portfolioData = portfolioData;\n}\n`;
         }
 
         function generateRssXml() {
