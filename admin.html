@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accès Privé — Studio Portfolio | Tsikomia Scidelo ANDRIASAHY</title>
+    <title>Studio CMS &amp; POSSE « Build in Public » | Tsikomia Scidelo ANDRIASAHY</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
             --muted: #94a3b8;
             --accent: #3b82f6;
             --emerald: #10b981;
+            --amber: #f59e0b;
             --danger: #ef4444;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +30,6 @@
             padding-bottom: 5rem;
         }
 
-        /* Écran de verrouillage */
         #auth-overlay {
             position: fixed;
             inset: 0;
@@ -46,7 +46,7 @@
             border-radius: 20px;
             padding: 2.5rem;
             width: 100%;
-            max-width: 420px;
+            max-width: 440px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             text-align: center;
         }
@@ -70,15 +70,13 @@
             font-weight: 600;
         }
 
-        #studio-app {
-            display: none;
-        }
+        #studio-app { display: none; }
 
         .topbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(17, 24, 39, 0.92);
+            background: rgba(17, 24, 39, 0.94);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             padding: 1rem 2rem;
@@ -88,14 +86,14 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-        .topbar h1 { font-size: 1.2rem; font-weight: 800; }
-        .actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+        .topbar h1 { font-size: 1.18rem; font-weight: 800; }
+        .actions { display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap; }
         .btn {
-            padding: 0.6rem 1.2rem;
+            padding: 0.58rem 1.1rem;
             border-radius: 10px;
             border: 1px solid transparent;
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
@@ -107,21 +105,23 @@
         .btn-primary:hover { background: #2563eb; }
         .btn-success { background: var(--emerald); color: white; }
         .btn-success:hover { background: #059669; }
+        .btn-amber { background: var(--amber); color: #090d16; }
         .btn-outline { background: transparent; border-color: var(--border); color: var(--text); }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
         .btn-danger { background: rgba(239,68,68,0.15); color: #f87171; border-color: rgba(239,68,68,0.3); }
         .btn-danger:hover { background: var(--danger); color: white; }
 
-        .container { max-width: 1150px; margin: 2rem auto; padding: 0 1.5rem; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
         .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.75rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
         .tab-btn {
-            padding: 0.6rem 1.2rem;
+            padding: 0.65rem 1.15rem;
             border-radius: 10px;
             background: var(--panel);
             border: 1px solid var(--border);
             color: var(--muted);
             font-weight: 600;
             cursor: pointer;
+            font-size: 0.88rem;
         }
         .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
 
@@ -141,13 +141,13 @@
         }
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1rem;
             margin-bottom: 1rem;
         }
         label {
             display: block;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: var(--muted);
             margin-bottom: 0.35rem;
@@ -175,8 +175,19 @@
             padding: 1rem 1.25rem;
             border-radius: 0 12px 12px 0;
             margin-bottom: 1.75rem;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #cbd5e1;
+        }
+        .code-box {
+            background: #050811;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.82rem;
+            color: #a5f3fc;
+            white-space: pre-wrap;
+            margin-top: 0.5rem;
         }
         .toast {
             position: fixed;
@@ -194,18 +205,17 @@
     </style>
 </head>
 <body>
-    <!-- Écran de Verrouillage par Code Secret (Hachage SHA-256) -->
     <div id="auth-overlay">
         <div class="auth-box">
             <div class="auth-icon">🔒</div>
-            <h2 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Accès Administrateur</h2>
+            <h2 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Studio CMS &amp; POSSE</h2>
             <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                Espace réservé à <strong>Tsikomia Scidelo ANDRIASAHY</strong>. Entrez votre code d'accès pour déverrouiller le studio.
+                Quartier Général « Build in Public » réservé à <strong>Tsikomia Scidelo ANDRIASAHY</strong>.
             </p>
             <form id="auth-form">
                 <input type="password" id="auth-password" placeholder="Code d'accès secret..." autocomplete="current-password" style="text-align: center; font-size: 1.05rem; margin-bottom: 1rem;" required>
                 <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem;">
-                    Déverrouiller le Studio
+                    Déverrouiller le Studio POSSE
                 </button>
                 <p id="auth-error" class="auth-error">❌ Code d'accès incorrect.</p>
             </form>
@@ -215,49 +225,53 @@
         </div>
     </div>
 
-    <!-- Interface du Studio (Affichée uniquement après authentification) -->
     <div id="studio-app">
         <div class="topbar">
             <div>
-                <h1>⚡ Studio d'Administration du Portfolio</h1>
-                <p style="font-size: 0.82rem; color: var(--muted);">Session propriétaire déverrouillée • Modifiez vos projets, vidéos et expériences</p>
+                <h1>⚡ Studio CMS « Build in Public » &amp; Syndication POSSE</h1>
+                <p style="font-size: 0.8rem; color: var(--muted);">Écrire une fois sur votre site &rarr; Génération automatique RSS (`feed.xml`) &rarr; Diffusion LinkedIn, YouTube, Dev.to, Zenodo DOI</p>
             </div>
             <div class="actions">
                 <select id="edit-lang" style="width: auto; font-weight: 700;">
-                    <option value="fr">🇫🇷 Éditer la version Française (FR)</option>
-                    <option value="en">🇬🇧 Edit English Version (EN)</option>
+                    <option value="fr">🇫🇷 Français (FR)</option>
+                    <option value="en">🇬🇧 English (EN)</option>
                 </select>
-                <button class="btn btn-outline" id="copy-btn">📋 Copier content.js</button>
+                <button class="btn btn-amber" id="download-rss-btn">📡 Télécharger feed.xml (RSS)</button>
                 <button class="btn btn-success" id="download-btn">💾 Télécharger content.js</button>
-                <a href="index.html" class="btn btn-primary">👁️ Voir le Portfolio</a>
-                <button class="btn btn-danger" id="lock-btn" title="Verrouiller la session">🔒 Verrouiller</button>
+                <button class="btn btn-primary" id="github-push-btn">🚀 Publier en 1 Clic (GitHub API)</button>
+                <a href="blog/index.html" class="btn btn-outline">✍️ Voir /blog</a>
+                <a href="index.html" class="btn btn-outline">👁️ Portfolio</a>
+                <button class="btn btn-danger" id="lock-btn" title="Verrouiller la session">🔒</button>
             </div>
         </div>
 
         <div class="container">
             <div class="help-banner">
-                <strong>Comment mettre à jour votre portfolio en 3 étapes simples :</strong><br>
-                1. Modifiez ou ajoutez vos <strong>Projets</strong> (avec vidéos YouTube ou MP4), <strong>Expériences</strong> ou <strong>Profil</strong> ci-dessous.<br>
-                2. Cliquez sur <strong>💾 Télécharger content.js</strong> en haut à droite.<br>
-                3. Remplacez le fichier <code>data/content.js</code> dans votre dossier local par le fichier téléchargé et faites <code>git push</code> (seul votre compte GitHub a le droit de publier sur le site) !
+                <strong>Workflow POSSE (« Publish on Own Site, Syndicate Elsewhere ») sans toucher à Git :</strong><br>
+                1. Rédigez ou modifiez un article dans l'onglet <strong>✍️ Blog &amp; POSSE</strong> ci-dessous.<br>
+                2. Cliquez sur <strong>🚀 Publier en 1 Clic (GitHub API)</strong> (si vous avez renseigné votre Token GitHub dans l'onglet Automatisation) OU téléchargez <code>content.js</code> + <code>feed.xml</code>.<br>
+                3. Dès que <code>feed.xml</code> est mis à jour sur GitHub Pages, votre scénario <strong>Make.com / Zapier / Buffer / Dev.to</strong> diffuse automatiquement votre article sur tous vos réseaux avec l'URL canonique officielle !
             </div>
 
             <div class="tabs">
-                <button class="tab-btn active" data-tab="projects">🚀 Projets &amp; Vidéos</button>
-                <button class="tab-btn" data-tab="experience">💼 Expériences &amp; R&amp;D</button>
-                <button class="tab-btn" data-tab="identity">👤 Profil &amp; Objectif PFE</button>
+                <button class="tab-btn active" data-tab="blog">✍️ Blog R&amp;D &amp; Générateur POSSE</button>
+                <button class="tab-btn" data-tab="youtube">📺 Chaîne YouTube Ingénierie &amp; Vidéos</button>
+                <button class="tab-btn" data-tab="posse">🤖 Automatisation Make/Zapier &amp; GitHub API</button>
+                <button class="tab-btn" data-tab="projects">🚀 Projets &amp; Schémas</button>
+                <button class="tab-btn" data-tab="experience">💼 Expériences</button>
+                <button class="tab-btn" data-tab="identity">👤 Profil &amp; PFE</button>
             </div>
 
             <div id="tab-content"></div>
         </div>
     </div>
 
-    <div id="toast" class="toast">✅ Fichier content.js prêt !</div>
+    <div id="toast" class="toast">✅ Opération réussie !</div>
 
-    <script type="module">
-        import { portfolioData } from './data/content.js';
+    <script src="data/content.js"></script>
+    <script>
+        const portfolioData = window.portfolioData;
 
-        // Empreinte cryptographique SHA-256 du code d'accès (aucun mot de passe en clair dans le code)
         const ADMIN_HASH = 'b9a4f20ed1837192a323a2c1387e88dfad6b759ba80710847f6695c0eeb540eb';
         const SESSION_KEY = 'scidelo_admin_unlocked';
 
@@ -302,10 +316,9 @@
             authOverlay.style.display = 'flex';
         });
 
-        // Deep clone so we can edit freely
         const state = JSON.parse(JSON.stringify(portfolioData));
         let lang = 'fr';
-        let activeTab = 'projects';
+        let activeTab = 'blog';
 
         const tabContent = document.getElementById('tab-content');
         const langSelect = document.getElementById('edit-lang');
@@ -326,9 +339,267 @@
 
         function render() {
             const d = state[lang];
-            if (activeTab === 'projects') renderProjectsTab(d);
+            if (activeTab === 'blog') renderBlogTab(d);
+            else if (activeTab === 'youtube') renderYoutubeTab();
+            else if (activeTab === 'posse') renderPosseAutomationTab();
+            else if (activeTab === 'projects') renderProjectsTab(d);
             else if (activeTab === 'experience') renderExperienceTab(d);
             else if (activeTab === 'identity') renderIdentityTab(d);
+        }
+
+        function renderBlogTab(d) {
+            d.blog = d.blog || { title: "Blog R&D", subtitle: "", filterAll: "Tous", items: [] };
+            tabContent.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h2>✍️ Articles du Blog R&amp;D &amp; Prépublications (${d.blog.items.length})</h2>
+                        <p style="color: var(--muted); font-size: 0.88rem;">Chaque article génère automatiquement son entrée RSS dans <code>feed.xml</code> et ses posts prêts à diffuser sur LinkedIn, X, Dev.to &amp; Zenodo.</p>
+                    </div>
+                    <button class="btn btn-primary" id="add-blog-btn">➕ Rédiger un Nouvel Article « Build in Public »</button>
+                </div>
+                <div>
+                    ${d.blog.items.map((post, idx) => {
+                        const devtoFrontmatter = `---\ntitle: "${post.title.replace(/"/g, '\\"')}"\npublished: true\ncanonical_url: ${post.canonicalUrl}\ntags: ${(post.tags || []).slice(0,4).map(t => t.toLowerCase().replace(/[^a-z0-9]/g, '')).join(', ')}\n---\n\n${post.summary}\n\n${post.content}\n\n---\n*Publié initialement sur mon Hub R&D : [${post.title}](${post.canonicalUrl})*`;
+                        const linkedinPost = `🚀 [Build in Public / Note R&D] ${post.title}\n\n📌 ${post.summary}\n\n🔬 Catégorie : ${post.category}\n🏛️ Statut : ${post.doi}\n\n👉 Lire l'article complet, les schémas et le rapport PDF sur mon portail :\n${post.canonicalUrl}\n\n#${(post.tags || []).map(t => t.replace(/[^a-zA-Z0-9]/g, '')).join(' #')} #Engineering #BuildInPublic #GSEA #ENSATanger`;
+                        return `
+                        <div class="item-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                                <h3 style="color: var(--accent);">Article #${idx + 1} — ${post.title}</h3>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" data-copy-li="${idx}">📋 Copier Post LinkedIn</button>
+                                    <button class="btn btn-outline" data-copy-devto="${idx}">📋 Copier Markdown Dev.to (Canonical)</button>
+                                    <button class="btn btn-danger" data-del-blog="${idx}">🗑️ Supprimer</button>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div>
+                                    <label>Titre de l'article</label>
+                                    <input type="text" data-blog="${idx}" data-field="title" value="${escapeAttr(post.title)}">
+                                </div>
+                                <div>
+                                    <label>Identifiant URL (Slug)</label>
+                                    <input type="text" data-blog="${idx}" data-field="slug" value="${escapeAttr(post.slug)}">
+                                </div>
+                                <div>
+                                    <label>Date de publication (YYYY-MM-DD)</label>
+                                    <input type="text" data-blog="${idx}" data-field="date" value="${escapeAttr(post.date)}">
+                                </div>
+                                <div>
+                                    <label>Catégorie</label>
+                                    <input type="text" data-blog="${idx}" data-field="category" value="${escapeAttr(post.category)}">
+                                </div>
+                                <div>
+                                    <label>Temps de lecture</label>
+                                    <input type="text" data-blog="${idx}" data-field="readTime" value="${escapeAttr(post.readTime)}">
+                                </div>
+                                <div>
+                                    <label>🏛️ Identifiant Recherche / DOI Zenodo</label>
+                                    <input type="text" data-blog="${idx}" data-field="doi" value="${escapeAttr(post.doi || '')}" placeholder="Ex: 10.5281/zenodo.1234567">
+                                </div>
+                                <div>
+                                    <label>Image de couverture</label>
+                                    <input type="text" data-blog="${idx}" data-field="coverImage" value="${escapeAttr(post.coverImage)}">
+                                </div>
+                                <div>
+                                    <label>📄 Rapport PDF associé</label>
+                                    <input type="text" data-blog="${idx}" data-field="pdfUrl" value="${escapeAttr(post.pdfUrl || '')}">
+                                </div>
+                                <div>
+                                    <label>🎥 Vidéo associée (YouTube ou WebM/MP4)</label>
+                                    <input type="text" data-blog="${idx}" data-field="video" value="${escapeAttr(post.video || '')}">
+                                </div>
+                                <div>
+                                    <label>Tags (séparés par des virgules)</label>
+                                    <input type="text" data-blog="${idx}" data-field="tags" value="${escapeAttr((post.tags || []).join(', '))}">
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label>Résumé exécutif (Utilisé dans le flux RSS, LinkedIn &amp; X)</label>
+                                <textarea data-blog="${idx}" data-field="summary" style="min-height: 75px;">${post.summary || ''}</textarea>
+                            </div>
+                            <div>
+                                <label>Contenu complet de l'article (Markdown : ### Titres, **Gras**, listes - )</label>
+                                <textarea data-blog="${idx}" data-field="content" style="min-height: 180px;">${post.content || ''}</textarea>
+                            </div>
+                            <textarea id="li-text-${idx}" style="display:none;">${linkedinPost}</textarea>
+                            <textarea id="devto-text-${idx}" style="display:none;">${devtoFrontmatter}</textarea>
+                        </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+
+            document.getElementById('add-blog-btn').onclick = () => {
+                const today = new Date().toISOString().slice(0, 10);
+                const slug = 'note-rd-' + Date.now();
+                d.blog.items.unshift({
+                    id: slug,
+                    slug: slug,
+                    title: "Nouvelle Note R&D / Retour d'Expérience « Build in Public »",
+                    date: today,
+                    readTime: "6 min",
+                    category: "Systèmes Embarqués & Automatique",
+                    tags: ["STM32", "ROS 2 Humble", "MATLAB / Simulink", "KiCad (PCB)"],
+                    coverImage: "assets/images/fortico/SchemaGlobalSimulink.png",
+                    pdfUrl: "",
+                    canonicalUrl: `https://scidelo-andriasahy.github.io/blog/?post=${slug}`,
+                    doi: "Prépublication R&D (Zenodo DOI Ready)",
+                    video: "",
+                    summary: "Synthèse du problème d'ingénierie résolu, de la méthodologie employée et des résultats expérimentaux obtenus.",
+                    content: "### 1. Problématique & Contexte\nExpliquez ici le défi technique.\n\n### 2. Architecture & Modélisation\n- Détail matériel et logiciel\n- Équations et choix de composants\n\n### 3. Résultats & Validation\nConclusions chiffrées."
+                });
+                render();
+            };
+
+            tabContent.querySelectorAll('[data-del-blog]').forEach(btn => {
+                btn.onclick = () => {
+                    d.blog.items.splice(Number(btn.dataset.delBlog), 1);
+                    render();
+                };
+            });
+
+            tabContent.querySelectorAll('[data-copy-li]').forEach(btn => {
+                btn.onclick = async () => {
+                    const txt = document.getElementById(`li-text-${btn.dataset.copyLi}`).value;
+                    await navigator.clipboard.writeText(txt);
+                    showToast('📋 Post LinkedIn copié dans le presse-papiers !');
+                };
+            });
+
+            tabContent.querySelectorAll('[data-copy-devto]').forEach(btn => {
+                btn.onclick = async () => {
+                    const txt = document.getElementById(`devto-text-${btn.dataset.copyDevto}`).value;
+                    await navigator.clipboard.writeText(txt);
+                    showToast('📋 Article Markdown + Canonical URL prêt pour Dev.to / Hashnode !');
+                };
+            });
+
+            tabContent.querySelectorAll('[data-blog]').forEach(input => {
+                input.addEventListener('input', () => {
+                    const idx = Number(input.dataset.blog);
+                    const field = input.dataset.field;
+                    const post = d.blog.items[idx];
+                    if (field === 'tags') {
+                        post.tags = input.value.split(',').map(s => s.trim()).filter(Boolean);
+                    } else if (field === 'slug') {
+                        post.slug = input.value.trim();
+                        post.id = post.slug;
+                        post.canonicalUrl = `https://scidelo-andriasahy.github.io/blog/?post=${post.slug}`;
+                    } else {
+                        post[field] = input.value;
+                    }
+                });
+            });
+        }
+
+        function renderYoutubeTab() {
+            tabContent.innerHTML = `
+                <div class="panel">
+                    <h2 style="margin-bottom: 0.75rem;">📺 Kit Officiel — Chaîne YouTube Ingénierie (@ScideloEngineering)</h2>
+                    <p style="color: var(--muted); margin-bottom: 1.5rem;">
+                        La création d'une chaîne YouTube officielle s'effectue directement sur votre compte Google personnel en 30 secondes. Voici votre configuration prête à copier-coller et vos 4 vidéos déjà intégrées dans le portfolio :
+                    </p>
+                    <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+                        <a href="https://www.youtube.com/create_channel" target="_blank" rel="noopener" class="btn btn-primary">1. Ouvrir YouTube Studio &amp; Créer la Chaîne (@ScideloEngineering) ↗</a>
+                        <a href="https://studio.youtube.com/" target="_blank" rel="noopener" class="btn btn-outline">2. Uploader vos vidéos MP4/WebM sur YouTube Studio ↗</a>
+                    </div>
+
+                    <div class="item-card">
+                        <h3 style="color: var(--accent); margin-bottom: 0.75rem;">Identité de la Chaîne YouTube recommandée</h3>
+                        <div class="form-grid">
+                            <div>
+                                <label>Nom de la chaîne</label>
+                                <input type="text" readonly value="Tsikomia Scidelo ANDRIASAHY — Scidelo Engineering">
+                            </div>
+                            <div>
+                                <label>Identifiant (Handle)</label>
+                                <input type="text" readonly value="@ScideloEngineering">
+                            </div>
+                        </div>
+                        <label>Description officielle de la chaîne (Bio YouTube SEO)</label>
+                        <div class="code-box">Bienvenue sur la chaîne d'ingénierie R&amp;D « Build in Public » de Tsikomia Scidelo ANDRIASAHY (Ingénieur GSEA — ENSA Tanger &amp; Licence MISS — Université de Fianarantsoa).
+🔬 Au programme :
+• Électronique de Puissance &amp; Énergie Solaire : Convertisseurs MPPT 4.4 kW (STM32G474 + ESP32), Onduleurs Hybrides 230 VAC, Schémas KiCad &amp; Simulations MATLAB/Simulink.
+• Robotique Mobile Autonome : ROS 2 Humble, Gazebo, RViz2, Graph-SLAM (SLAM Toolbox / Ceres Solver) &amp; Navigation Nav2.
+• Automatique Avancée &amp; Temps Réel : Logique Floue, GA-PID, S-Functions C-MEX (×50) &amp; DSP Texas Instruments TMS320C6713.
+• Intelligence Artificielle Industrielle : Diagnostic thermique FLIR C5 par Modèles de Markov (MRF, HMM, HSMM) vs Deep Learning (CNN, U-Net).
+
+🌐 Hub Central &amp; Rapports PDF : https://scidelo-andriasahy.github.io/
+✍️ Blog R&amp;D &amp; Flux RSS : https://scidelo-andriasahy.github.io/blog/</div>
+                    </div>
+
+                    <div class="item-card">
+                        <h3 style="color: var(--accent); margin-bottom: 0.75rem;">Vos Vidéos R&amp;D déjà intégrées localement (et prêtes pour YouTube)</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem;">
+                            Ces 4 démonstrations vidéo sont déjà actives et lisibles directement dans votre portfolio. Dès que vous les uploadez sur YouTube, vous pouvez aussi coller leur lien <code>https://youtu.be/...</code> dans l'onglet Projets :
+                        </p>
+                        <ul style="margin-left: 1.25rem; color: var(--text); font-size: 0.92rem; line-height: 1.8;">
+                            <li><strong>Vidéo 1 (Fortico MPPT 4,4 kW) :</strong> <code>assets/videos/fortico_mppt_simulink.webm</code> (Source HD : <code>d:\\ANDRIASAHY_Tsikomia_Scidelo\\STAGE\\FORTICO\\MPPT\\Simulation_MATLAB_Simulink_V2\\Enregistrement 2026-10-26 024758.mp4</code>)</li>
+                            <li><strong>Vidéo 2 (Fortico Onduleur Hybride 230 V) :</strong> <code>assets/videos/fortico_onduleur_hybride.webm</code> (Source HD : <code>Simulation_Onduleur_Hybride_V1.mp4</code>)</li>
+                            <li><strong>Vidéo 3 (ROS 2 Humble AMR Navigation Nav2) :</strong> <code>assets/videos/ros2_amr_navigation.webm</code> (Source HD : <code>VideoRobot.webm</code> / <code>ros2_video1.mp4</code>)</li>
+                            <li><strong>Vidéo 4 (ROS 2 Humble AMR Téléopération &amp; SLAM) :</strong> <code>assets/videos/ros2_amr_teleop.webm</code> (Source HD : <code>VideoTeleoperation.webm</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPosseAutomationTab() {
+            const savedToken = localStorage.getItem('scidelo_gh_token') || '';
+            const savedRepo = localStorage.getItem('scidelo_gh_repo') || 'scidelo-andriasahy/scidelo-andriasahy.github.io';
+            tabContent.innerHTML = `
+                <div class="panel">
+                    <h2 style="margin-bottom: 0.75rem;">🚀 Publication Directe depuis le Navigateur (Sans toucher à Git)</h2>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-bottom: 1.25rem;">
+                        En enregistrant un <strong>GitHub Personal Access Token (PAT)</strong> (stocké uniquement dans la mémoire locale de votre navigateur), le bouton <strong>« 🚀 Publier en 1 Clic (GitHub API) »</strong> met à jour directement <code>data/content.js</code> et <code>feed.xml</code> sur votre dépôt GitHub Pages !
+                    </p>
+                    <div class="form-grid">
+                        <div>
+                            <label>Dépôt GitHub cible (owner/repo)</label>
+                            <input type="text" id="gh-repo-input" value="${escapeAttr(savedRepo)}" placeholder="scidelo-andriasahy/scidelo-andriasahy.github.io">
+                        </div>
+                        <div>
+                            <label>GitHub Personal Access Token (Scope : repo / contents:write)</label>
+                            <input type="password" id="gh-token-input" value="${escapeAttr(savedToken)}" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                        </div>
+                    </div>
+                    <button class="btn btn-success" id="save-gh-creds-btn">💾 Enregistrer la configuration GitHub dans ce navigateur</button>
+                </div>
+
+                <div class="panel">
+                    <h2 style="margin-bottom: 0.75rem;">📡 Configuration POSSE : Make.com / Zapier / Buffer / Dev.to / Zenodo</h2>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-bottom: 1rem;">
+                        Votre flux RSS officiel est généré à l'adresse : <code>https://scidelo-andriasahy.github.io/feed.xml</code>
+                    </p>
+                    <div class="item-card">
+                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">1. Synchronisation automatique vers Dev.to &amp; Hashnode (Zéro pénalité SEO)</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted);">
+                            • Sur <strong>Dev.to</strong> : Allez dans <em>Settings &rarr; Extensions &rarr; Publishing to DEV Community from RSS</em> et collez <code>https://scidelo-andriasahy.github.io/feed.xml</code>. Cochez <em>Mark the RSS source as canonical URL by default</em>.<br>
+                            • Sur <strong>Hashnode</strong> : Allez dans <em>Blog Dashboard &rarr; Import &rarr; RSS Importer</em> et collez <code>https://scidelo-andriasahy.github.io/feed.xml</code>.
+                        </p>
+                    </div>
+                    <div class="item-card">
+                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">2. Diffusion automatique vers LinkedIn, X/Threads, Bluesky, Discord &amp; Telegram (Make.com / Zapier / Buffer)</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted);">
+                            • Créez un scénario gratuit sur <strong>Make.com</strong> ou <strong>Buffer</strong> avec le déclencheur <strong>RSS — Watch RSS feed items</strong> pointant sur <code>https://scidelo-andriasahy.github.io/feed.xml</code>.<br>
+                            • Reliez-le aux modules <strong>LinkedIn (Create a User Text Post)</strong>, <strong>X / Threads</strong> et <strong>Telegram / Discord</strong> en utilisant les champs <code>{{title}}</code>, <code>{{description}}</code> et <code>{{link}}</code> du flux RSS !
+                        </p>
+                    </div>
+                    <div class="item-card">
+                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">3. Horodatage Scientifique &amp; Recherche Indépendante (DOI via Zenodo / CERN)</h3>
+                        <p style="font-size: 0.9rem; color: var(--muted);">
+                            • Connectez votre compte GitHub ou ORCID sur <a href="https://zenodo.org/" target="_blank" rel="noopener" style="color: var(--accent);">Zenodo.org (CERN)</a>.<br>
+                            • Déposez vos rapports PDF (MPPT 4.4 kW, Onduleur Hybride, Mémoire PFA Thermographie IA, Solutions IYMC) pour obtenir un <strong>DOI officiel</strong> (ex: <code>10.5281/zenodo.xxxxxxx</code>) et collez-le dans le champ DOI de votre article de blog.
+                        </p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('save-gh-creds-btn').onclick = () => {
+                localStorage.setItem('scidelo_gh_repo', document.getElementById('gh-repo-input').value.trim());
+                localStorage.setItem('scidelo_gh_token', document.getElementById('gh-token-input').value.trim());
+                showToast('✅ Identifiants GitHub API sauvegardés localement !');
+            };
         }
 
         function renderProjectsTab(d) {
@@ -355,19 +626,19 @@
                                 </div>
                                 <div>
                                     <label>Image de couverture (Chemin)</label>
-                                    <input type="text" data-proj="${idx}" data-field="image" value="${escapeAttr(p.image)}" placeholder="assets/images/mon_projet.png">
+                                    <input type="text" data-proj="${idx}" data-field="image" value="${escapeAttr(p.image)}">
                                 </div>
                                 <div>
-                                    <label>🎥 Vidéo Démo (Lien YouTube ou fichier MP4)</label>
-                                    <input type="text" data-proj="${idx}" data-field="video" value="${escapeAttr(p.video || '')}" placeholder="https://youtu.be/... ou assets/videos/demo.mp4">
+                                    <label>🎥 Vidéo Démo Principale (Lien YouTube ou fichier WebM/MP4)</label>
+                                    <input type="text" data-proj="${idx}" data-field="video" value="${escapeAttr(p.video || '')}">
                                 </div>
                                 <div>
                                     <label>Tags / Mots-clés (séparés par des virgules)</label>
                                     <input type="text" data-proj="${idx}" data-field="tags" value="${escapeAttr((p.tags || []).join(', '))}">
                                 </div>
                                 <div>
-                                    <label>📄 Rapport PDF (Optionnel)</label>
-                                    <input type="text" data-proj="${idx}" data-field="report" value="${escapeAttr((p.links && p.links.report) || '')}" placeholder="assets/pdfs/RAPPORT.pdf">
+                                    <label>📄 Rapport PDF Principal</label>
+                                    <input type="text" data-proj="${idx}" data-field="report" value="${escapeAttr((p.links && p.links.report) || '')}">
                                 </div>
                             </div>
                             <div style="margin-bottom: 1rem;">
@@ -393,21 +664,20 @@
                     id: newId,
                     title: "Nouveau Projet d'Ingénierie",
                     category: "Systèmes Embarqués",
-                    tags: ["STM32", "C/C++", "Temps Réel"],
+                    tags: ["STM32", "C (Norme MISRA C)", "KiCad (PCB)"],
                     description: "Court résumé du projet affiché sur la carte principale.",
-                    image: "assets/images/amr_ros2.svg",
+                    image: "assets/images/fortico/SchemaGlobalSimulink.png",
                     video: "",
                     gallery: [],
                     links: {},
-                    details: "### Résumé du Projet\nDécrivez ici le contexte et les objectifs.\n\n### Réalisation Technique\n- Point technique 1\n- Point technique 2"
+                    details: "### Résumé du Projet\nDécrivez ici le contexte et les objectifs."
                 });
                 render();
             };
 
             tabContent.querySelectorAll('[data-del-proj]').forEach(btn => {
                 btn.onclick = () => {
-                    const idx = Number(btn.dataset.delProj);
-                    d.projects.items.splice(idx, 1);
+                    d.projects.items.splice(Number(btn.dataset.delProj), 1);
                     render();
                 };
             });
@@ -489,7 +759,7 @@
                     organizationUrl: "",
                     location: "Maroc / International",
                     period: "Janv. 2027 - Juil. 2027",
-                    tags: ["Systèmes Embarqués", "Automatique"],
+                    tags: ["STM32", "ROS 2 Humble"],
                     bullets: ["Réalisation principale 1", "Réalisation principale 2"]
                 });
                 render();
@@ -564,14 +834,49 @@
         }
 
         function generateContentJs() {
-            return `export const portfolioData = ${JSON.stringify(state, null, 4)};\n`;
+            return `const portfolioData = ${JSON.stringify(state, null, 4)};\n\nif (typeof window !== 'undefined') {\n    window.portfolioData = portfolioData;\n}\n`;
+        }
+
+        function generateRssXml() {
+            const siteUrl = (state.posseConfig && state.posseConfig.siteUrl) || 'https://scidelo-andriasahy.github.io';
+            const posts = (state.fr && state.fr.blog && state.fr.blog.items) || [];
+            const itemsXml = posts.map(post => {
+                const pubDate = new Date(post.date || Date.now()).toUTCString();
+                const cats = (post.tags || []).map(t => `<category>${t}</category>`).join('');
+                return `    <item>
+      <title><![CDATA[${post.title}]]></title>
+      <link>${post.canonicalUrl}</link>
+      <guid isPermaLink="true">${post.canonicalUrl}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>
+      ${cats}
+      <description><![CDATA[${post.summary}]]></description>
+      <content:encoded><![CDATA[${post.content}<hr/><p><strong>Source canonique (POSSE) :</strong> <a href="${post.canonicalUrl}">${post.title}</a></p>]]></content:encoded>
+    </item>`;
+            }).join('\n');
+
+            return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Tsikomia Scidelo ANDRIASAHY — Blog Ingénierie &amp; Recherche R&amp;D (Build in Public)</title>
+    <link>${siteUrl}/blog/</link>
+    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Articles d'ingénierie, notes de recherche (DOI Zenodo), schémas KiCad, électronique de puissance (MPPT 4.4 kW, Onduleur Hybride), robotique ROS 2 Humble, commande floue sur DSP et IA industrielle (Markov vs CNN).</description>
+    <language>fr-FR</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${itemsXml}
+  </channel>
+</rss>`;
         }
 
         function showToast(msg) {
             const toast = document.getElementById('toast');
             toast.textContent = msg;
             toast.style.display = 'block';
-            setTimeout(() => { toast.style.display = 'none'; }, 3500);
+            setTimeout(() => { toast.style.display = 'none'; }, 4000);
         }
 
         document.getElementById('download-btn').addEventListener('click', () => {
@@ -582,12 +887,61 @@
             a.download = 'content.js';
             a.click();
             URL.revokeObjectURL(url);
-            showToast('✅ content.js téléchargé ! Placez-le dans le dossier data/');
+            showToast('✅ content.js téléchargé ! Placez-le dans data/content.js');
         });
 
-        document.getElementById('copy-btn').addEventListener('click', async () => {
-            await navigator.clipboard.writeText(generateContentJs());
-            showToast('📋 Code copié dans le presse-papiers !');
+        document.getElementById('download-rss-btn').addEventListener('click', () => {
+            const blob = new Blob([generateRssXml()], { type: 'application/rss+xml;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'feed.xml';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('📡 Flux RSS feed.xml généré et téléchargé !');
+        });
+
+        async function putGithubFile(repo, token, path, contentStr, message) {
+            const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github+json'
+            };
+            let sha = undefined;
+            const getRes = await fetch(apiUrl, { headers });
+            if (getRes.ok) {
+                const data = await getRes.json();
+                sha = data.sha;
+            }
+            const base64Content = btoa(unescape(encodeURIComponent(contentStr)));
+            const putRes = await fetch(apiUrl, {
+                method: 'PUT',
+                headers: { ...headers, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message, content: base64Content, ...(sha ? { sha } : {}) })
+            });
+            if (!putRes.ok) {
+                throw new Error(`Erreur GitHub API (${putRes.status}) sur ${path}`);
+            }
+        }
+
+        document.getElementById('github-push-btn').addEventListener('click', async () => {
+            const token = localStorage.getItem('scidelo_gh_token');
+            const repo = localStorage.getItem('scidelo_gh_repo') || 'scidelo-andriasahy/scidelo-andriasahy.github.io';
+            if (!token) {
+                activeTab = 'posse';
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === 'posse'));
+                render();
+                showToast('⚠️ Configurez d\'abord votre Token GitHub dans l\'onglet Automatisation !');
+                return;
+            }
+            try {
+                showToast('⏳ Publication en cours sur GitHub Pages...');
+                await putGithubFile(repo, token, 'data/content.js', generateContentJs(), 'chore(posse): update portfolio & blog content via Studio CMS');
+                await putGithubFile(repo, token, 'feed.xml', generateRssXml(), 'chore(rss): auto-update POSSE RSS feed.xml');
+                showToast('🚀 Publié avec succès sur GitHub Pages & Flux RSS mis à jour !');
+            } catch (err) {
+                alert(err.message);
+            }
         });
     </script>
 </body>

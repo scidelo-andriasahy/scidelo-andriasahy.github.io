@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Tsikomia Scidelo ANDRIASAHY — Blog Ingénierie &amp; Recherche R&amp;D (Build in Public)</title>
+    <link>https://scidelo-andriasahy.github.io/blog/</link>
+    <atom:link href="https://scidelo-andriasahy.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Articles d'ingénierie, notes de recherche (DOI Zenodo), schémas KiCad, électronique de puissance (MPPT 4.4 kW, Onduleur Hybride), robotique ROS 2 Humble, commande floue sur DSP et IA industrielle (Markov vs CNN).</description>
+    <language>fr-FR</language>
+    <managingEditor>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</managingEditor>
+    <lastBuildDate>Mon, 09 Nov 2026 01:22:47 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[Conception d'un Convertisseur MPPT Buck Synchrone Triphasé Entrelacé de 4,4 kW (24 VDC / 180 A) : Entrelacement 120° & Architecture Dual-Brain STM32G474 + ESP32]]></title>
+      <link>https://scidelo-andriasahy.github.io/blog/?post=architecture-mppt-4kw-stm32g474-esp32</link>
+      <guid isPermaLink="true">https://scidelo-andriasahy.github.io/blog/?post=architecture-mppt-4kw-stm32g474-esp32</guid>
+      <pubDate>Wed, 28 Oct 2026 09:00:00 +0000</pubDate>
+      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>
+      <category>STM32G474</category><category>ESP32</category><category>MPPT P&O Triphasé</category><category>KiCad (PCB)</category><category>MATLAB / Simulink</category><category>Fortico</category>
+      <description><![CDATA[Retour d'expérience R&D chez Fortico : comment faire transiter 180 A continus sous 24 VDC avec 97,34 % de rendement grâce à une topologie Buck synchrone à 3 bras déphasés de 120°, des drivers isolés UCC21520 et un couplage STM32G474 (HRTIM) + ESP32.]]></description>
+      <content:encoded><![CDATA[### 1. Le défi physique : convertir 4 400 W sur un bus batterie 24 VDC
+
+Lorsqu'on dimensionne un régulateur de charge solaire MPPT de **4,4 kW** pour un parc batterie en **24 VDC** (25,6 V nominal en LiFePO4 ou 28,8 V en absorption), la contrainte dimensionnante est le **courant continu de sortie : $I_{bat} \approx 180\text{ A}$**.
+
+Sur une topologie Buck mono-phase conventionnelle :
+- Les pertes par conduction dans les MOSFETs ($P_{cond} = R_{DS(on)} \cdot I_{rms}^2$) explosent avec le carré du courant.
+- L'inductance unique devrait supporter 180 A DC sans saturer son noyau magnétique.
+- Les condensateurs de filtrage subiraient un courant d'ondulation efficace $I_{C,rms}$ destructeur.
+
+### 2. La solution retenue : Topologie Buck Synchrone Triphasée Entrelacée à 120°
+
+En répartissant la puissance sur **$N = 3$ cellules Buck synchrones parallèles** pilotées avec un déphasage PWM de **$360^\circ / 3 = 120^\circ$** ($0^\circ, 120^\circ, 240^\circ$) :
+- **Partage thermique équilibré** : chaque phase ne véhicule que $I_{phase} = 180 / 3 = 60\text{ A}$, divisant par 3 les pertes Joule globales.
+- **Annulation harmonique des courants d'ondulation** : la fréquence effective d'ondulation en sortie est triplée ($f_{eff} = 3 \times 40\text{ kHz} = 120\text{ kHz}$), et l'ondulation résiduelle s'annule théoriquement aux rapports cycliques $D \in \{1/3, 2/3\}$.
+- **Redressement synchrone par drivers isolés UCC21520DW** : le remplacement de la diode de roue libre par un MOSFET Low-Side piloté en complémentaire avec *Dead-Time* abaisse drastiquement les pertes de commutation.
+
+### 3. Architecture « Dual-Brain » : STM32G474RET6 (HRTIM) + ESP32-WROOM-32E
+
+Pour garantir une sécurité matérielle absolue sur un étage de 180 A, j'ai séparé le contrôle temps réel dur de la connectivité :
+- **Cerveau Temps Réel Critique (STM32G474RET6)** : cadencé à 170 MHz avec son timer haute résolution **HRTIM**, il génère les 6 signaux PWM complémentaires déphasés de 120° avec insertion matérielle du *Dead-Time*, échantillonne les capteurs à effet Hall **ACS758/ACS770** et exécute l'algorithme **MPPT Perturb & Observe (P&O)** ainsi que le profil de charge batterie 4 étapes (*Bulk, Absorption, Float, Égalisation*).
+- **Cerveau Connectivité & IHM (ESP32-WROOM-32E)** : relié par bus UART isolé galvaniquement, il assure la télémétrie Wi-Fi / MQTT / ESP-NOW vers le terminal IHM déporté.
+
+### 4. Performances validées sous MATLAB / Simulink
+
+La simulation dynamique complète valide une puissance extraite de **4 388,5 W sur 4 508,7 W disponibles (rendement de 97,34 %)** et une ondulation de tension batterie $\Delta V_{bat} < 0,15\text{ V}$.<hr/><p><strong>Source canonique (POSSE) :</strong> <a href="https://scidelo-andriasahy.github.io/blog/?post=architecture-mppt-4kw-stm32g474-esp32">Conception d'un Convertisseur MPPT Buck Synchrone Triphasé Entrelacé de 4,4 kW (24 VDC / 180 A) : Entrelacement 120° & Architecture Dual-Brain STM32G474 + ESP32</a> — Rapport PDF : <a href="https://scidelo-andriasahy.github.io/assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf">Télécharger le PDF technique</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[Modèles de Markov (MRF, HMM, HSMM) vs Deep Learning (DenseNet121, U-Net) : Quel paradigme pour la maintenance prédictive par thermographie infrarouge & IoT ?]]></title>
+      <link>https://scidelo-andriasahy.github.io/blog/?post=markov-mrf-hmm-vs-cnn-unet-thermographie</link>
+      <guid isPermaLink="true">https://scidelo-andriasahy.github.io/blog/?post=markov-mrf-hmm-vs-cnn-unet-thermographie</guid>
+      <pubDate>Tue, 15 Sep 2026 09:00:00 +0000</pubDate>
+      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>
+      <category>Modèles de Markov</category><category>MRF / HMM / HSMM</category><category>U-Net</category><category>DenseNet121</category><category>MobileNetV2</category><category>FLIR C5</category><category>Smart Automation Technologies</category>
+      <description><![CDATA[Étude expérimentale sur 488 thermogrammes FLIR C5 de moteurs asynchrones chez Smart Automation Technologies : comparaison de 5 CNN directs (MobileNetV2 94 %), 20 modèles hybrides (DenseNet121 + KNN/RF 98 %), segmentation MRF Potts/ICM vs U-Net (Dice 0,9851) et pronostic par chaînes de Markov absorbantes.]]></description>
+      <content:encoded><![CDATA[### 1. Pourquoi confronter (et hybrider) Markov et les Réseaux de Neurones Convolutifs ?
+
+La thermographie infrarouge (**FLIR C5**) permet de surveiller sans contact l'échauffement des roulements et du stator des moteurs asynchrones. Mais pour un déploiement industriel sur nœuds **IoT Edge**, deux approches s'affrontent :
+- **Le Deep Learning (CNN / U-Net)** : redoutable pour extraire des représentations spatiales hiérarchiques, mais dépendant de bases annotées et souvent opaque.
+- **Les Modèles Probabilistes de Markov (MRF, HMM, HSMM)** : ancrés dans la physique statistique (distribution de Gibbs, modèle de Potts) et les processus stochastiques de dégradation, offrant une interprétabilité mathématique totale.
+
+### 2. Protocole expérimental sur 488 thermogrammes (6 états de santé/charge)
+
+Notre pipeline évalue systématiquement :
+- **Classification directe (5 CNN)** : SimpleCNN, **MobileNetV2 (94 %)**, ResNet50, EfficientNetB0 et DenseNet121.
+- **Classification hybride (20 combinaisons)** : extraction de descripteurs profonds couplée à KNN, Random Forest, SVM et Régression Logistique — où **DenseNet121 + KNN / Random Forest atteint 98 % de précision globale**.
+- **Segmentation spatiale des points chauds** : **Champ Aléatoire de Markov (MRF Potts optimisé par relaxation déterministe ICM)** face à **U-Net (Score Dice = 0,9851, IoU = 0,9708)**.
+- **Pronostic temporel de défaillance** : **Chaînes de Markov Cachées (HMM)**, **Semi-Markov (HSMM)** à durée de séjour explicite et **Chaînes de Markov Absorbantes** modélisant le temps de premier passage vers la panne critique.<hr/><p><strong>Source canonique (POSSE) :</strong> <a href="https://scidelo-andriasahy.github.io/blog/?post=markov-mrf-hmm-vs-cnn-unet-thermographie">Modèles de Markov (MRF, HMM, HSMM) vs Deep Learning (DenseNet121, U-Net) : Quel paradigme pour la maintenance prédictive par thermographie infrarouge & IoT ?</a> — Rapport PDF : <a href="https://scidelo-andriasahy.github.io/assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf">Télécharger le PDF technique</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[Du Jumeau Numérique Gazebo au Déploiement Réel : Concevoir un Robot Mobile Autonome (AMR) sous ROS 2 Humble, SLAM Toolbox (Ceres) & Nav2]]></title>
+      <link>https://scidelo-andriasahy.github.io/blog/?post=navigation-autonome-amr-ros2-humble-slam-nav2</link>
+      <guid isPermaLink="true">https://scidelo-andriasahy.github.io/blog/?post=navigation-autonome-amr-ros2-humble-slam-nav2</guid>
+      <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>
+      <category>ROS 2 Humble</category><category>SLAM Toolbox</category><category>Ceres Solver</category><category>Nav2 (A* / DWB)</category><category>Gazebo</category><category>URDF/Xacro</category>
+      <description><![CDATA[Architecture complète d'un robot mobile différentiel sous ROS 2 Humble : modélisation URDF/Xacro, synchronisation de l'arbre TF2, cartographie Graph-SLAM par solveur non linéaire Ceres et navigation dynamique sous Nav2.]]></description>
+      <content:encoded><![CDATA[### 1. Synchronisation TF2 et Jumeau Numérique sous ROS 2 Humble
+
+La fiabilité d'un robot mobile autonome (AMR) repose avant tout sur la cohérence temporelle et géométrique de son arbre de transformations **`TF2`** :
+`map -> odom -> base_footprint -> base_link -> laser_frame`.
+
+Sous **Gazebo** et **RViz2**, notre modèle **URDF/Xacro** intègre les matrices d'inertie exactes du châssis différentiel, le capteur LiDAR 2D 360° (`/scan`) et l'odométrie (`/odom`).
+
+### 2. Graph-SLAM asynchrone avec SLAM Toolbox et Ceres Solver
+
+Plutôt qu'un filtre à particules GMapping sujet à l'appauvrissement particulaire dans les grands couloirs, nous utilisons **SLAM Toolbox** :
+- Construction d'un **graphe de poses (Pose Graph)** indexé sur les scans LiDAR.
+- Détection de fermeture de boucle (*Loop Closure*) et optimisation non linéaire par moindres carrés via **Ceres Solver**, éliminant la dérive angulaire cumulée.
+
+### 3. Planification Globale A* et Contrôle Local DWB sous Nav2
+
+La stack **Nav2** combine une `global_costmap` (planificateur **NavFn / A***) et une `local_costmap` mise à jour à haute fréquence (contrôleur **DWB — Dynamic Window Approach**) générant les consignes cinématiques `/cmd_vel` tout en contournant dynamiquement les obstacles.<hr/><p><strong>Source canonique (POSSE) :</strong> <a href="https://scidelo-andriasahy.github.io/blog/?post=navigation-autonome-amr-ros2-humble-slam-nav2">Du Jumeau Numérique Gazebo au Déploiement Réel : Concevoir un Robot Mobile Autonome (AMR) sous ROS 2 Humble, SLAM Toolbox (Ceres) & Nav2</a> — Rapport PDF : <a href="https://scidelo-andriasahy.github.io/assets/pdfs/Rapport_Projet_AMR_ROS2.pdf">Télécharger le PDF technique</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[Accélérer Simulink par ×50 grâce aux S-Functions C-MEX et Déployer une Commande Floue / GA-PID sur DSP Texas Instruments TMS320C6713]]></title>
+      <link>https://scidelo-andriasahy.github.io/blog/?post=acceleration-cmex-simulink-commande-floue-dsp-tms320c6713</link>
+      <guid isPermaLink="true">https://scidelo-andriasahy.github.io/blog/?post=acceleration-cmex-simulink-commande-floue-dsp-tms320c6713</guid>
+      <pubDate>Wed, 10 Jun 2026 09:00:00 +0000</pubDate>
+      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>
+      <category>MATLAB/Simulink</category><category>S-Functions C-MEX</category><category>DSP TMS320C6713</category><category>Logique Floue (FLC)</category><category>GA-PID</category>
+      <description><![CDATA[Comment franchir le mur du temps de calcul lors de l'optimisation évolutionnaire (GA-PID) et de l'inférence floue (49 règles) d'un bras manipulateur 2 DDL en compilant le modèle lagrangien en C-MEX S-Function (×50) avant déploiement sur DSP TMS320C6713.]]></description>
+      <content:encoded><![CDATA[### 1. Pourquoi les blocs Simulink interprétés freinent l'optimisation métaheuristique
+
+L'optimisation hors-ligne d'un correcteur PID par **Algorithme Génétique (GA-PID)** sur un bras manipulateur non linéaire à 2 DDL exige des centaines de simulations complètes du modèle dynamique d'Euler-Lagrange. En mode interprété standard, l'évaluation de la matrice d'inertie $M(q)$, des forces de Coriolis $C(q,\dot{q})$ et des 49 règles du contrôleur à **Logique Floue (Mamdani)** constitue un goulot d'étranglement majeur.
+
+### 2. Compilation C-MEX (×50) et portage direct sur DSP TMS320C6713
+
+En encapsulant la dynamique non linéaire et l'inférence floue en **C/C++ compilé via S-Function C-MEX** :
+- Le temps de simulation est **divisé par 50**, permettant une convergence rapide de l'algorithme génétique sur le critère ISE/ITAE.
+- Le code C++ validé est directement transposable sur l'architecture virgule flottante du **DSP Texas Instruments TMS320C6713**.<hr/><p><strong>Source canonique (POSSE) :</strong> <a href="https://scidelo-andriasahy.github.io/blog/?post=acceleration-cmex-simulink-commande-floue-dsp-tms320c6713">Accélérer Simulink par ×50 grâce aux S-Functions C-MEX et Déployer une Commande Floue / GA-PID sur DSP Texas Instruments TMS320C6713</a> — Rapport PDF : <a href="https://scidelo-andriasahy.github.io/assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf">Télécharger le PDF technique</a></p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

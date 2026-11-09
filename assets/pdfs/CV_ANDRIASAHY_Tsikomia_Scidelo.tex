@@ -3,6 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
 \usepackage[left=1cm, right=1cm, top=1cm, bottom=1cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -56,7 +59,7 @@
 	{\huge \textbf{Tsikomia Scidelo ANDRIASAHY}}\\[0.5ex]
 	{\large \textcolor{primary}{\textbf{Élève-ingénieur en Systèmes Électroniques et Automatiques}}}\\[0.5ex]
 	\small
-	\faMapMarker \ Tanger, Maroc (Mobilité nationale \& internationale --- Stage PFE) \quad
+	\faMapMarker \ Tanger, Maroc (Mobilité Maroc \& International) \quad
 	\faPhone \ +212 777 647 362 \quad
 	\faEnvelope \ \href{mailto:scideloandriasahy@gmail.com}{scideloandriasahy@gmail.com} \\[0.5ex]
 	\faLinkedin \ \href{https://linkedin.com/in/scidelo}{linkedin.com/in/scidelo} \quad
@@ -65,11 +68,15 @@
 
 \vspace{-1ex}
 
+
+
 % ------------------- PROFIL -------------------
 \section*{Profil}
-\noindent Élève-ingénieur GSEA à l'\href{https://ensat.ac.ma/Portail/}{\textbf{ENSA Tanger}}, spécialisé en instrumentation, traitement du signal et \mbox{automatique}. Fort de réalisations concrètes en R\&D (bancs de mesure LabVIEW, diagnostic par imagerie thermique/IA et régulation avancée), j'associe maîtrise des capteurs physiques et analyse prédictive des données sous Python et Simulink.
+\noindent Élève-ingénieur en dernière année de cycle GSEA à l'\href{https://ensat.ac.ma/Portail/}{\textbf{ENSA Tanger}}, spécialisé en systèmes embarqués, robotique et automatique. Fort de deux expériences en R\&D industrielle (firmware 32 bits, onduleur de puissance MPPT et IA pour le diagnostic IoT), j'allie rigueur d'expérimentation matérielle et modélisation algorithmique.
 
-\noindent Disponible dès \textbf{mi-janvier 2027} pour un stage de fin d'études (PFE), ouvert à toute modalité et mobile au Maroc comme à l'international, afin de développer des outils intelligents d'aide à la décision et fiabiliser des systèmes complexes.
+\noindent Je recherche un stage de fin d'études (PFE) de 4 à 6 mois dès janvier 2027 pour concevoir, modéliser et déployer des architectures intelligentes au sein de vos équipes d'ingénierie.
+
+
 
 % ------------------- FORMATION -------------------
 \section*{Formation}
@@ -77,7 +84,7 @@
 \cventry{\href{https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/}{Cycle d'Ingénieur – Génie des Systèmes Électroniques et Automatiques (GSEA)}}{2022 -- 2027}
 {\href{https://www.uae.ac.ma/}{Université Abdelmalek Essaâdi} (\href{https://ensat.ac.ma/Portail/}{ENSA}), Tanger -- \textit{3\textsuperscript{ème} année (Dernière année)}}{}
 \begin{itemize}
-	\item \textbf{Spécialités :} Systèmes embarqués, électronique de puissance, microcontrôleurs, traitement du signal, automatique.
+	\item \textbf{Spécialités :} Systèmes embarqués, robotique \& automatique, électronique de puissance, traitement du signal.
 \end{itemize}
 \vspace{0.6ex}
 
@@ -88,14 +95,28 @@
 \cventry{\textcolor{primary}{Baccalauréat Scientifique\ \textbf{---}\ Série C \textnormal{(Mention Très Bien)}}}{2020 -- 2021}
 {\href{https://www.facebook.com/p/Coll\%C3\%A8ge-Priv\%C3\%A9-Houssen-Memorial-School-61557463046217/}{Houssen Memorial School (HMS)}, Tuléar, Madagascar}{}
 
+
+
+
+
+
 % ------------------- COMPÉTENCES TECHNIQUES -------------------
 \section*{Compétences Techniques}
 \begin{itemize}[leftmargin=*, itemsep=0.2ex, parsep=0pt]
 	\item \textbf{Systèmes Embarqués \& Électronique :} STM32, PIC, ESP32, Arduino, DSP, capteurs industriels, KiCad, Proteus.
 	\item \textbf{Programmation \& Firmware :} C (MISRA C), C\texttt{++}, Python, VHDL, développement de Firmware embarqué, PlatformIO.
-	\item \textbf{Automatique \& IA Embarquée :} Régulation PID, Logique floue, ANFIS, Algorithmes Génétiques (GA), Commande par réseau de neurones (ANN), Algorithme MPPT P\&O, CNN, Modèles de Markov.
+	\item \textbf{Automatique \& IA Embarquée :} Régulation PID, Logique floue, ANFIS, Algorithmes Génétiques (GA),Commande par réseau de neurones (ANN), Algorithme MPPT P\&O, CNN, Modèles de Markov.
 	\item \textbf{Outils :} MATLAB/Simulink, ROS2, TIA Portal, LaTeX, LabVIEW, Linux, Git/GitHub, Android Studio.
 \end{itemize}
+
+
+
+
+
+
+
+
+
 
 % ------------------- EXPÉRIENCE PROFESSIONNELLE -------------------
 \section*{Expérience Professionnelle}
@@ -126,29 +147,38 @@
 
 \experience{Rédacteur Technique (Freelance)}{\href{https://www.alphorm.com/}{Alphorm}}{Août 2024 - Mars 2025}
 
+
+
+
+
 % ------------------- PROJETS TECHNIQUES & ACADÉMIQUES -------------------
 \section*{Projets Techniques \& Académiques}
 \begin{itemize}[leftmargin=*, itemsep=0.4ex, parsep=0pt]
-	\item {\color{primary}\textbf{Instrumentation Virtuelle \& Oscilloscope Numérique (LabVIEW) :}}
-	      Développement d'un banc de mesure temps réel (générateur multi-signaux, gestion d'échelles Volt/Div, ms/Div).
+	
+	\item {\color{primary}\textbf{Robot Mobile Autonome AMR (ROS 2 Humble, Ubuntu) :}} % Ligne 1
+	      Conception du jumeau numérique sous Gazebo (URDF/Xacro) avec simulation capteurs (LiDAR 2D, IMU). % Ligne 2
+	      Implémentation du Graph-SLAM (SLAM Toolbox, Ceres) et navigation autonome via la stack Nav2 (Costmaps, % Ligne 3
+	      planification globale/locale A*/DWB), validée par déploiement physique et synchronisation des repères TF. % Ligne 4
 
-	\item {\color{primary}\textbf{Robot Mobile Autonome AMR (ROS 2 Humble, Ubuntu) :}}
-	      Conception du jumeau numérique sous Gazebo (URDF/Xacro) avec simulation capteurs (LiDAR 2D, IMU).
-	      Implémentation du Graph-SLAM (SLAM Toolbox, Ceres) et navigation autonome via la stack Nav2 (Costmaps,
-	      planification globale/locale A*/DWB), validée par déploiement physique et synchronisation des repères TF.
+	\item {\color{primary}\textbf{Commande \& Suivi de Trajectoire d'un Bras Manipulateur (2 DDL) :}} % Ligne 5
+	      Modélisation dynamique sous MATLAB/Simulink et accélération par S-Functions C-MEX ($\times$50). % Ligne 6
+	      Étude comparative entre réseau de neurones (ANN), PID optimisé par algorithme génétique (GA) et logique % Ligne 7
+	      floue (FLC) : sélection de la commande floue, validation logicielle en C++ et déploiement sur carte DSP TMS320C6713. % Ligne 8
+	\item {\color{primary}\textbf{Instrumentation Virtuelle \& Oscilloscope Numérique (LabVIEW) :}} % Ligne 9
+	      Développement d'un banc de mesure temps réel (générateur multi-signaux, gestion d'échelles Volt/Div, ms/Div). % Ligne 10
 
-	\item {\color{primary}\textbf{Commande \& Suivi de Trajectoire d'un Bras Manipulateur (2 DDL) :}}
-	      Modélisation dynamique sous MATLAB/Simulink et accélération par S-Functions C-MEX ($\times$50).
-	      Étude comparative entre réseau de neurones (ANN), PID optimisé par algorithme génétique (GA) et logique
-	      floue (FLC) : sélection de la commande floue, validation logicielle en C++ et déploiement sur carte DSP TMS320C6713.
+
 \end{itemize}
+
+
 
 % ------------------- CERTIFICATIONS & EXPÉRIENCE ASSOCIATIVE -------------------
 \section*{Certifications, Expérience Associative, Langues \& Divers}
 \begin{itemize}[leftmargin=*, itemsep=0.3ex, parsep=0pt]
-	\item \textbf{Certifications \& Récompenses :} Formation certifiante en IA \& Idéation entrepreneuriale (\href{http://cidealmaroc.org/}{Fondation CIDEAL} -- \mbox{Programme} INNO'VERT / ENSA Tanger) \textbar{} Formation certifiante validée par \href{https://web.facebook.com/profile.php?id=61567878936369}{IngénieriePro} \textbar{} Participation certifiée à l'\href{https://iymc.info/fr/}{IYMC} (International Youth Math Challenge) \textbar{} Participation officielle au \href{https://www.fitut.ma/}{FITUT} (Théâtre universitaire en 2022).
+	\item \textbf{Certifications \& Récompenses :} Formation certifiante en IA \& Idéation entrepreneuriale (\href{http://cidealmaroc.org/}{Fondation CIDEAL} -- \mbox{Programme} INNO'VERT / ENSA Tanger)\textbar{} Formation certifiante validée par \href{https://web.facebook.com/profile.php?id=61567878936369}{IngénieriePro} \textbar{} Participation certifiée à l'\href{https://iymc.info/fr/}{IYMC} (International Youth Math Challenge) \textbar{} Participation officielle au \href{https://www.fitut.ma/}{FITUT} (Théâtre universitaire en 2022).
 	\item \textbf{Associatif :} Adjoint chargé académique à l'\href{https://www.linkedin.com/company/eisclubuae/home/}{\textbf{EISCLUB}} (2023 -- 2024). Responsable Logistique pour \href{https://tsingymaroc.org/}{\textbf{TSINGY TANGER}} (2022 -- 2024). Membre actif : \href{https://cesamcentrale.org/category/sections-cesam/tanger/}{CESAM Tanger}, \href{https://www.instagram.com/ensatronics/}{EnsaTronics} (Robotique) et \href{https://www.ojafricains.org/}{OJA} (Organisation des Jeunes Africains).
 	\item \textbf{Langues :} Français (Courant), Anglais (Technique, lu et écrit), Espagnol (Notions), Malagasy (Langue maternelle).
 	\item \textbf{Centres d'intérêt :} Cinéphilie, veille technologique (salons \& conférences), jeu d'échecs, pétanque, football, DIY.
+
 \end{itemize}
 \end{document}
