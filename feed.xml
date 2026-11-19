@@ -9,7 +9,7 @@
     <atom:link href="https://scidelo-andriasahy.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Articles d'ingénierie, notes de recherche (DOI Zenodo), schémas KiCad, électronique de puissance (MPPT 4.4 kW, Onduleur Hybride), robotique ROS 2 Humble, commande floue sur DSP et IA industrielle (Markov vs CNN).</description>
     <language>fr-FR</language>
-    <lastBuildDate>Thu, 19 Nov 2026 20:53:45 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 20:54:48 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Convertisseur MPPT Buck Synchrone Triphasé Entrelacé de 4,4 kW (24 VDC / 180 A) : Entrelacement 120° & Architecture Dual-Brain STM32G474 + ESP32]]></title>
       <link>https://scidelo-andriasahy.github.io/blog/?post=architecture-mppt-4kw-stm32g474-esp32</link>
