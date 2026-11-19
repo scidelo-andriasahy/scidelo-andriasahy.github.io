@@ -160,9 +160,10 @@ var portfolioData = {
             "institution": "<a href='https://ensat.ac.ma/Portail/' target='_blank' rel='noopener' class='highlight-link'>ENSA Tanger</a> — <a href='https://www.uae.ac.ma/' target='_blank' rel='noopener' class='highlight-link'>Université Abdelmalek Essaâdi</a> (<a href='https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/' target='_blank' rel='noopener' class='highlight-link'>Cycle GSEA</a>)",
             "location": "Tanger, Maroc",
             "specialties": [
-                "Systèmes Embarqués (STM32, DSP, ESP32)",
-                "Électronique de Puissance (MPPT 4,4 kW)",
-                "Robotique ROS 2 & IA Industrielle"
+                "Systèmes Embarqués & IoT (STM32, DSP, ESP32)",
+                "Électronique de Puissance (MPPT 4,4 kW & Onduleur)",
+                "Robotique ROS 2 & Automatique",
+                "IA, Maintenance Prédictive & LabVIEW"
             ],
             "cvPdf": "assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf",
             "cvTex": "assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.tex",
@@ -1339,9 +1340,10 @@ var portfolioData = {
             "institution": "<a href='https://ensat.ac.ma/Portail/' target='_blank' rel='noopener' class='highlight-link'>ENSA Tangier</a> — <a href='https://www.uae.ac.ma/' target='_blank' rel='noopener' class='highlight-link'>Abdelmalek Essaâdi University</a> (<a href='https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/' target='_blank' rel='noopener' class='highlight-link'>GSEA Track</a>)",
             "location": "Tangier, Morocco",
             "specialties": [
-                "Embedded Systems (STM32, DSP, ESP32)",
-                "Power Electronics (4.4 kW MPPT)",
-                "ROS 2 Robotics & Industrial AI"
+                "Embedded Systems & IoT (STM32, DSP, ESP32)",
+                "Power Electronics (4.4 kW MPPT & Inverter)",
+                "ROS 2 Robotics & Control Systems",
+                "AI, Predictive Maintenance & LabVIEW"
             ],
             "cvPdf": "assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo_EN.pdf",
             "cvTex": "assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo_EN.tex",

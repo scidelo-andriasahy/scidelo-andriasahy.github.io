@@ -259,7 +259,7 @@ function renderContent() {
                 <p class="tagline">${data.identity.title}</p>
                 <p class="hero-meta">📍 ${data.identity.location} • ${data.identity.institution}</p>
                 <div class="hero-domains">
-                    ${data.identity.specialties.slice(0, 3).map(s => `<span class="domain-chip">${s}</span>`).join('')}
+                    ${data.identity.specialties.slice(0, 4).map(s => `<span class="domain-chip">${s}</span>`).join('')}
                 </div>
                 <div class="hero-cta-row">
                     <a href="${cvPdfUrl}" class="btn" download>
