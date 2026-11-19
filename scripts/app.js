@@ -793,12 +793,12 @@ window.openProject = (id) => {
             <div style="margin-bottom: 1.75rem; border-radius: 16px; overflow: hidden; background: #0B1120;">
                 <img src="${resolvePath(p.image)}" alt="${p.title}" style="width: 100%; max-height: 480px; object-fit: contain; display: block; margin: 0 auto;">
             </div>
-            ${extraPdfsHtml ? `
+            ${(extraPdfsHtml || hasValidGithub) ? `
                 <div style="margin-bottom: 1.75rem; padding: 1.15rem; border-radius: 14px; background: rgba(56,189,248,0.06); border: 1px solid var(--border-color);">
-                    <h4 style="margin-bottom: 0.75rem; color: var(--accent-cyan); font-size: 0.95rem; font-family: 'Inter', sans-serif;">${isFr ? 'Rapports Techniques, Schémas KiCad & Documents PDF :' : 'Technical Reports, KiCad Schematics & PDF Files:'}</h4>
+                    <h4 style="margin-bottom: 0.75rem; color: var(--accent-cyan); font-size: 0.95rem; font-family: 'Inter', sans-serif;">${isFr ? 'Code Source GitHub, Rapports Techniques & Schémas PDF :' : 'GitHub Repository, Technical Reports & PDF Schematics:'}</h4>
                     <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+                        ${hasValidGithub ? `<a href="${p.links.github}" class="btn" style="padding: 0.5rem 1.15rem; font-size: 0.84rem;" target="_blank" rel="noopener">💻 ${data.actions.github} ↗</a>` : ''}
                         ${extraPdfsHtml}
-                        ${hasValidGithub ? `<a href="${p.links.github}" class="btn btn-outline" style="padding: 0.5rem 1.05rem; font-size: 0.84rem;" target="_blank" rel="noopener">${data.actions.github} ↗</a>` : ''}
                     </div>
                 </div>
             ` : ''}

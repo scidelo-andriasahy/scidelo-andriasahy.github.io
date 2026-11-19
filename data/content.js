@@ -345,7 +345,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/ros2-amr-slam-nav2",
                         "report": "assets/pdfs/Rapport_Projet_AMR_ROS2.pdf"
                     },
                     "extraPdfs": [
@@ -439,7 +439,7 @@ var portfolioData = {
                         "code": "// Boucle MPPT P&O 200 Hz + Sécurité Thermique 180 A (3 phases entrelacées à 120° sur HRTIM STM32G474)\nvoid MPPT_RunStep_200Hz(MPPT_Handle_t *h, float Vpv, float Ipv, float Vbat, float Ibat) {\n    float Ppv = Vpv * Ipv;\n    float dP = Ppv - h->Ppv_prev;\n    float dV = Vpv - h->Vpv_prev;\n\n    if (Vbat >= VBAT_ABSORPTION_28V8 || Ibat >= IBAT_MAX_180A) {\n        h->duty -= DUTY_STEP_FAST; // Régulation CV/CC & protection surintensité\n    } else if (fabsf(dP) > MPPT_DP_DEADBAND) {\n        h->duty += ((dP > 0.0f && dV > 0.0f) || (dP < 0.0f && dV < 0.0f)) ? +DUTY_STEP : -DUTY_STEP;\n    }\n    h->duty = CLAMP(h->duty, 0.10f, 0.92f);\n    HRTIM_UpdateInterleavedPhases_120Deg(h->duty); // 0°, 120°, 240° @ 40 kHz (120 kHz eff.)\n    h->Ppv_prev = Ppv; h->Vpv_prev = Vpv;\n}"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/mppt-4kw-hybrid-inverter-fortico",
                         "report": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf"
                     },
                     "extraPdfs": [
@@ -600,7 +600,7 @@ var portfolioData = {
                         "code": "%% --- 1. INITIALISATION DE LA POPULATION GA ---\npar = Init(N, npar, range);\nfitness = zeros(N, 1);\ngeneration = 0; terminal = 0;\n\n%% --- 2. BOUCLE D'ÉVOLUTION ET ÉVALUATION SIMULINK (C-MEX x50) ---\nwhile ~terminal\n    generation = generation + 1;\n    for i = 1:N\n        Kp1 = par(i,1); Ki1 = par(i,2); Kd1 = par(i,3);\n        Kp2 = par(i,4); Ki2 = par(i,5); Kd2 = par(i,6);\n        assignin('base', 'Kp1', Kp1); assignin('base', 'Ki1', Ki1); assignin('base', 'Kd1', Kd1);\n        assignin('base', 'Kp2', Kp2); assignin('base', 'Ki2', Ki2); assignin('base', 'Kd2', Kd2);\n        simOut = sim('GA_PID_2DOF_Sfunction', 'SrcWorkspace', 'current', 'StopTime', '40');\n    end\nend"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/robot-2dof-fuzzy-gapid-dsp-tms320c6713",
                         "report": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
                     },
                     "extraPdfs": [
@@ -659,7 +659,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/esp32-industrial-iot-pcb-kicad",
                         "report": "assets/pdfs/Schema_KiCad_Smart_Count_ESP32.pdf"
                     },
                     "extraPdfs": [
@@ -721,7 +721,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf"
+                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/labview-virtual-oscilloscope-instrumentation"
                     },
                     "extraPdfs": [
                         {
@@ -767,7 +768,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf"
+                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/pic16f877a-clock-thermometer-optimized"
                     },
                     "extraPdfs": [
                         {
@@ -803,7 +805,9 @@ var portfolioData = {
                             "caption": "Simulation comportementale réelle jusqu'à f_max = 10,5 MHz"
                         }
                     ],
-                    "links": {},
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/jk-flipflop-cmos-74hc-synthesis"
+                    },
                     "details": "\n### Résumé du Projet\nConception intégrale d'une bascule JK synchrone à partir de portes CMOS **74HC** (74HC74, 74HC08, 74HC32) : synthèse de machine d'état de Moore (`D = J·Q' + K'·Q`), vérification des marges de bruit, estimation de la fréquence maximale (**10,5 MHz**) et calcul de la dissipation dynamique (**16 mW** à 10 MHz).\n        "
                 }
             ]
@@ -1525,7 +1529,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/ros2-amr-slam-nav2",
                         "report": "assets/pdfs/Rapport_Projet_AMR_ROS2.pdf"
                     },
                     "extraPdfs": [
@@ -1619,7 +1623,7 @@ var portfolioData = {
                         "code": "// 200 Hz P&O MPPT Loop + 180 A Thermal Protection (120° interleaved phases on STM32G474 HRTIM)\nvoid MPPT_RunStep_200Hz(MPPT_Handle_t *h, float Vpv, float Ipv, float Vbat, float Ibat) {\n    float Ppv = Vpv * Ipv;\n    float dP = Ppv - h->Ppv_prev;\n    float dV = Vpv - h->Vpv_prev;\n\n    if (Vbat >= VBAT_ABSORPTION_28V8 || Ibat >= IBAT_MAX_180A) {\n        h->duty -= DUTY_STEP_FAST; // Immediate CV/CC derating & overcurrent limit\n    } else if (fabsf(dP) > MPPT_DP_DEADBAND) {\n        h->duty += ((dP > 0.0f && dV > 0.0f) || (dP < 0.0f && dV < 0.0f)) ? +DUTY_STEP : -DUTY_STEP;\n    }\n    h->duty = CLAMP(h->duty, 0.10f, 0.92f);\n    HRTIM_UpdateInterleavedPhases_120Deg(h->duty); // 0°, 120°, 240° @ 40 kHz (120 kHz eff.)\n    h->Ppv_prev = Ppv; h->Vpv_prev = Vpv;\n}"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/mppt-4kw-hybrid-inverter-fortico",
                         "report": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf"
                     },
                     "extraPdfs": [
@@ -1780,7 +1784,7 @@ var portfolioData = {
                         "code": "%% --- 1. GA POPULATION INITIALIZATION ---\npar = Init(N, npar, range);\nfitness = zeros(N, 1);\ngeneration = 0; terminal = 0;\n\n%% --- 2. EVOLUTIONARY LOOP & SIMULINK EVALUATION (C-MEX 50x) ---\nwhile ~terminal\n    generation = generation + 1;\n    for i = 1:N\n        Kp1 = par(i,1); Ki1 = par(i,2); Kd1 = par(i,3);\n        Kp2 = par(i,4); Ki2 = par(i,5); Kd2 = par(i,6);\n        assignin('base', 'Kp1', Kp1); assignin('base', 'Ki1', Ki1); assignin('base', 'Kd1', Kd1);\n        assignin('base', 'Kp2', Kp2); assignin('base', 'Ki2', Ki2); assignin('base', 'Kd2', Kd2);\n        simOut = sim('GA_PID_2DOF_Sfunction', 'SrcWorkspace', 'current', 'StopTime', '40');\n    end\nend"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/robot-2dof-fuzzy-gapid-dsp-tms320c6713",
                         "report": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
                     },
                     "extraPdfs": [
@@ -1839,7 +1843,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/esp32-industrial-iot-pcb-kicad",
                         "report": "assets/pdfs/Schema_KiCad_Smart_Count_ESP32.pdf"
                     },
                     "extraPdfs": [
@@ -1901,7 +1905,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf"
+                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/labview-virtual-oscilloscope-instrumentation"
                     },
                     "extraPdfs": [
                         {
@@ -1947,7 +1952,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf"
+                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/pic16f877a-clock-thermometer-optimized"
                     },
                     "extraPdfs": [
                         {
@@ -1983,7 +1989,9 @@ var portfolioData = {
                             "caption": "Realistic high-speed simulation up to f_max = 10.5 MHz"
                         }
                     ],
-                    "links": {},
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/jk-flipflop-cmos-74hc-synthesis"
+                    },
                     "details": "\n### Project Summary\nComplete design of a synchronous JK flip-flop built from **74HC** CMOS gates (74HC74, 74HC08, 74HC32): Moore FSM synthesis (`D = J·Q' + K'·Q`), noise margin verification, maximum frequency estimation (**10.5 MHz**), and dynamic power calculation (**16 mW** at 10 MHz).\n        "
                 }
             ]
