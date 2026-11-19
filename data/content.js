@@ -538,7 +538,7 @@ var portfolioData = {
                         "code": "def mrf_potts_icm_segmentation(thermal_roi, mu_k, sigma_k, beta=1.4, max_iter=12):\n    K = len(mu_k)\n    # Initialisation par Maximum de Vraisemblance Gaussien\n    labels = np.argmin([(thermal_roi - mu_k[k])**2 / (2*sigma_k[k]**2) + np.log(sigma_k[k]) for k in range(K)], axis=0)\n    for _ in range(max_iter):\n        energies = np.zeros((K, *thermal_roi.shape))\n        for k in range(K):\n            u_data = (thermal_roi - mu_k[k])**2 / (2.0 * sigma_k[k]**2) + np.log(sigma_k[k])\n            u_potts = beta * count_different_neighbors_8conn(labels, k)\n            energies[k] = u_data + u_potts\n        labels = np.argmin(energies, axis=0)\n    return labels"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/PROJET_THERMIQUE_2",
                         "report": "assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf"
                     },
                     "extraPdfs": [
@@ -1718,7 +1718,7 @@ var portfolioData = {
                         "code": "def mrf_potts_icm_segmentation(thermal_roi, mu_k, sigma_k, beta=1.4, max_iter=12):\n    K = len(mu_k)\n    # Pixel-wise Gaussian Maximum Likelihood initialization\n    labels = np.argmin([(thermal_roi - mu_k[k])**2 / (2*sigma_k[k]**2) + np.log(sigma_k[k]) for k in range(K)], axis=0)\n    for _ in range(max_iter):\n        energies = np.zeros((K, *thermal_roi.shape))\n        for k in range(K):\n            u_data = (thermal_roi - mu_k[k])**2 / (2.0 * sigma_k[k]**2) + np.log(sigma_k[k])\n            u_potts = beta * count_different_neighbors_8conn(labels, k)\n            energies[k] = u_data + u_potts\n        labels = np.argmin(energies, axis=0)\n    return labels"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/PROJET_THERMIQUE_2",
                         "report": "assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf"
                     },
                     "extraPdfs": [
