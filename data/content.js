@@ -1,9 +1,3 @@
-/**
- * ============================================================================
- * PORTFOLIO DATA (100% BILINGUAL FR/EN) — Tsikomia Scidelo ANDRIASAHY
- * ============================================================================
- */
-
 var portfolioData = {
     "entityLinks": {
         "ENSA Tanger": "https://ensat.ac.ma/Portail/",
