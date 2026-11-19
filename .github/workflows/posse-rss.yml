@@ -24,19 +24,22 @@ jobs:
       - name: Regenerate feed.xml and rss.xml from data/content.js
         run: |
           node -e '
-            import("./data/content.js").then(({ portfolioData }) => {
-              const fs = require("fs");
-              const siteUrl = (portfolioData.posseConfig && portfolioData.posseConfig.siteUrl) || "https://scidelo-andriasahy.github.io";
-              const posts = (portfolioData.fr && portfolioData.fr.blog && portfolioData.fr.blog.items) || [];
-              const itemsXml = posts.map(post => {
-                const pubDate = new Date(post.date || Date.now()).toUTCString();
-                const cats = (post.tags || []).map(t => `<category>${t}</category>`).join("");
-                return `    <item>\n      <title><![CDATA[${post.title}]]></title>\n      <link>${post.canonicalUrl}</link>\n      <guid isPermaLink="true">${post.canonicalUrl}</guid>\n      <pubDate>${pubDate}</pubDate>\n      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>\n      ${cats}\n      <description><![CDATA[${post.summary}]]></description>\n      <content:encoded><![CDATA[${post.content}<hr/><p><strong>Source canonique (POSSE) :</strong> <a href="${post.canonicalUrl}">${post.title}</a></p>]]></content:encoded>\n    </item>`;
-              }).join("\n");
-              const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n    <title>Tsikomia Scidelo ANDRIASAHY — Blog Ingénierie &amp; Recherche R&amp;D (Build in Public)</title>\n    <link>${siteUrl}/blog/</link>\n    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />\n    <description>Articles R&amp;D, schémas KiCad, électronique de puissance, robotique ROS 2 Humble, DSP et IA industrielle.</description>\n    <language>fr-FR</language>\n    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n${itemsXml}\n  </channel>\n</rss>\n`;
-              fs.writeFileSync("feed.xml", rss, "utf8");
-              fs.writeFileSync("rss.xml", rss, "utf8");
-            });
+            const fs = require("fs");
+            const vm = require("vm");
+            const code = fs.readFileSync("data/content.js", "utf8");
+            const sandbox = { window: {} };
+            vm.runInNewContext(code, sandbox);
+            const portfolioData = sandbox.window.portfolioData || sandbox.portfolioData;
+            const siteUrl = (portfolioData.posseConfig && portfolioData.posseConfig.siteUrl) || "https://scidelo-andriasahy.github.io";
+            const posts = (portfolioData.fr && portfolioData.fr.blog && portfolioData.fr.blog.items) || [];
+            const itemsXml = posts.map(post => {
+              const pubDate = new Date(post.date || Date.now()).toUTCString();
+              const cats = (post.tags || []).map(t => `<category>${t}</category>`).join("");
+              return `    <item>\n      <title><![CDATA[${post.title}]]></title>\n      <link>${post.canonicalUrl}</link>\n      <guid isPermaLink="true">${post.canonicalUrl}</guid>\n      <pubDate>${pubDate}</pubDate>\n      <author>scideloandriasahy@gmail.com (Tsikomia Scidelo ANDRIASAHY)</author>\n      ${cats}\n      <description><![CDATA[${post.summary}]]></description>\n      <content:encoded><![CDATA[${post.content}<hr/><p><strong>Source canonique :</strong> <a href="${post.canonicalUrl}">${post.title}</a></p>]]></content:encoded>\n    </item>`;
+            }).join("\n");
+            const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n    <title>Tsikomia Scidelo ANDRIASAHY — Notes Techniques R&amp;D &amp; Recherche Ouverte</title>\n    <link>${siteUrl}/blog/</link>\n    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />\n    <description>Notes d'\''architecture matérielle, électronique de puissance, robotique ROS 2 Humble, DSP et IA industrielle.</description>\n    <language>fr-FR</language>\n    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n${itemsXml}\n  </channel>\n</rss>\n`;
+            fs.writeFileSync("feed.xml", rss, "utf8");
+            fs.writeFileSync("rss.xml", rss, "utf8");
           '
 
       - name: Commit updated RSS feeds if changed
