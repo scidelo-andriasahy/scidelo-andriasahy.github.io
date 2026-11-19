@@ -1,0 +1,153 @@
+\documentclass[10pt, a4paper]{article}
+\linespread{0.92}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+\usepackage[left=0.85cm, right=0.85cm, top=0.7cm, bottom=0.7cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+
+% Custom colors
+\definecolor{primary}{RGB}{0, 64, 128}
+\definecolor{textgray}{RGB}{50, 50, 50}
+
+% Hyperlink configuration
+\hypersetup{
+    colorlinks=true,
+    urlcolor=primary,
+    linkcolor=primary,
+    pdfborder={0 0 0}
+}
+
+% Compact sections and lists
+\titleformat{\section}{\large\bfseries\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{0.9ex}{0.55ex}
+\setlist[itemize]{
+    label=\small\textbullet,
+    leftmargin=1.4em,
+    itemsep=0.12ex,
+    parsep=0pt,
+    topsep=0.15ex,
+    partopsep=0pt
+}
+
+% Experience & education headers
+\newcommand{\cventry}[4]{%
+    \noindent\textbf{#1} \hfill \textit{#2} \\
+    \textit{#3} \hfill {\footnotesize #4} \vspace{0.2ex}
+}
+
+\newcommand{\experience}[3]{%
+    \noindent
+    \parbox[t]{0.72\textwidth}{\textbf{#1} \textit{\,|\,#2}}%
+    \hfill
+    \parbox[t]{0.26\textwidth}{\raggedleft\normalfont\itshape\mbox{#3}}%
+    \par\vspace{0.2ex}
+}
+
+\begin{document}
+\pagestyle{empty}
+\small
+
+% ------------------- HEADER -------------------
+\begin{center}
+	{\huge \textbf{Tsikomia Scidelo ANDRIASAHY}}\\[0.5ex]
+	{\large \textcolor{primary}{\textbf{Final-Year Engineering Student in Electronic Systems \& Automation (GSEA)}}}\\[0.5ex]
+	\small
+	\faMapMarker \ Tangier, Morocco (Morocco \& International Mobility) \quad
+	\faPhone \ +212 777 647 362 \quad
+	\faEnvelope \ \href{mailto:scideloandriasahy@gmail.com}{scideloandriasahy@gmail.com} \\[0.5ex]
+	\faLinkedin \ \href{https://linkedin.com/in/scidelo}{linkedin.com/in/scidelo} \quad
+	\faGithub \ \href{https://scidelo-andriasahy.github.io/}{scidelo-andriasahy.github.io}
+\end{center}
+
+\vspace{-1ex}
+
+% ------------------- PROFILE -------------------
+\section*{Profile}
+\noindent Final-year State Engineering student in Electronic Systems and Automation (GSEA) at \href{https://ensat.ac.ma/Portail/}{\textbf{ENSA Tangier}}, specializing in embedded systems, autonomous robotics, power electronics, and control engineering. Backed by two industrial R\&D internships (32-bit firmware, 4.4 kW interleaved MPPT \& hybrid inverter, and AI/Markov thermal diagnostics on IoT nodes), I combine rigorous hardware experimentation with advanced algorithmic modeling.
+
+\noindent Seeking a 4-to-6-month Final-Year Engineering Internship (PFE / R\&D) starting mid-January 2027 to design, model, and deploy intelligent embedded architectures within your engineering teams.
+
+% ------------------- EDUCATION -------------------
+\section*{Education}
+
+\cventry{\href{https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/}{State Engineering Degree -- Electronic Systems \& Automation (GSEA)}}{2022 -- 2027}
+{\href{https://www.uae.ac.ma/}{Abdelmalek Essa\^{a}di University} (\href{https://ensat.ac.ma/Portail/}{ENSA Tangier}), Morocco -- \textit{Final Year (5th Year / 3rd Engineering Year)}}{}
+\begin{itemize}
+	\item \textbf{Core Specialties:} Embedded systems (STM32, DSP, ESP32, PIC), robotics \& control theory, power electronics, signal processing, industrial instrumentation.
+\end{itemize}
+\vspace{0.6ex}
+
+\cventry{\href{https://facsciences.univ-fianarantsoa.mg/fr/formations/parcours/vorhf2gwn3pfzqta7w2pff6p}{B.Sc. Year 1 -- Mathematics \& Computer Science for Social Sciences (MISS)}}{2021 -- 2022}
+{\href{https://www.univ-fianarantsoa.mg/}{University of Fianarantsoa}, Madagascar}{}
+\vspace{0.6ex}
+
+\cventry{\textcolor{primary}{Scientific Baccalaureate\ \textbf{---}\ Series C \textnormal{(Highest Honors / Mention Tr\`{e}s Bien)}}}{2020 -- 2021}
+{\href{https://www.facebook.com/p/Coll\%C3\%A8ge-Priv\%C3\%A9-Houssen-Memorial-School-61557463046217/}{Houssen Memorial School (HMS)}, Tul\'{e}ar, Madagascar}{}
+
+% ------------------- TECHNICAL SKILLS -------------------
+\section*{Technical Skills}
+\begin{itemize}[leftmargin=*, itemsep=0.2ex, parsep=0pt]
+	\item \textbf{Embedded Systems \& Hardware:} STM32 (STM32G474), TI DSP TMS320C6713, PIC (16F877A), ESP32, Arduino, industrial sensors, KiCad (PCB), Proteus.
+	\item \textbf{Programming \& Firmware:} C (MISRA C), C\texttt{++}, Python, VHDL, real-time embedded firmware, C-MEX S-Functions, PlatformIO.
+	\item \textbf{Control Theory \& Embedded AI:} PID Control, Fuzzy Logic (FLC), ANFIS, Genetic Algorithms (GA-PID), Neural Networks (ANN/CNN/U-Net), Markov Models (MRF/HMM/HSMM), MPPT P\&O.
+	\item \textbf{Engineering Tools:} MATLAB/Simulink, ROS 2 Humble (Gazebo, SLAM Toolbox, Nav2), Siemens TIA Portal, LaTeX, LabVIEW, Linux (Ubuntu), Git/GitHub, Android Studio.
+\end{itemize}
+
+% ------------------- PROFESSIONAL EXPERIENCE -------------------
+\section*{Professional Experience}
+
+\experience{R\&D Engineering Intern -- Power Electronics \& Embedded Systems}{\href{https://sitewebfortico.vercel.app/fr}{Fortico}}{Jul. 2026 -- Oct. 2026}
+\begin{itemize}
+	\item Hardware design (KiCad/Proteus) of a 4.4 kW hybrid solar inverter: 3-phase interleaved synchronous Buck MPPT (24 VDC / 180 A, 97.34\% efficiency) and 24V/400VDC/230VAC stages, plus 4 industrial ESP32 IoT PCBs.
+	\item MATLAB/Simulink dynamic modeling and PID control synthesis: MPPT P\&O tracking, 4-stage battery charging profile, and hybrid grid synchronization with ROCOF anti-islanding.
+\end{itemize}
+
+\experience{R\&D Intern -- Industrial AI \& IoT (PFA)}{\href{https://www.linkedin.com/company/smart-automation-technologies/home/}{Smart Automation Technologies}}{Jul. 2026 -- Aug. 2026}
+\begin{itemize}
+	\item Comparative benchmark of AI paradigms (Markov Models MRF/HMM/HSMM vs. CNN/U-Net) on 488 FLIR C5 motor thermograms (98\% accuracy with DenseNet121 + KNN/RF; Dice = 0.9851 with U-Net).
+	\item Edge IoT deployment architecture for real-time thermal fault detection and predictive maintenance risk forecasting.
+\end{itemize}
+
+\experience{Electrical Engineering \& SCADA Intern}{\href{https://www.amendis.ma/}{Amendis} (Veolia Group)}{Jul. 2025 -- Aug. 2025}
+\begin{itemize}
+	\item Technical immersion in MV/LV power distribution networks, Siemens SCADA real-time supervision (Central Control Bureau), and industrial automation protocols.
+\end{itemize}
+
+\experience{Robotics \& Programming Workshop Instructor}{\href{https://www.facebook.com/steamacademy.ma/}{STEAM Academy}}{2025 -- Present}
+\begin{itemize}
+	\item Mentoring youth through hands-on workshops in Arduino robotics, electronics, sensors, and algorithmic thinking.
+\end{itemize}
+
+\experience{Private Tutor (Mathematics, Physics \& Engineering Sciences)}{\href{https://www.superprof.ma/}{Superprof} / Independent}{2024 -- Present}
+
+\experience{Technical Writer (Freelance)}{\href{https://www.alphorm.com/}{Alphorm}}{Aug. 2024 -- Mar. 2025}
+
+% ------------------- TECHNICAL & ACADEMIC PROJECTS -------------------
+\section*{Technical \& Academic Projects}
+\begin{itemize}[leftmargin=*, itemsep=0.4ex, parsep=0pt]
+	\item {\color{primary}\textbf{Autonomous Mobile Robot AMR (ROS 2 Humble, Ubuntu):}}
+	      Built a complete Gazebo digital twin (URDF/Xacro) integrating simulated 2D 360\textdegree{} LiDAR and IMU sensors. Implemented asynchronous Graph-SLAM (SLAM Toolbox with Ceres Solver loop closure) and autonomous navigation via the Nav2 stack (multi-layer Costmaps, A*/DWB planners) with real-time TF2 synchronization.
+	\item {\color{primary}\textbf{2-DOF Robotic Arm Control \& Trajectory Tracking (DSP TMS320C6713):}}
+	      Lagrangian dynamic modeling in MATLAB/Simulink accelerated 50$\times$ via compiled C-MEX S-Functions. Benchmarked Neural Networks (ANN), Genetic Algorithm PID (GA-PID), and 49-rule Fuzzy Logic (FLC); validated the fuzzy controller in C++ and deployed it on a Texas Instruments DSP TMS320C6713 board.
+	\item {\color{primary}\textbf{Virtual Instrumentation \& Digital Oscilloscope (LabVIEW):}}
+	      Developed a real-time measurement test bench featuring a multi-waveform function generator and dynamic Volt/Div \& ms/Div oscilloscope scaling via NI-VISA.
+\end{itemize}
+
+% ------------------- CERTIFICATIONS & EXTRACURRICULAR -------------------
+\section*{Certifications, Leadership, Languages \& Interests}
+\begin{itemize}[leftmargin=*, itemsep=0.3ex, parsep=0pt]
+	\item \textbf{Certifications \& Honors:} Qualified for Pre-Final Round \& Special LaTeX Honour at \href{https://iymc.info/verify}{IYMC 2026} (ID: PR-2026-1048A24D40BF) \textbar{} MATLAB/Simulink Certification (\href{https://web.facebook.com/profile.php?id=61567878936369}{Ing\'{e}nieriePro}) \textbar{} AI \& Innovation Certificate (\href{http://cidealmaroc.org/}{CIDEAL Foundation} -- INNO'VERT / ENSA Tangier) \textbar{} Official Participant at \href{https://www.fitut.ma/}{FITUT} (International University Theater Festival).
+	\item \textbf{Leadership:} Deputy Academic Officer at \href{https://www.linkedin.com/company/eisclubuae/home/}{\textbf{EISCLUB}} (2023 -- 2024). Logistics Manager (2 terms) at \href{https://tsingymaroc.org/}{\textbf{TSINGY TANGER}} (2022 -- 2024). Active member: \href{https://cesamcentrale.org/category/sections-cesam/tanger/}{CESAM Tangier}, \href{https://www.instagram.com/ensatronics/}{EnsaTronics} (Robotics Club), and \href{https://www.ojafricains.org/}{OJA}.
+	\item \textbf{Languages:} French (Fluent / Professional), English (Technical, R\&D documentation), Malagasy (Native), Spanish (Basic).
+	\item \textbf{Interests:} Open Science \& Technical Documentation, Tech Conferences, Chess, Electronics DIY, Cinema, Football \& Petanque.
+\end{itemize}
+\end{document}

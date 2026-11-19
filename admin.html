@@ -254,9 +254,10 @@
             </div>
 
             <div class="tabs">
-                <button class="tab-btn active" data-tab="blog">✍️ Blog R&amp;D &amp; Générateur POSSE</button>
-                <button class="tab-btn" data-tab="youtube">📺 Chaîne YouTube Ingénierie &amp; Vidéos</button>
-                <button class="tab-btn" data-tab="posse">🤖 Automatisation Make/Zapier &amp; GitHub API</button>
+                <button class="tab-btn active" data-tab="blog">✍️ Notes R&amp;D &amp; POSSE</button>
+                <button class="tab-btn" data-tab="analytics">📊 Statistiques Privées (Cloudflare / GoatCounter)</button>
+                <button class="tab-btn" data-tab="youtube">📺 Chaîne YouTube &amp; Vidéos</button>
+                <button class="tab-btn" data-tab="posse">🤖 Make/Zapier &amp; GitHub API</button>
                 <button class="tab-btn" data-tab="projects">🚀 Projets &amp; Schémas</button>
                 <button class="tab-btn" data-tab="experience">💼 Expériences</button>
                 <button class="tab-btn" data-tab="identity">👤 Profil &amp; PFE</button>
@@ -340,11 +341,65 @@
         function render() {
             const d = state[lang];
             if (activeTab === 'blog') renderBlogTab(d);
+            else if (activeTab === 'analytics') renderAnalyticsTab();
             else if (activeTab === 'youtube') renderYoutubeTab();
             else if (activeTab === 'posse') renderPosseAutomationTab();
             else if (activeTab === 'projects') renderProjectsTab(d);
             else if (activeTab === 'experience') renderExperienceTab(d);
             else if (activeTab === 'identity') renderIdentityTab(d);
+        }
+
+        function renderAnalyticsTab() {
+            const savedCfUrl = localStorage.getItem('scidelo_analytics_cf') || 'https://dash.cloudflare.com/';
+            const savedGcUrl = localStorage.getItem('scidelo_analytics_gc') || 'https://www.goatcounter.com/';
+            tabContent.innerHTML = `
+                <div class="panel">
+                    <h2 style="margin-bottom: 0.75rem;">📊 Statistiques Privées du Portfolio (100 % RGPD &amp; Sans Cookies)</h2>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem;">
+                        Vos statistiques de visites (pays, pages vues, lectures des notes MPPT/ROS 2, appareils) restent <strong>100 % privées</strong> et hébergées sur votre compte externe authentifié (jamais affichées sur le site public, ni protégées par un mot de passe côté client).
+                    </p>
+                    <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+                        <a href="${escapeAttr(savedCfUrl)}" target="_blank" rel="noopener" class="btn btn-primary">☁️ Ouvrir Tableau de Bord Cloudflare Web Analytics ↗</a>
+                        <a href="${escapeAttr(savedGcUrl)}" target="_blank" rel="noopener" class="btn btn-outline">🐐 Ouvrir Tableau de Bord GoatCounter ↗</a>
+                    </div>
+                    <div class="form-grid">
+                        <div>
+                            <label>URL privée de votre tableau de bord Cloudflare</label>
+                            <input type="url" id="cf-url-input" value="${escapeAttr(savedCfUrl)}" placeholder="https://dash.cloudflare.com/...">
+                        </div>
+                        <div>
+                            <label>URL privée de votre tableau de bord GoatCounter</label>
+                            <input type="url" id="gc-url-input" value="${escapeAttr(savedGcUrl)}" placeholder="https://scidelo.goatcounter.com">
+                        </div>
+                    </div>
+                    <button class="btn btn-success" id="save-analytics-btn" style="margin-bottom: 1.75rem;">💾 Enregistrer mes raccourcis privés (LocalStorage)</button>
+
+                    <div class="item-card">
+                        <h3 style="color: var(--accent); margin-bottom: 0.6rem;">Activation en 1 ligne dans index.html et blog/index.html</h3>
+                        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 0.75rem;">
+                            L'emplacement est déjà prêt dans la balise <code>&lt;head&gt;</code> de <code>index.html</code> et <code>blog/index.html</code>. Il vous suffit de décommenter une seule des deux lignes avec votre jeton :
+                        </p>
+                        <div class="code-box">&lt;!-- Option 1 : Cloudflare Web Analytics (Gratuit, illimité, 0 cookie, 0 bannière) --&gt;
+&lt;script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "VOTRE_TOKEN_CLOUDFLARE"}'&gt;&lt;/script&gt;
+
+&lt;!-- Option 2 : GoatCounter Open-Source (Gratuit, 0 cookie) --&gt;
+&lt;script data-goatcounter="https://VOTRE_ID.goatcounter.com/count" async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</div>
+                    </div>
+
+                    <div class="item-card" style="border-color: rgba(245, 158, 11, 0.35);">
+                        <h3 style="color: var(--amber); margin-bottom: 0.45rem;">🛡️ Note de Sécurité GitHub Pages</h3>
+                        <p style="font-size: 0.88rem; color: var(--muted);">
+                            Sur un dépôt public GitHub Pages, tout code JavaScript client est lisible publiquement. C'est pourquoi la véritable sécurité de vos statistiques repose sur l'authentification de votre compte externe <strong>Cloudflare</strong> ou <strong>GoatCounter</strong> (et celle de vos publications sur votre <strong>Token GitHub personnel</strong> stocké uniquement dans votre navigateur local).
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('save-analytics-btn').onclick = () => {
+                localStorage.setItem('scidelo_analytics_cf', document.getElementById('cf-url-input').value.trim());
+                localStorage.setItem('scidelo_analytics_gc', document.getElementById('gc-url-input').value.trim());
+                showToast('✅ Raccourcis analytiques privés enregistrés dans ce navigateur !');
+                renderAnalyticsTab();
+            };
         }
 
         function renderBlogTab(d) {
