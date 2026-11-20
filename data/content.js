@@ -179,7 +179,7 @@ var portfolioData = {
                 "email": "scideloandriasahy@gmail.com",
                 "linkedin": "https://www.linkedin.com/in/scidelo",
                 "github": "https://github.com/scidelo-andriasahy",
-                "youtube": "https://www.youtube.com/@ScideloEngineering",
+                "youtube": "https://www.youtube.com/channel/UCqIzu57g0aMRBuQBv294gXw",
                 "portfolio": "https://scidelo-andriasahy.github.io",
                 "phone": "+212 777 647 362"
             },
@@ -1834,7 +1834,7 @@ var portfolioData = {
                 "email": "scideloandriasahy@gmail.com",
                 "linkedin": "https://www.linkedin.com/in/scidelo",
                 "github": "https://github.com/scidelo-andriasahy",
-                "youtube": "https://www.youtube.com/@ScideloEngineering",
+                "youtube": "https://www.youtube.com/channel/UCqIzu57g0aMRBuQBv294gXw",
                 "portfolio": "https://scidelo-andriasahy.github.io",
                 "phone": "+212 777 647 362"
             },
