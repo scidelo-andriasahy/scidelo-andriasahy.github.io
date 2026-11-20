@@ -486,7 +486,6 @@ let certCarouselTimers = [];
 function initCertCarousels() {
     certCarouselTimers.forEach(t => clearInterval(t));
     certCarouselTimers = [];
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     document.querySelectorAll('.cert-carousel-wrap').forEach((wrap, cardIdx) => {
         const track = wrap.querySelector('.cert-gallery-track');
@@ -525,13 +524,11 @@ function initCertCarousels() {
         wrap.addEventListener('mouseenter', () => { paused = true; });
         wrap.addEventListener('mouseleave', () => { paused = false; });
 
-        if (!reduceMotion) {
-            // Stagger start slightly across cards for natural rhythm
-            const timer = setInterval(() => {
-                if (!paused) goTo(idx + 1);
-            }, 3400 + (cardIdx % 3) * 450);
-            certCarouselTimers.push(timer);
-        }
+        // Smooth staggered auto-slide every ~3.2s (pauses cleanly on hover)
+        const timer = setInterval(() => {
+            if (!paused) goTo(idx + 1);
+        }, 3200 + (cardIdx % 3) * 450);
+        certCarouselTimers.push(timer);
     });
 }
 
