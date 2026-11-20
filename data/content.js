@@ -1,3 +1,9 @@
+/**
+ * ============================================================================
+ * PORTFOLIO DATA (100% BILINGUAL FR/EN — 19 PROJECTS) — Tsikomia Scidelo ANDRIASAHY
+ * ============================================================================
+ */
+
 var portfolioData = {
     "entityLinks": {
         "ENSA Tanger": "https://ensat.ac.ma/Portail/",
@@ -118,23 +124,22 @@ var portfolioData = {
         "Android Studio": "https://developer.android.com/studio",
         "ESP-NOW": "https://www.espressif.com/en/solutions/low-power-solutions/esp-now",
         "MQTT": "https://mqtt.org/",
-        "Zenodo": "https://zenodo.org/",
-        "Zenodo DOI": "https://zenodo.org/"
-    },
-    "posseConfig": {
-        "siteUrl": "https://scidelo-andriasahy.github.io",
-        "blogUrl": "https://scidelo-andriasahy.github.io/blog/",
-        "rssFeedUrl": "https://scidelo-andriasahy.github.io/feed.xml",
-        "youtubeChannelUrl": "https://www.youtube.com/@ScideloEngineering",
-        "youtubeChannelHandle": "@ScideloEngineering",
-        "zenodoCommunityUrl": "https://zenodo.org/"
+        "MicroWind": "https://www.microwind.net/",
+        "Simscape Multibody": "https://www.mathworks.com/products/simscape-multibody.html",
+        "Quartus Prime": "https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/overview.html",
+        "ModelSim": "https://eda.sw.siemens.com/en-US/ic/modelsim/",
+        "PyTorch / VAE": "https://pytorch.org/",
+        "FFT / NumPy": "https://numpy.org/doc/stable/reference/routines.fft.html",
+        "MS Project": "https://www.microsoft.com/en-us/microsoft-365/project/project-management-software",
+        "Park (abc/dq0)": "https://www.mathworks.com/help/sps/ref/abc_to_dq0.html",
+        "Tkinter": "https://docs.python.org/3/library/tkinter.html",
+        "Business Model Canvas": "https://www.strategyzer.com/library/the-business-model-canvas"
     },
     "fr": {
         "nav": {
             "about": "À propos",
             "skills": "Compétences",
             "projects": "Projets",
-            "blog": "Notes R&D",
             "experience": "Expériences",
             "cv": "Formation",
             "certificates": "Certificats"
@@ -145,12 +150,15 @@ var portfolioData = {
             "contactCta": "Me Contacter",
             "texCvLabel": "Code Source CV (.tex LaTeX)",
             "viewCvLabel": "Consulter le CV en ligne",
-            "openBlogPortal": "Toutes les Notes R&D (/blog)",
-            "rssLabel": "Flux RSS",
-            "readArticle": "Lire la note technique",
             "footerRole": "Ingénieur Systèmes Embarqués, Robotique ROS 2, Électronique de Puissance & IA",
             "footerRights": "Tous droits réservés.",
-            "footerStudio": "Espace Privé"
+            "footerStudio": "Espace Privé",
+            "dossierBtn": "Dossier Portfolio Complet (PDF Cliquable)",
+            "showMoreProjects": "Voir tous les projets",
+            "showLessProjects": "Réduire les projets",
+            "showMoreExp": "Voir toutes les expériences",
+            "showLessExp": "Réduire les expériences",
+            "bibTitle": "Références techniques & Bibliographie de travail"
         },
         "identity": {
             "name": "Tsikomia Scidelo ANDRIASAHY",
@@ -172,16 +180,15 @@ var portfolioData = {
                 "linkedin": "https://www.linkedin.com/in/scidelo",
                 "github": "https://github.com/scidelo-andriasahy",
                 "youtube": "https://www.youtube.com/@ScideloEngineering",
-                "rss": "feed.xml",
-                "zenodo": "https://zenodo.org/",
                 "portfolio": "https://scidelo-andriasahy.github.io",
                 "phone": "+212 777 647 362"
             },
-            "image": "assets/images/portrait_studio_dark.png"
+            "image": "assets/images/portrait_studio_dark.png",
+            "dossierPdf": "assets/pdfs/Dossier_Portfolio_Complet_ANDRIASAHY_FR.pdf"
         },
         "about": {
             "title": "Profil & Objectif PFE",
-            "text": "Élève-ingénieur en dernière année du cycle <a href='https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/' target='_blank' rel='noopener' class='highlight-link'>Génie des Systèmes Électroniques et Automatique (GSEA)</a> à l'<a href='https://ensat.ac.ma/Portail/' target='_blank' rel='noopener' class='highlight-link'>ENSA de Tanger</a>, j'évolue à l'interface des systèmes embarqués (<a href='https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html' target='_blank' rel='noopener' class='highlight-link'>STM32G474</a>, <a href='https://www.ti.com/product/TMS320C6713B' target='_blank' rel='noopener' class='highlight-link'>DSP TMS320C6713</a>, <a href='https://www.espressif.com/en/products/socs/esp32' target='_blank' rel='noopener' class='highlight-link'>ESP32</a>), de l'électronique de puissance (<a href='https://www.kicad.org/' target='_blank' rel='noopener' class='highlight-link'>KiCad</a>), de la robotique autonome (<a href='https://docs.ros.org/en/humble/' target='_blank' rel='noopener' class='highlight-link'>ROS 2 Humble</a>, <a href='https://navigation.ros.org/' target='_blank' rel='noopener' class='highlight-link'>Nav2</a>), l'IOT et de l'IA industrielle.\n\nFort de deux expériences en R&amp;D chez <a href='https://sitewebfortico.vercel.app/fr' target='_blank' rel='noopener' class='highlight-link'>Fortico</a> (MPPT triphasé entrelacé 4,4 kW à 97,34 % de rendement, onduleur hybride 230 VAC et 4 cartes PCB IoT) et <a href='https://www.linkedin.com/company/smart-automation-technologies/home/' target='_blank' rel='noopener' class='highlight-link'>Smart Automation Technologies</a> (diagnostic thermique par modèles de Markov MRF/HMM/HSMM vs CNN/U-Net à 98 % de précision), j'allie rigueur matérielle et modélisation algorithmique. <strong>Adepte de la recherche ouverte (Open Science / Build in Public), je documente mes architectures matérielles, simulations et résultats expérimentaux via des notes techniques horodatées (<a href='https://zenodo.org/' target='_blank' rel='noopener' class='highlight-link'>DOI Zenodo</a>) et des démonstrations vidéo.</strong>",
+            "text": "Élève-ingénieur en dernière année du cycle <a href='https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/' target='_blank' rel='noopener' class='highlight-link'>Génie des Systèmes Électroniques et Automatiques (GSEA)</a> à l'<a href='https://ensat.ac.ma/Portail/' target='_blank' rel='noopener' class='highlight-link'>ENSA de Tanger</a>, je me spécialise à l'interface des systèmes embarqués (<a href='https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html' target='_blank' rel='noopener' class='highlight-link'>STM32G474</a>, <a href='https://www.ti.com/product/TMS320C6713B' target='_blank' rel='noopener' class='highlight-link'>DSP TMS320C6713</a>, <a href='https://www.espressif.com/en/products/socs/esp32' target='_blank' rel='noopener' class='highlight-link'>ESP32</a>), de l'électronique de puissance (<a href='https://www.kicad.org/' target='_blank' rel='noopener' class='highlight-link'>KiCad</a>, <a href='https://www.microwind.net/' target='_blank' rel='noopener' class='highlight-link'>MicroWind</a>), de la robotique autonome (<a href='https://docs.ros.org/en/humble/' target='_blank' rel='noopener' class='highlight-link'>ROS 2 Humble</a>, <a href='https://navigation.ros.org/' target='_blank' rel='noopener' class='highlight-link'>Nav2</a>), de l'instrumentation (<a href='https://www.ni.com/fr/shop/labview.html' target='_blank' rel='noopener' class='highlight-link'>LabVIEW</a>) et de l'IA industrielle. Fort de deux expériences R&amp;D chez <a href='https://sitewebfortico.vercel.app/fr' target='_blank' rel='noopener' class='highlight-link'>Fortico</a> (MPPT triphasé entrelacé 4,4 kW à 97,34 % de rendement, onduleur hybride 230 VAC et 4 cartes PCB IoT) et <a href='https://www.linkedin.com/company/smart-automation-technologies/home/' target='_blank' rel='noopener' class='highlight-link'>Smart Automation Technologies</a> (maintenance prédictive par thermographie, modèles de Markov MRF/HMM/HSMM et CNN/U-Net à 98 %), j'allie conception matérielle rigoureuse et modélisation algorithmique.",
             "pfeHighlight": "Disponible dès mi-janvier 2027 pour un stage de fin d'études (PFE, 4 à 6 mois) ou pré-thèse R&D. Mobilité totale au Maroc, en France et à l'international.",
             "languages": [
                 {
@@ -202,11 +209,11 @@ var portfolioData = {
                 }
             ],
             "interests": [
-                "Recherche Ouverte (Zenodo DOI)",
-                "Compétitions Maths (IYMC)",
+                "Veille Technologique & Microélectronique",
+                "Compétitions Mathématiques (IYMC)",
                 "Jeu d'échecs",
-                "Électronique DIY & PCB",
-                "Théâtre (FITUT)"
+                "Électronique DIY & PCB KiCad",
+                "Théâtre Universitaire (FITUT)"
             ]
         },
         "skills": {
@@ -295,14 +302,18 @@ var portfolioData = {
                     ],
                     "description": "Jumeau numérique URDF/Xacro sous Gazebo, cartographie Graph-SLAM (Ceres Solver) et navigation autonome Nav2 validés avec vidéos de simulation et graphes ROS 2.",
                     "image": "assets/images/ros2/nav_rviz.png",
-                    "video": "assets/videos/ros2_amr_navigation.webm",
+                    "video": "assets/videos/ros2_amr_nav2_sim.webm",
                     "videos": [
                         {
                             "title": "Navigation Autonome Nav2, Planification A*/DWB & Évitement d'Obstacles (RViz2 / Gazebo)",
-                            "url": "assets/videos/ros2_amr_navigation.webm"
+                            "url": "assets/videos/ros2_amr_nav2_sim.webm"
                         },
                         {
-                            "title": "Téléopération Temps Réel, Scan LiDAR 360° & Construction de Carte Graph-SLAM",
+                            "title": "Présentation du Robot Mobile Autonome en 3D (Gazebo / URDF)",
+                            "url": "assets/videos/ros2_amr_3d_presentation.webm"
+                        },
+                        {
+                            "title": "Téléopération Temps Réel, Scan LiDAR 360° & Cartographie Graph-SLAM",
                             "url": "assets/videos/ros2_amr_teleop.webm"
                         }
                     ],
@@ -345,7 +356,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/ros2-amr-slam-nav2",
                         "report": "assets/pdfs/Rapport_Projet_AMR_ROS2.pdf"
                     },
                     "extraPdfs": [
@@ -376,15 +387,23 @@ var portfolioData = {
                     ],
                     "description": "Dimensionnement, schémas KiCad multi-feuilles et simulation MATLAB/Simulink d'un Buck synchrone triphasé entrelacé 4,4 kW (24 VDC / 180 A, rendement 97,34 %) et d'un onduleur hybride HF 230 VAC pur sinus.",
                     "image": "assets/images/fortico/SchemaGlobalSimulink.png",
-                    "video": "assets/videos/fortico_mppt_simulink.webm",
+                    "video": "assets/videos/fortico_onduleur_hybride.webm",
                     "videos": [
                         {
-                            "title": "Simulation MATLAB/Simulink — MPPT Buck Synchrone Triphasé Entrelacé 4,4 kW (Déphasage 120° & P&O)",
-                            "url": "assets/videos/fortico_mppt_simulink.webm"
+                            "title": "Simulation MATLAB/Simulink — Onduleur Hybride 24 VDC → 400 VDC → 230 VAC Pur Sinus 50 Hz",
+                            "url": "assets/videos/fortico_onduleur_hybride.webm"
                         },
                         {
-                            "title": "Simulation MATLAB/Simulink — Onduleur Hybride 24 VDC → Bus 400 VDC → 230 VAC Pur Sinus 50 Hz",
-                            "url": "assets/videos/fortico_onduleur_hybride.webm"
+                            "title": "Simulation MPPT Triphasé Entrelacé 4,4 kW — Poursuite P&O & Courants de Phase (Partie 1)",
+                            "url": "assets/videos/fortico_mppt_sim1.webm"
+                        },
+                        {
+                            "title": "Simulation Dynamique MPPT — Variation d'Irradiance & Régulation Bus Batterie (Partie 2)",
+                            "url": "assets/videos/fortico_mppt_sim2.webm"
+                        },
+                        {
+                            "title": "Simulation Dynamique MPPT & Onduleur — Régime Transitoire Complet (Partie 3)",
+                            "url": "assets/videos/fortico_mppt_sim3.webm"
                         }
                     ],
                     "gallery": [
@@ -439,7 +458,7 @@ var portfolioData = {
                         "code": "// Boucle MPPT P&O 200 Hz + Sécurité Thermique 180 A (3 phases entrelacées à 120° sur HRTIM STM32G474)\nvoid MPPT_RunStep_200Hz(MPPT_Handle_t *h, float Vpv, float Ipv, float Vbat, float Ibat) {\n    float Ppv = Vpv * Ipv;\n    float dP = Ppv - h->Ppv_prev;\n    float dV = Vpv - h->Vpv_prev;\n\n    if (Vbat >= VBAT_ABSORPTION_28V8 || Ibat >= IBAT_MAX_180A) {\n        h->duty -= DUTY_STEP_FAST; // Régulation CV/CC & protection surintensité\n    } else if (fabsf(dP) > MPPT_DP_DEADBAND) {\n        h->duty += ((dP > 0.0f && dV > 0.0f) || (dP < 0.0f && dV < 0.0f)) ? +DUTY_STEP : -DUTY_STEP;\n    }\n    h->duty = CLAMP(h->duty, 0.10f, 0.92f);\n    HRTIM_UpdateInterleavedPhases_120Deg(h->duty); // 0°, 120°, 240° @ 40 kHz (120 kHz eff.)\n    h->Ppv_prev = Ppv; h->Vpv_prev = Vpv;\n}"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/mppt-4kw-hybrid-inverter-fortico",
                         "report": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf"
                     },
                     "extraPdfs": [
@@ -538,7 +557,7 @@ var portfolioData = {
                         "code": "def mrf_potts_icm_segmentation(thermal_roi, mu_k, sigma_k, beta=1.4, max_iter=12):\n    K = len(mu_k)\n    # Initialisation par Maximum de Vraisemblance Gaussien\n    labels = np.argmin([(thermal_roi - mu_k[k])**2 / (2*sigma_k[k]**2) + np.log(sigma_k[k]) for k in range(K)], axis=0)\n    for _ in range(max_iter):\n        energies = np.zeros((K, *thermal_roi.shape))\n        for k in range(K):\n            u_data = (thermal_roi - mu_k[k])**2 / (2.0 * sigma_k[k]**2) + np.log(sigma_k[k])\n            u_potts = beta * count_different_neighbors_8conn(labels, k)\n            energies[k] = u_data + u_potts\n        labels = np.argmin(energies, axis=0)\n    return labels"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/PROJET_THERMIQUE_2",
                         "report": "assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf"
                     },
                     "extraPdfs": [
@@ -600,13 +619,21 @@ var portfolioData = {
                         "code": "%% --- 1. INITIALISATION DE LA POPULATION GA ---\npar = Init(N, npar, range);\nfitness = zeros(N, 1);\ngeneration = 0; terminal = 0;\n\n%% --- 2. BOUCLE D'ÉVOLUTION ET ÉVALUATION SIMULINK (C-MEX x50) ---\nwhile ~terminal\n    generation = generation + 1;\n    for i = 1:N\n        Kp1 = par(i,1); Ki1 = par(i,2); Kd1 = par(i,3);\n        Kp2 = par(i,4); Ki2 = par(i,5); Kd2 = par(i,6);\n        assignin('base', 'Kp1', Kp1); assignin('base', 'Ki1', Ki1); assignin('base', 'Kd1', Kd1);\n        assignin('base', 'Kp2', Kp2); assignin('base', 'Ki2', Ki2); assignin('base', 'Kd2', Kd2);\n        simOut = sim('GA_PID_2DOF_Sfunction', 'SrcWorkspace', 'current', 'StopTime', '40');\n    end\nend"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/robot-2dof-fuzzy-gapid-dsp-tms320c6713",
                         "report": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
                     },
                     "extraPdfs": [
                         {
-                            "label": "Rapport Technique Complet — Robot 2 DDL & DSP TMS320C6713 (PDF)",
+                            "label": "Rapport Complet Robot 2 DDL & GA-PID/Flou — FR (PDF)",
                             "url": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
+                        },
+                        {
+                            "label": "Article IEEE : Commande Floue 2 DDL & DSP TMS320C6713 — FR (PDF)",
+                            "url": "assets/pdfs/DSP_TMS320C6713_2DOF_Fuzzy_Paper_FR.pdf"
+                        },
+                        {
+                            "label": "2-DOF Robotic Arm Control Report — English Version (PDF)",
+                            "url": "assets/pdfs/ROBOT2DOF_Scidelo_EN.pdf"
                         }
                     ],
                     "details": "\n### Résumé du Projet\nÉtude comparative approfondie et implémentation matérielle de trois stratégies de commande avancées appliquées à un bras manipulateur planaire à deux degrés de liberté (**2 DDL**) soumis à de forts couplages non linéaires.\n\n### Méthodologie & Implémentation\n- **Accélération par <a href=\"https://fr.mathworks.com/help/simulink/sfg/what-is-an-s-function.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">S-Functions C-MEX</a> (×50)** : Réécriture du modèle dynamique de Lagrange et des contrôleurs en C compilé sous **<a href=\"https://fr.mathworks.com/products/simulink.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">MATLAB/Simulink</a>**.\n- **GA-PID, ANN & Logique Floue (49 règles)** : Comparaison sur le critère ISE et réjection de perturbations.\n- **Validation C++ & Déploiement DSP** : Portage de la loi floue retenue sur **<a href=\"https://www.ti.com/product/TMS320C6713B\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DSP Texas Instruments TMS320C6713</a>**.\n        "
@@ -627,7 +654,7 @@ var portfolioData = {
                     ],
                     "description": "Conception matérielle (schémas KiCad, routage PCB 3D, BOM) et spécifications firmware de 4 produits embarqués chez Fortico : Compteur 74HC595, Couveuse PID DRV8825, Boîtier 4G/GPS/RFID et IHM ESP-NOW/MQTT.",
                     "image": "assets/images/fortico/pcb_smart_count_3d.jpg",
-                    "video": "",
+                    "video": "assets/videos/esp32_pcb_kicad_3d.webm",
                     "gallery": [
                         {
                             "src": "assets/images/fortico/pcb_smart_count_3d.jpg",
@@ -659,7 +686,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/esp32-industrial-iot-pcb-kicad",
                         "report": "assets/pdfs/Schema_KiCad_Smart_Count_ESP32.pdf"
                     },
                     "extraPdfs": [
@@ -688,7 +715,13 @@ var portfolioData = {
                             "url": "assets/pdfs/Note_Cadrage_Boitier_IoT_Fortico.pdf"
                         }
                     ],
-                    "details": "\n### Contexte R&D (<a href=\"https://sitewebfortico.vercel.app/fr\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">Fortico</a>)\nConception matérielle complète sous **<a href=\"https://www.kicad.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">KiCad</a>** et spécifications firmware autour du SoC **<a href=\"https://www.espressif.com/en/products/socs/esp32\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP32</a>** pour quatre produits industriels :\n- **Carte PCB SMART_COUNT** : Pilotage en cascade de 4 registres **<a href=\"https://www.ti.com/product/SN74HC595\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">74HC595</a>** + afficheurs 7 segments, capteur ultrasonique et télémétrie MQTT.\n- **Couveuse Intelligente Automatisée** : Régulation thermique PID par MOSFET, hygrométrie DHT22, retournement NEMA 17 (**<a href=\"https://www.ti.com/product/DRV8825\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DRV8825</a>**), horloge **<a href=\"https://www.analog.com/en/products/ds3231.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DS3231</a>** et alimentation secourue 12V/Batterie.\n- **Boîtier IoT Télématique & Flotte** : Modem **<a href=\"https://www.simcom.com/product/SIM7600X-H.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">SIM7600 4G LTE</a>**, GPS NEO-6M, RFID conducteur, buffer microSD hors-ligne et relais de sécurité.\n- **Terminal IHM Déporté** : OLED SSD1306, encodeur rotatif et liaison bidirectionnelle **<a href=\"https://www.espressif.com/en/solutions/low-power-solutions/esp-now\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP-NOW</a> / <a href=\"https://mqtt.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">MQTT</a>**.\n        "
+                    "details": "\n### Contexte R&D (<a href=\"https://sitewebfortico.vercel.app/fr\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">Fortico</a>)\nConception matérielle complète sous **<a href=\"https://www.kicad.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">KiCad</a>** et spécifications firmware autour du SoC **<a href=\"https://www.espressif.com/en/products/socs/esp32\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP32</a>** pour quatre produits industriels :\n- **Carte PCB SMART_COUNT** : Pilotage en cascade de 4 registres **<a href=\"https://www.ti.com/product/SN74HC595\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">74HC595</a>** + afficheurs 7 segments, capteur ultrasonique et télémétrie MQTT.\n- **Couveuse Intelligente Automatisée** : Régulation thermique PID par MOSFET, hygrométrie DHT22, retournement NEMA 17 (**<a href=\"https://www.ti.com/product/DRV8825\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DRV8825</a>**), horloge **<a href=\"https://www.analog.com/en/products/ds3231.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DS3231</a>** et alimentation secourue 12V/Batterie.\n- **Boîtier IoT Télématique & Flotte** : Modem **<a href=\"https://www.simcom.com/product/SIM7600X-H.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">SIM7600 4G LTE</a>**, GPS NEO-6M, RFID conducteur, buffer microSD hors-ligne et relais de sécurité.\n- **Terminal IHM Déporté** : OLED SSD1306, encodeur rotatif et liaison bidirectionnelle **<a href=\"https://www.espressif.com/en/solutions/low-power-solutions/esp-now\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP-NOW</a> / <a href=\"https://mqtt.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">MQTT</a>**.\n        ",
+                    "videos": [
+                        {
+                            "title": "Visite 3D & Routage PCB sous KiCad — Cartes Embarquées ESP32 (videoPCB)",
+                            "url": "assets/videos/esp32_pcb_kicad_3d.webm"
+                        }
+                    ]
                 },
                 {
                     "id": 6,
@@ -721,7 +754,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf"
+                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/labview-virtual-oscilloscope-instrumentation"
                     },
                     "extraPdfs": [
                         {
@@ -767,7 +801,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf"
+                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/pic16f877a-clock-thermometer-optimized"
                     },
                     "extraPdfs": [
                         {
@@ -783,7 +818,8 @@ var portfolioData = {
                     "category": "Systèmes Embarqués",
                     "tags": [
                         "74HC CMOS",
-                        "Proteus ISIS"
+                        "Proteus ISIS",
+                        "VHDL"
                     ],
                     "description": "Modélisation par machine de Moore, synthèse logique, analyse des marges de bruit, calcul de fréquence maximale (10,5 MHz) et validation réelle en technologie CMOS 74HC.",
                     "image": "assets/images/captureBasculeJK.png",
@@ -802,106 +838,476 @@ var portfolioData = {
                             "caption": "Simulation comportementale réelle jusqu'à f_max = 10,5 MHz"
                         }
                     ],
-                    "links": {},
-                    "details": "\n### Résumé du Projet\nConception intégrale d'une bascule JK synchrone à partir de portes CMOS **74HC** (74HC74, 74HC08, 74HC32) : synthèse de machine d'état de Moore (`D = J·Q' + K'·Q`), vérification des marges de bruit, estimation de la fréquence maximale (**10,5 MHz**) et calcul de la dissipation dynamique (**16 mW** à 10 MHz).\n        "
-                }
-            ]
-        },
-        "blog": {
-            "title": "Notes Techniques R&D & Publications Ouvertes (DOI Zenodo)",
-            "subtitle": "Notes d'architecture matérielle, analyses de simulation, prépublications horodatées (DOI Zenodo) et démonstrations vidéo issues de mes travaux d'ingénierie.",
-            "filterAll": "Toutes les notes",
-            "items": [
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/jk-flipflop-cmos-74hc-synthesis",
+                        "report": "assets/pdfs/Rapport_Bascule_JK_CMOS.pdf"
+                    },
+                    "details": "\n### Résumé du Projet\nConception intégrale d'une bascule JK synchrone à partir de portes CMOS **74HC** (74HC74, 74HC08, 74HC32) : synthèse de machine d'état de Moore (`D = J·Q' + K'·Q`), vérification des marges de bruit, estimation de la fréquence maximale (**10,5 MHz**) et calcul de la dissipation dynamique (**16 mW** à 10 MHz).\n        ",
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Complet — Conception & Synthèse Bascule JK CMOS (PDF)",
+                            "url": "assets/pdfs/Rapport_Bascule_JK_CMOS.pdf"
+                        },
+                        {
+                            "label": "JK Flip-Flop CMOS Report — English Version (PDF)",
+                            "url": "assets/pdfs/Rapport_Bascule_JK_CMOS_EN.pdf"
+                        }
+                    ]
+                },
                 {
-                    "id": "architecture-mppt-4kw-stm32g474-esp32",
-                    "slug": "architecture-mppt-4kw-stm32g474-esp32",
-                    "title": "Convertisseur MPPT Buck Synchrone Triphasé Entrelacé de 4,4 kW (24 VDC / 180 A) : Entrelacement 120° & Architecture Dual-Brain STM32G474 + ESP32",
-                    "date": "2026-10-28",
-                    "readTime": "9 min",
+                    "id": 9,
+                    "title": "Modélisation & Commande d'une Machine Asynchrone Triphasée (Park abc/dq0, Gradateurs & Onduleur V/f)",
                     "category": "Électronique de Puissance",
                     "tags": [
-                        "STM32G474",
-                        "ESP32",
-                        "MPPT P&O Triphasé",
-                        "KiCad (PCB)",
-                        "MATLAB / Simulink",
-                        "Fortico"
+                        "MATLAB/Simulink",
+                        "Park (abc/dq0)",
+                        "Électronique de Puissance",
+                        "FFT / NumPy"
                     ],
-                    "coverImage": "assets/images/fortico/SchemaGlobalSimulink.png",
-                    "pdfUrl": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=architecture-mppt-4kw-stm32g474-esp32",
-                    "doi": "Note Technique R&D • Zenodo DOI",
-                    "video": "assets/videos/fortico_mppt_simulink.webm",
-                    "summary": "Dimensionnement et simulation Simulink (Fortico R&D) d'un étage de puissance 180 A sous 24 VDC atteignant 97,34 % de rendement grâce à 3 bras Buck synchrones déphasés de 120°, des drivers isolés UCC21520 et un couplage STM32G474 (HRTIM) + ESP32.",
-                    "content": "### 1. Le défi physique : convertir 4 400 W sur un bus batterie 24 VDC\n\nLorsqu'on dimensionne un régulateur solaire MPPT de **4,4 kW** pour un parc batterie en **24 VDC** (25,6 V nominal en LiFePO4 ou 28,8 V en absorption), la contrainte majeure est le **courant continu de sortie : 180 A**.\n\nSur une topologie Buck mono-phase conventionnelle :\n- Les pertes par conduction dans les MOSFETs (`Rds(on) * I²`) explosent quadratiquement avec le courant.\n- L'inductance unique devrait supporter 180 A DC sans saturer son noyau magnétique.\n- Les condensateurs de filtrage subiraient un courant d'ondulation efficace destructeur.\n\n### 2. Topologie retenue : Buck Synchrone Triphasé Entrelacé à 120°\n\nEn divisant la puissance en **3 cellules Buck synchrones parallèles** commandées avec un déphasage PWM de **120° (`0°`, `120°`, `240°`)** :\n- **Répartition thermique équilibrée** : chaque bras ne véhicule que **60 A**, divisant par 3 les pertes Joule globales.\n- **Annulation harmonique des courants d'ondulation** : la fréquence effective en sortie est triplée (`3 × 40 kHz = 120 kHz`) et l'ondulation résiduelle s'annule théoriquement aux rapports cycliques `D = 1/3` et `D = 2/3`.\n- **Redressement synchrone** : pilotage complémentaire avec *Dead-Time* via drivers isolés **UCC21520DW**.\n\n### 3. Architecture « Dual-Brain » : STM32G474RET6 + ESP32-WROOM-32E\n\n- **Cerveau Temps Réel Critique (STM32G474RET6)** : cadencé à 170 MHz avec timer haute résolution **HRTIM**, génération des 6 signaux PWM complémentaires déphasés de 120°, acquisition synchrone des capteurs à effet Hall **ACS758/ACS770** et boucle MPPT Perturb & Observe (200 Hz) avec profil de charge 4 étapes (*Bulk, Absorption, Float, Égalisation*).\n- **Cerveau Connectivité & IHM (ESP32-WROOM-32E)** : isolé par UART galvanique pour la supervision Wi-Fi, MQTT et ESP-NOW.\n\n### 4. Résultats validés sous MATLAB / Simulink\n\nLa co-simulation dynamique valide **4 388,5 W extraits sur 4 508,7 W disponibles (rendement 97,34 %)** et une ondulation de tension batterie inférieure à **0,15 V** en régime établi."
-                },
-                {
-                    "id": "markov-mrf-hmm-vs-cnn-unet-thermographie",
-                    "slug": "markov-mrf-hmm-vs-cnn-unet-thermographie",
-                    "title": "Modèles de Markov (MRF, HMM, HSMM) vs Deep Learning (DenseNet121, U-Net) pour la Maintenance Prédictive par Thermographie Infrarouge",
-                    "date": "2026-09-15",
-                    "readTime": "11 min",
-                    "category": "IA Industrielle & Markov",
-                    "tags": [
-                        "Modèles de Markov",
-                        "MRF / HMM / HSMM",
-                        "U-Net",
-                        "DenseNet121",
-                        "MobileNetV2",
-                        "FLIR C5"
-                    ],
-                    "coverImage": "assets/images/sat/05_comparaison_verite_terrain_vs_ia_unet.png",
-                    "pdfUrl": "assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=markov-mrf-hmm-vs-cnn-unet-thermographie",
-                    "doi": "Mémoire R&D PFA • Zenodo DOI",
+                    "description": "Simulation numérique complète (RK4) de la machine asynchrone dans les repères stator, rotor et synchrone, puis pilotage par gradateurs (angle de phase / train d'ondes) et onduleur MLI à loi V/f constante avec analyse THD.",
+                    "image": "assets/images/doc/mas/fig_tp1_comparaison_reperes.png",
                     "video": "",
-                    "summary": "Benchmark expérimental sur 488 thermogrammes FLIR C5 de moteurs asynchrones (Smart Automation Technologies) : 5 CNN directs (MobileNetV2 94 %), 20 hybrides (DenseNet121 + KNN/RF 98 %), segmentation MRF Potts/ICM vs U-Net (Dice 0,9851) et chaînes absorbantes.",
-                    "content": "### 1. Confronter puis hybrider Markov et les Réseaux Convolutifs (CNN)\n\nLa thermographie infrarouge (**FLIR C5**) permet de surveiller sans contact l'échauffement des roulements et du stator d'un moteur asynchrone. Pour un déploiement industriel sur nœuds **IoT Edge**, deux paradigmes se complètent :\n- **Le Deep Learning (CNN / U-Net)** : excelle pour extraire des textures thermiques complexes mais nécessite des masques annotés.\n- **Les Modèles Probabilistes de Markov (MRF, HMM, HSMM)** : fondés sur la physique statistique (Gibbs / Potts) et les processus stochastiques, ils apportent une interprétabilité mathématique directe et une capacité de pronostic temporel.\n\n### 2. Protocole expérimental : 488 thermogrammes sur 6 états de santé\n\n- **Classification directe (5 CNN)** : **MobileNetV2 atteint 94 % de précision** avec une empreinte mémoire idéale pour l'embarqué.\n- **Classification hybride (20 modèles)** : l'extraction profonde **DenseNet121 couplée à KNN / Random Forest culmine à 98 % de précision**.\n- **Segmentation spatiale** : **U-Net atteint un score Dice de 0,9851 (IoU = 0,9708)** tandis que le **Champ Aléatoire de Markov (MRF Potts optimisé par ICM)** segmente les noyaux chauds sans entraînement supervisé.\n- **Pronostic temporel** : modélisation par **HMM**, **HSMM** à durée explicite et **Chaînes de Markov Absorbantes** pour estimer la probabilité cumulée de premier passage vers la panne critique."
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/mas/fig_tp1_comparaison_reperes.png",
+                            "caption": "Comparaison dynamique de la MAS dans les repères stator, rotor et synchronisme"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp1_en_charge.png",
+                            "caption": "Réponse électromécanique en charge (vitesse, couple, courants statoriques)"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp1_decrochage.png",
+                            "caption": "Analyse du phénomène de décrochage sous couple résistant critique"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp2_onduleur_vf.png",
+                            "caption": "Commande scalaire V/f constante par onduleur de tension MLI"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp2_comparaison_gradateurs.png",
+                            "caption": "Comparaison gradateur à angle de phase vs train d'ondes et taux THD"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/induction-motor-control-park-inverter-matlab",
+                        "report": "assets/pdfs/Rapport_Commande_Machine_Asynchrone.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Complet Commande Machine Asynchrone (PDF)",
+                            "url": "assets/pdfs/Rapport_Commande_Machine_Asynchrone.pdf"
+                        },
+                        {
+                            "label": "Rapport Commande Machine Asynchrone — Version Anglaise (PDF)",
+                            "url": "assets/pdfs/Rapport_Commande_Machine_Asynchrone_EN.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nModélisation dynamique complète en MATLAB (intégration Runge-Kutta d'ordre 4) d'une machine asynchrone triphasée (MAS) dans les repères de Park (`stator`, `rotor`, `synchronisme`), étude du décrochage en charge, et comparaison des convertisseurs d'alimentation : gradateurs triphasés (angle de phase vs train d'ondes) et onduleur MLI à commande scalaire `V/f` constante avec calcul spectral FFT/THD."
                 },
                 {
-                    "id": "navigation-autonome-amr-ros2-humble-slam-nav2",
-                    "slug": "navigation-autonome-amr-ros2-humble-slam-nav2",
-                    "title": "Du Jumeau Numérique Gazebo au Déploiement Réel : Robot Mobile Autonome (AMR) sous ROS 2 Humble, Graph-SLAM (Ceres) & Nav2",
-                    "date": "2026-07-20",
-                    "readTime": "8 min",
+                    "id": 10,
+                    "title": "Auto-encodeurs Profonds (Vanilla AE, Sparse SAE, Denoising DAE & VAE) pour Détection d'Anomalies",
+                    "category": "Automatique & IA Embarquée",
+                    "tags": [
+                        "Python",
+                        "PyTorch / VAE",
+                        "Réseaux de Neurones (ANN / CNN)"
+                    ],
+                    "description": "Étude mathématique et expérimentale des architectures d'auto-encodeurs (AE, SAE, DAE, VAE) : régularisation de l'espace latent, débruitage de variété, génération probabiliste (ELBO) et détection non supervisée d'anomalies.",
+                    "image": "assets/images/doc/ae/comparaison_modeles.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/ae/comparaison_modeles.png",
+                            "caption": "Benchmark global des performances AE, SAE, DAE et VAE"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/espace_latent.png",
+                            "caption": "Projection 2D structurée de l'espace latent appris"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/anomalies_9_detectees2.png",
+                            "caption": "Détection non supervisée d'anomalies par seuil d'erreur de reconstruction"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/generations.png",
+                            "caption": "Échantillonnage génératif continu depuis la distribution latente du VAE"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/distribution_erreurs2.png",
+                            "caption": "Séparation des distributions d'erreurs (données saines vs anomalies)"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/VAE.png",
+                            "caption": "Architecture probabiliste du Variational Autoencoder (VAE)"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/deep-autoencoders-anomaly-detection-vae",
+                        "report": "assets/pdfs/Rapport_Autoencodeurs_IA.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Scientifique Auto-encodeurs & VAE (PDF)",
+                            "url": "assets/pdfs/Rapport_Autoencodeurs_IA.pdf"
+                        },
+                        {
+                            "label": "Rapport Auto-encodeurs & VAE — Version Anglaise (PDF)",
+                            "url": "assets/pdfs/Rapport_Autoencodeurs_IA_EN.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nAnalyse théorique et expérimentale des grandes familles d'auto-encodeurs profonds : **Vanilla AE**, **Sparse Autoencoder (SAE)** à contrainte de parcimonie KL/L1, **Denoising Autoencoder (DAE)** pour l'apprentissage robuste de variétés, et **Variational Autoencoder (VAE)** optimisé par la borne variationnelle ELBO pour la génération de données et la détection d'anomalies industrielles."
+                },
+                {
+                    "id": 11,
+                    "title": "Markov-Vision : Application Desktop Interactive de Segmentation MRF (Gibbs/Potts) & Synthèse de Texture",
+                    "category": "Automatique & IA Embarquée",
+                    "tags": [
+                        "Python",
+                        "Modèles de Markov",
+                        "MRF / HMM / HSMM"
+                    ],
+                    "description": "Application graphique Python multithreadée implémentant les Champs Aléatoires de Markov (modèle de Potts) et l'échantillonneur de Gibbs avec suivi temps réel de la convergence énergétique et synthèse de textures.",
+                    "image": "assets/images/doc/cover_markov_vision.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_markov_vision.png",
+                            "caption": "Rapport technique et architecture logicielle de Markov-Vision"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/markov-vision",
+                        "report": "assets/pdfs/Rapport_Markov_Vision.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Technique Markov-Vision (PDF)",
+                            "url": "assets/pdfs/Rapport_Markov_Vision.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nDéveloppement en Python d'une application interactive complète (**Markov-Vision**) exploitant les **Champs Aléatoires de Markov (MRF)** et **l'échantillonneur stochastique de Gibbs** pour la segmentation d'images en $K$ classes (cohésion spatiale $\\beta$ réglable en direct) et la synthèse de textures réalistes avec courbes de convergence d'énergie."
+                },
+                {
+                    "id": 12,
+                    "title": "Interface de Commutation de Puissance NMOS pour Relais Électromagnétiques — PCB KiCad & Layout MicroWind",
+                    "category": "Électronique de Puissance",
+                    "tags": [
+                        "KiCad (PCB)",
+                        "MicroWind",
+                        "Électronique de Puissance"
+                    ],
+                    "description": "Bureau d'études complet du niveau carte (optocoupleur, diode de roue libre, PCB KiCad & Gerbers) au niveau silicium (dimensionnement W/L du transistor NMOS en technologie ENSAT et layout physique MicroWind).",
+                    "image": "assets/images/doc/nmos/PCB.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/nmos/PCB.png",
+                            "caption": "Rendu PCB KiCad complet de l'interface de commutation NMOS"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/Microwind.png",
+                            "caption": "Layout physique silicium du transistor NMOS sous MicroWind"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/schema_kicad.png",
+                            "caption": "Schéma électrique isolé (optocoupleur, NMOS, relais & diode de roue libre)"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/ids_vds_on.png",
+                            "caption": "Caractérisation électrique Ids(Vds) en régime passant (ON)"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/vue_gerber_top.png",
+                            "caption": "Vue Gerber face supérieure validée sans erreur DRC"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/nmos-power-relay-driver-kicad-microwind",
+                        "report": "assets/pdfs/Rapport_Interface_NMOS_Relais.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Bureau d'Étude — Interface NMOS Relais (PDF)",
+                            "url": "assets/pdfs/Rapport_Interface_NMOS_Relais.pdf"
+                        },
+                        {
+                            "label": "Rapport Interface NMOS Relais — Version Anglaise (PDF)",
+                            "url": "assets/pdfs/Rapport_Interface_NMOS_Relais_EN.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nConception complète à double échelle d'un étage de commande de relais électromagnétique par transistor NMOS : (1) isolation galvanique par optocoupleur, protection contre les surtensions inductives par diode de roue libre et routage PCB validé DRC sous **KiCad** ; (2) dimensionnement géométrique $W/L$ et dessin des masques silicium sous **MicroWind** (Design Kit ENSAT)."
+                },
+                {
+                    "id": 13,
+                    "title": "Dimensionnement & Layout d'un Amplificateur Analogique CMOS Source Commune 200 MHz (MicroWind)",
+                    "category": "Systèmes Embarqués",
+                    "tags": [
+                        "MicroWind",
+                        "74HC CMOS",
+                        "Électronique de Puissance"
+                    ],
+                    "description": "Conception d'un amplificateur CMOS source commune à charge active PMOS montée en diode respectant le cahier des charges strict : Vdd = 5 V, P ≤ 10 mW, Gain G = 5, excursion ≥ 0,2 V et bande passante BW = 200 MHz.",
+                    "image": "assets/images/doc/cmos/MicroWindSchema.jpeg",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cmos/MicroWindSchema.jpeg",
+                            "caption": "Layout physique CMOS Source Commune + charge PMOS sous MicroWind"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/MicroWindResultat.jpeg",
+                            "caption": "Simulation transitoire post-layout confirmant le gain et l'excursion"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/Gain.png",
+                            "caption": "Réponse fréquentielle (Gain G = 5 et bande passante BW = 200 MHz)"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/Harmonic.png",
+                            "caption": "Analyse de distorsion harmonique totale (THD)"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/Noise.png",
+                            "caption": "Densité spectrale de bruit thermique et 1/f en sortie"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/cmos-common-source-amplifier-200mhz-microwind",
+                        "report": "assets/pdfs/Rapport_Amplificateur_CMOS_200MHz.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Complet Amplificateur CMOS 200 MHz (PDF)",
+                            "url": "assets/pdfs/Rapport_Amplificateur_CMOS_200MHz.pdf"
+                        },
+                        {
+                            "label": "Rapport Amplificateur CMOS 200 MHz — Version Anglaise (PDF)",
+                            "url": "assets/pdfs/Rapport_Amplificateur_CMOS_200MHz_EN.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nDimensionnement analytique et validation post-layout sous **MicroWind** d'un amplificateur intégré CMOS source commune à charge active PMOS en diode, validant simultanément une alimentation `5 V`, une consommation `< 10 mW`, un gain `Av = 5` et une bande passante haute fréquence de `200 MHz`."
+                },
+                {
+                    "id": 14,
+                    "title": "Commande d'un Robot Mobile Unicycle par Logique Floue sous MATLAB / Simulink",
                     "category": "Robotique & ROS 2",
                     "tags": [
-                        "ROS 2 Humble",
-                        "SLAM Toolbox",
-                        "Ceres Solver",
-                        "Nav2 (A* / DWB)",
-                        "Gazebo",
-                        "URDF/Xacro"
+                        "MATLAB/Simulink",
+                        "Logique Floue (FLC)",
+                        "Régulation PID"
                     ],
-                    "coverImage": "assets/images/ros2/workflow_amr_ros2.png",
-                    "pdfUrl": "assets/pdfs/Rapport_Projet_AMR_ROS2.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=navigation-autonome-amr-ros2-humble-slam-nav2",
-                    "doi": "Note Technique Robotique • Zenodo DOI",
-                    "video": "assets/videos/ros2_amr_navigation.webm",
-                    "summary": "Architecture complète d'un robot différentiel sous ROS 2 Humble : modélisation URDF/Xacro, synchronisation de l'arbre TF2, optimisation de graphe de poses Ceres Solver dans SLAM Toolbox et planification dynamique Nav2.",
-                    "content": "### 1. Jumeau numérique URDF/Xacro et cohérence TF2 sous ROS 2 Humble\n\nLa robustesse d'un robot mobile autonome repose sur la synchronisation déterministe de son arbre de repères **`TF2`** : `map -> odom -> base_footprint -> base_link -> laser_frame`.\n\nSous **Gazebo** et **RViz2**, le modèle **URDF/Xacro** intègre les tenseurs d'inertie du châssis différentiel, le scan **LiDAR 2D 360°** (`/scan`) et l'odométrie roue (`/odom`).\n\n### 2. Cartographie Graph-SLAM par SLAM Toolbox & Ceres Solver\n\nContrairement aux filtres particulaires sujets à la dérive angulaire dans les longs couloirs, **SLAM Toolbox** construit un **graphe de poses (Pose Graph)** et déclenche le solveur d'optimisation non linéaire **Ceres Solver** lors de chaque fermeture de boucle (*Loop Closure*).\n\n### 3. Planification Globale A* et Contrôle Local DWB sous Nav2\n\nLa stack **Nav2** associe la `global_costmap` (planificateur **NavFn / A***) à la `local_costmap` temps réel (contrôleur **DWB — Dynamic Window Approach**) pour éviter dynamiquement les obstacles."
+                    "description": "Modélisation cinématique non-holonome d'un robot mobile unicycle et synthèse de contrôleurs à Logique Floue (.fis) pour le suivi de trajectoire autonome sous MATLAB/Simulink avec vidéo de simulation.",
+                    "image": "assets/images/doc/unicycle/unicycle_sim_081445.png",
+                    "video": "assets/videos/unicycle_fuzzy_simulink.webm",
+                    "videos": [
+                        {
+                            "title": "Simulation MATLAB/Simulink — Suivi de Trajectoire du Robot Mobile Unicycle par Logique Floue",
+                            "url": "assets/videos/unicycle_fuzzy_simulink.webm"
+                        },
+                        {
+                            "title": "Simulation Complète Boucle Fermée — Convergence XY & Orientation du Robot Unicycle",
+                            "url": "assets/videos/unicycle_fuzzy_full_sim.webm"
+                        }
+                    ],
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/unicycle/unicycle_sim_081445.png",
+                            "caption": "Schéma Simulink en boucle fermée du robot mobile unicycle flou"
+                        },
+                        {
+                            "src": "assets/images/doc/unicycle/unicycle_sim_081556.png",
+                            "caption": "Trajectoire XY et convergence angulaire du robot mobile"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/unicycle-mobile-robot-fuzzy-simulink",
+                        "report": "assets/pdfs/Rapport_Robot_Mobile_Unicycle_Flou.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Commande Robot Mobile Unicycle Flou (PDF)",
+                            "url": "assets/pdfs/Rapport_Robot_Mobile_Unicycle_Flou.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nModélisation cinématique d'un robot mobile à roues de type unicycle soumis aux contraintes de non-holonomie et conception de contrôleurs à **Logique Floue de Mamdani** (`MobileRobot_3MF.fis`, `RobotStable11.fis`) assurant la convergence de position et d'orientation sous **MATLAB/Simulink**."
                 },
                 {
-                    "id": "acceleration-cmex-simulink-commande-floue-dsp-tms320c6713",
-                    "slug": "acceleration-cmex-simulink-commande-floue-dsp-tms320c6713",
-                    "title": "Accélération Simulink ×50 par S-Functions C-MEX & Commande Floue / GA-PID d'un Bras 2 DDL sur DSP TMS320C6713",
-                    "date": "2026-06-10",
-                    "readTime": "7 min",
-                    "category": "Automatique & DSP",
+                    "id": 15,
+                    "title": "Cinématique Directe/Inverse (FK/IK) & Génération de Trajectoire d'un Robot 2R sous Simscape Multibody",
+                    "category": "Robotique & ROS 2",
                     "tags": [
                         "MATLAB/Simulink",
-                        "S-Functions C-MEX",
-                        "DSP TMS320C6713",
-                        "Logique Floue (FLC)",
-                        "GA-PID"
+                        "Simscape Multibody",
+                        "Régulation PID"
                     ],
-                    "coverImage": "assets/images/capturesimulinkTotal.png",
-                    "pdfUrl": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=acceleration-cmex-simulink-commande-floue-dsp-tms320c6713",
-                    "doi": "Note Technique Automatique • Zenodo DOI",
+                    "description": "Modélisation mécanique 3D sous Simscape Multibody, résolution des modèles géométriques direct (MGD/FK) et inverse (MGI/IK) et planification de trajectoires articulaires et cartésiennes pour un robot manipulateur 2R.",
+                    "image": "assets/images/doc/cover_robot2r_simscape.png",
                     "video": "",
-                    "summary": "Comment contourner la lenteur des blocs flous interprétés sous Simulink en compilant la dynamique lagrangienne 2 DDL et l'inférence floue (49 règles) en C-MEX S-Function (×50) avant portage C++ sur DSP Texas Instruments TMS320C6713.",
-                    "content": "### 1. Le goulot d'étranglement de l'optimisation évolutionnaire sous Simulink\n\nOptimiser un correcteur PID par **Algorithme Génétique (GA-PID)** sur un bras manipulateur non linéaire à 2 DDL exige des centaines d'évaluations successives des équations couplées d'Euler-Lagrange (matrice d'inertie, Coriolis et gravité). L'interprétation standard des 49 règles du bloc flou ralentit fortement la convergence.\n\n### 2. Compilation C-MEX (×50) & portage direct sur DSP TMS320C6713\n\nEn réécrivant le modèle dynamique et le moteur d'inférence floue de Mamdani directement en **C ANSI au sein d'une S-Function compilée (`mex`)** :\n- Le temps de simulation est **divisé par 50**, rendant l'optimisation GA-PID quasi instantanée.\n- Le code C/C++ validé est porté directement sur l'architecture virgule flottante du **DSP Texas Instruments TMS320C6713**."
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_robot2r_simscape.png",
+                            "caption": "Rapport d'ingénierie Robot 2R — Modélisation FK/IK sous Simscape Multibody"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/robot-2r-fk-ik-trajectory-simscape",
+                        "report": "assets/pdfs/Rapport_Robot_2R_FK_IK_Simscape.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Complet Robot 2R FK/IK Simscape (PDF)",
+                            "url": "assets/pdfs/Rapport_Robot_2R_FK_IK_Simscape.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nConception complète d'un manipulateur industriel 2R sous **MATLAB/Simulink & Simscape Multibody** : modèle géométrique direct (`Robot2R_FK.slx`), résolution du modèle géométrique inverse (`robot2R_IK.slx`) et asservissement de trajectoire (`Robot2DOF.slx`, `Partie4.slx`)."
+                },
+                {
+                    "id": 16,
+                    "title": "Analyse Spectrale FFT & Détection Automatique des Défauts de Roulement Moteur en Python",
+                    "category": "Instrumentation & Signal",
+                    "tags": [
+                        "Python",
+                        "FFT / NumPy",
+                        "Tkinter"
+                    ],
+                    "description": "Application desktop Python/Tkinter de maintenance prédictive : génération de signaux vibratoires/statoriques bruités (SNR réglable), calcul des fréquences caractéristiques de roulement et détection spectrale FFT automatisée.",
+                    "image": "assets/images/doc/cover_bearing_python.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_bearing_python.png",
+                            "caption": "Rapport de diagnostic vibratoire et spectral des défauts de roulement"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/motor-bearing-fault-detection-python-fft",
+                        "report": "assets/pdfs/Rapport_Detection_Defauts_Roulement_Python.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Détection Défauts de Roulement Python (PDF)",
+                            "url": "assets/pdfs/Rapport_Detection_Defauts_Roulement_Python.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nOutil logiciel interactif développé en **Python (NumPy, Matplotlib, Tkinter)** pour le diagnostic précoce des défauts de roulements dans les moteurs électriques via la détection des raies latérales harmoniques dans le spectre FFT sous différents niveaux de rapport signal sur bruit (**SNR**)."
+                },
+                {
+                    "id": 17,
+                    "title": "Conception & Optimisation de Systèmes Numériques en VHDL sous Intel Quartus Prime",
+                    "category": "Systèmes Embarqués",
+                    "tags": [
+                        "VHDL",
+                        "Quartus Prime",
+                        "ModelSim"
+                    ],
+                    "description": "Synthèse RTL en VHDL, optimisation matérielle (surface logique, fréquence maximale et latence), conception d'automates synchrones et validation fonctionnelle/temporelle sous Intel Quartus Prime.",
+                    "image": "assets/images/doc/cover_vhdl_quartus.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_vhdl_quartus.png",
+                            "caption": "Rapport d'ingénierie VHDL & optimisation des performances sous Quartus"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/vhdl-digital-systems-quartus-optimization",
+                        "report": "assets/pdfs/Rapport_VHDL_Quartus_Performance.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Outils pour la Performance VHDL / Quartus (PDF)",
+                            "url": "assets/pdfs/Rapport_VHDL_Quartus_Performance.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nÉtude et implémentation d'architectures numériques synthétisables en **VHDL** sous **Intel Quartus Prime** : analyse des ressources FPGA, chemin critique, automates synchrones et simulation chronogramme."
+                },
+                {
+                    "id": 18,
+                    "title": "Pilotage Industriel, Planification PERT/Gantt & Suivi Budgétaire EVM sous MS Project",
+                    "category": "Gestion & Innovation",
+                    "tags": [
+                        "MS Project",
+                        "LaTeX"
+                    ],
+                    "description": "Gestion complète d'un projet d'ingénierie sous Microsoft Project : structuration WBS, chemin critique PERT/CPM, nivellement des ressources, analyse de trésorerie (cash-flow) et indicateurs de performance EVM.",
+                    "image": "assets/images/doc/msproject/gantt_barres.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/msproject/gantt_barres.png",
+                            "caption": "Diagramme de Gantt complet et jalons critiques sous MS Project"
+                        },
+                        {
+                            "src": "assets/images/doc/msproject/network_diagrame_global.png",
+                            "caption": "Réseau PERT global et identification du chemin critique"
+                        },
+                        {
+                            "src": "assets/images/doc/msproject/cashflow.png",
+                            "caption": "Courbe de flux de trésorerie (Cash-Flow) et coûts cumulés"
+                        },
+                        {
+                            "src": "assets/images/doc/msproject/performance1.png",
+                            "caption": "Indicateurs d'avancement et suivi mensuel Earned Value (EVM)"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/industrial-project-management-msproject-pert-gantt",
+                        "report": "assets/pdfs/Rapport_MSProject_Gestion.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Complet Pilotage MS Project (PDF)",
+                            "url": "assets/pdfs/Rapport_MSProject_Gestion.pdf"
+                        },
+                        {
+                            "label": "Rapport Pilotage MS Project — Version Anglaise (PDF)",
+                            "url": "assets/pdfs/Rapport_MSProject_Gestion_EN.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nPlanification et pilotage rigoureux d'un projet industriel sous **MS Project** : découpage WBS, estimation des durées, diagrammes Gantt & PERT, affectation/nivellement des ressources humaines et suivi budgétaire mensuel."
+                },
+                {
+                    "id": 19,
+                    "title": "Continuum Santé : Conception & Business Model d'une Plateforme E-Santé de Suivi Connecté",
+                    "category": "Gestion & Innovation",
+                    "tags": [
+                        "Business Model Canvas",
+                        "Android Studio"
+                    ],
+                    "description": "Conception produit, validation d'hypothèses terrain, Business Model Canvas et plan de financement d'une plateforme connectée assurant la continuité de suivi entre patients chroniques et médecins.",
+                    "image": "assets/images/doc/continuum/bmc_continuum.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/continuum/bmc_continuum.png",
+                            "caption": "Business Model Canvas V2 complet de Continuum Santé"
+                        },
+                        {
+                            "src": "assets/images/doc/continuum/Logo.jpeg",
+                            "caption": "Identité visuelle du projet e-Santé Continuum Santé"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/continuum-sante-connected-health-platform",
+                        "report": "assets/pdfs/Rapport_Continuum_Sante.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Rapport Complet Continuum Santé (PDF)",
+                            "url": "assets/pdfs/Rapport_Continuum_Sante.pdf"
+                        },
+                        {
+                            "label": "Business Model Canvas V2 (PDF)",
+                            "url": "assets/pdfs/Business_Model_Canvas_Continuum_Sante.pdf"
+                        },
+                        {
+                            "label": "Validation des Hypothèses Marché (PDF)",
+                            "url": "assets/pdfs/Hypotheses_Validation_Continuum_Sante.pdf"
+                        }
+                    ],
+                    "details": "### Résumé du Projet\nDémarche entrepreneuriale complète (de l'idéation au plan de financement) pour **Continuum Santé**, reliant patients sous traitement régulier et professionnels de santé via une application mobile connectée."
                 }
             ]
         },
@@ -1004,7 +1410,9 @@ var portfolioData = {
                     ],
                     "bullets": [
                         "Encadrement d'ateliers pratiques de robotique (<a href='https://www.arduino.cc/' target='_blank' rel='noopener' class='highlight-link'>Arduino</a>), électronique et algorithmique pour jeunes apprenants."
-                    ]
+                    ],
+                    "image": "assets/images/Steam_Academy.jpeg",
+                    "imageCaption": "Atelier pratique de robotique éducative & programmation — STEAM Academy Tanger"
                 },
                 {
                     "type": "pro",
@@ -1306,14 +1714,87 @@ var portfolioData = {
             "linkedin": "LinkedIn",
             "github": "Code Source GitHub",
             "report": "Télécharger le Rapport PDF"
-        }
+        },
+        "bibliography": [
+            {
+                "title": "Analog Integrated Circuit Design",
+                "author": "T. Chan Carusone, D. Johns & K. Martin (Wiley)",
+                "tag": "Microélectronique CMOS",
+                "url": "https://www.wiley.com/en-us/Analog+Integrated+Circuit+Design%2C+2nd+Edition-p-9780470770108"
+            },
+            {
+                "title": "Automatique — Systèmes linéaires, non linéaires & représentation d'état",
+                "author": "Yves Granjon (2e éd., Dunod)",
+                "tag": "Automatique",
+                "url": "https://www.dunod.com/"
+            },
+            {
+                "title": "Simulation de la variabilité du transistor MOS",
+                "author": "Pascal Lemoigne — Thèse IM2NP & STMicroelectronics",
+                "tag": "Physique MOS",
+                "url": "https://www.im2np.fr/"
+            },
+            {
+                "title": "Conception de contrôleurs intelligents par approche génétique",
+                "author": "Ouahib Guenounou — Thèse Univ. Paul Sabatier (HAL)",
+                "tag": "GA & Flou",
+                "url": "https://theses.hal.science/tel-00392473v1"
+            },
+            {
+                "title": "Optimisation of a Fuzzy Logic Controller Using Genetic Algorithms",
+                "author": "Joseph Foran (M.Eng. Report)",
+                "tag": "Logique Floue",
+                "url": "https://www.mathworks.com/products/fuzzy-logic.html"
+            },
+            {
+                "title": "On-line PID Controller Tuning using Genetic Algorithms",
+                "author": "Ian Griffin (M.Eng. Electronic Systems)",
+                "tag": "GA-PID",
+                "url": "https://www.mathworks.com/discovery/genetic-algorithm.html"
+            },
+            {
+                "title": "The PID Controller Design Using Genetic Algorithm",
+                "author": "Saifudin Bin Mohamed Ibrahim (USQ)",
+                "tag": "Commande PID",
+                "url": "https://www.mathworks.com/discovery/pid-control.html"
+            },
+            {
+                "title": "Power Electronics: Converters, Applications, and Design",
+                "author": "Ned Mohan, T. Undeland & W. Robbins (Wiley)",
+                "tag": "Électronique de Puissance",
+                "url": "https://www.wiley.com/"
+            },
+            {
+                "title": "Pattern Recognition and Machine Learning",
+                "author": "Christopher M. Bishop (Springer)",
+                "tag": "IA & Modèles de Markov",
+                "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/"
+            },
+            {
+                "title": "STM32G474 Reference Manual (RM0440 — HRTIM & Power Control)",
+                "author": "STMicroelectronics Official Documentation",
+                "tag": "Systèmes Embarqués",
+                "url": "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+            },
+            {
+                "title": "ROS 2 Humble & Nav2 Official Engineering Documentation",
+                "author": "Open Robotics / Nav2 Stack",
+                "tag": "Robotique Autonome",
+                "url": "https://navigation.ros.org/"
+            },
+            {
+                "title": "Smart Territory Development & Innovation Challenge (TDC 2026)",
+                "author": "Open Innovation & Agro-industrie durable",
+                "tag": "Innovation",
+                "url": "https://ensat.ac.ma/Portail/"
+            }
+        ]
     },
     "en": {
         "nav": {
             "about": "About",
             "skills": "Skills",
             "projects": "Projects",
-            "blog": "R&D Notes",
             "experience": "Experience",
             "cv": "Education",
             "certificates": "Certificates"
@@ -1324,12 +1805,15 @@ var portfolioData = {
             "contactCta": "Contact Me",
             "texCvLabel": "Resume LaTeX Source (.tex)",
             "viewCvLabel": "View Resume Online",
-            "openBlogPortal": "All R&D Notes (/blog)",
-            "rssLabel": "RSS Feed",
-            "readArticle": "Read technical note",
             "footerRole": "Embedded Systems, ROS 2 Robotics, Power Electronics & Industrial AI Engineer",
             "footerRights": "All rights reserved.",
-            "footerStudio": "Private Workspace"
+            "footerStudio": "Private Workspace",
+            "dossierBtn": "Complete Portfolio Dossier (Clickable PDF)",
+            "showMoreProjects": "Show all projects",
+            "showLessProjects": "Show fewer projects",
+            "showMoreExp": "Show all experiences",
+            "showLessExp": "Show fewer experiences",
+            "bibTitle": "Technical References & Engineering Bibliography"
         },
         "identity": {
             "name": "Tsikomia Scidelo ANDRIASAHY",
@@ -1351,16 +1835,15 @@ var portfolioData = {
                 "linkedin": "https://www.linkedin.com/in/scidelo",
                 "github": "https://github.com/scidelo-andriasahy",
                 "youtube": "https://www.youtube.com/@ScideloEngineering",
-                "rss": "feed.xml",
-                "zenodo": "https://zenodo.org/",
                 "portfolio": "https://scidelo-andriasahy.github.io",
                 "phone": "+212 777 647 362"
             },
-            "image": "assets/images/portrait_studio_dark.png"
+            "image": "assets/images/portrait_studio_dark.png",
+            "dossierPdf": "assets/pdfs/Dossier_Portfolio_Complet_ANDRIASAHY_EN.pdf"
         },
         "about": {
             "title": "Profile & PFE Engineering Objective",
-            "text": "Final-year State Engineering student in <a href='https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/' target='_blank' rel='noopener' class='highlight-link'>Electronic Systems & Automation (GSEA)</a> at <a href='https://ensat.ac.ma/Portail/' target='_blank' rel='noopener' class='highlight-link'>ENSA Tangier</a>, specializing at the intersection of embedded systems (<a href='https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html' target='_blank' rel='noopener' class='highlight-link'>STM32G474</a>, <a href='https://www.ti.com/product/TMS320C6713B' target='_blank' rel='noopener' class='highlight-link'>TI DSP TMS320C6713</a>, <a href='https://www.espressif.com/en/products/socs/esp32' target='_blank' rel='noopener' class='highlight-link'>ESP32</a>), power electronics (<a href='https://www.kicad.org/' target='_blank' rel='noopener' class='highlight-link'>KiCad</a>), autonomous robotics (<a href='https://docs.ros.org/en/humble/' target='_blank' rel='noopener' class='highlight-link'>ROS 2 Humble</a>, <a href='https://navigation.ros.org/' target='_blank' rel='noopener' class='highlight-link'>Nav2</a>), and industrial AI. Backed by two industrial R&D internships at <a href='https://sitewebfortico.vercel.app/fr' target='_blank' rel='noopener' class='highlight-link'>Fortico</a> (4.4 kW 3-phase interleaved MPPT at 97.34% efficiency, 230 VAC hybrid inverter, and 4 IoT PCBs) and <a href='https://www.linkedin.com/company/smart-automation-technologies/home/' target='_blank' rel='noopener' class='highlight-link'>Smart Automation Technologies</a> (thermal diagnostics benchmarking Markov MRF/HMM/HSMM vs. CNN/U-Net at 98%), I bridge rigorous hardware design with algorithmic modeling. <strong>Committed to Open Science (Open Science / Build in Public), I document all of my hardware architectures, simulations, and experimental results through timestamped technical notes (<a href='https://zenodo.org/' target='_blank' rel='noopener' class='highlight-link'>Zenodo DOI</a>) and video demonstrations.</strong>",
+            "text": "Final-year State Engineering student in <a href='https://ensat.ac.ma/Portail/genie-des-systemes-electroniques-et-automatiques-gsea/' target='_blank' rel='noopener' class='highlight-link'>Electronic Systems &amp; Automation (GSEA)</a> at <a href='https://ensat.ac.ma/Portail/' target='_blank' rel='noopener' class='highlight-link'>ENSA Tangier</a>, specializing at the intersection of embedded systems (<a href='https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html' target='_blank' rel='noopener' class='highlight-link'>STM32G474</a>, <a href='https://www.ti.com/product/TMS320C6713B' target='_blank' rel='noopener' class='highlight-link'>TI DSP TMS320C6713</a>, <a href='https://www.espressif.com/en/products/socs/esp32' target='_blank' rel='noopener' class='highlight-link'>ESP32</a>), power electronics &amp; IC design (<a href='https://www.kicad.org/' target='_blank' rel='noopener' class='highlight-link'>KiCad</a>, <a href='https://www.microwind.net/' target='_blank' rel='noopener' class='highlight-link'>MicroWind</a>), autonomous robotics (<a href='https://docs.ros.org/en/humble/' target='_blank' rel='noopener' class='highlight-link'>ROS 2 Humble</a>, <a href='https://navigation.ros.org/' target='_blank' rel='noopener' class='highlight-link'>Nav2</a>), instrumentation (<a href='https://www.ni.com/en/shop/labview.html' target='_blank' rel='noopener' class='highlight-link'>LabVIEW</a>), and industrial AI. Backed by two industrial R&amp;D internships at <a href='https://sitewebfortico.vercel.app/fr' target='_blank' rel='noopener' class='highlight-link'>Fortico</a> (4.4 kW 3-phase interleaved MPPT at 97.34% efficiency, 230 VAC hybrid inverter, and 4 IoT PCBs) and <a href='https://www.linkedin.com/company/smart-automation-technologies/home/' target='_blank' rel='noopener' class='highlight-link'>Smart Automation Technologies</a> (infrared predictive maintenance benchmarking Markov MRF/HMM/HSMM vs. CNN/U-Net at 98%), I bridge rigorous hardware engineering with advanced algorithmic modeling.",
             "pfeHighlight": "Available from mid-January 2027 for a 4-to-6-month Final-Year Engineering Internship (PFE) or pre-PhD R&D project. Full mobility across Morocco, France, and internationally.",
             "languages": [
                 {
@@ -1381,10 +1864,10 @@ var portfolioData = {
                 }
             ],
             "interests": [
-                "Open Science (Zenodo DOI)",
+                "Tech Watch & Microelectronics",
                 "Math Competitions (IYMC)",
                 "Chess",
-                "DIY Electronics & PCB",
+                "DIY Electronics & KiCad PCB",
                 "University Theater (FITUT)"
             ]
         },
@@ -1474,11 +1957,15 @@ var portfolioData = {
                     ],
                     "description": "Gazebo URDF/Xacro digital twin, asynchronous Graph-SLAM (Ceres Solver), and autonomous Nav2 obstacle avoidance validated with simulation videos and ROS 2 node graphs.",
                     "image": "assets/images/ros2/nav_rviz.png",
-                    "video": "assets/videos/ros2_amr_navigation.webm",
+                    "video": "assets/videos/ros2_amr_nav2_sim.webm",
                     "videos": [
                         {
                             "title": "Autonomous Nav2 Navigation, A*/DWB Path Planning & Obstacle Avoidance (RViz2 / Gazebo)",
-                            "url": "assets/videos/ros2_amr_navigation.webm"
+                            "url": "assets/videos/ros2_amr_nav2_sim.webm"
+                        },
+                        {
+                            "title": "3D Autonomous Mobile Robot Presentation (Gazebo / URDF)",
+                            "url": "assets/videos/ros2_amr_3d_presentation.webm"
                         },
                         {
                             "title": "Real-Time Teleoperation, 360° LiDAR Scanning & Graph-SLAM Mapping",
@@ -1524,7 +2011,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/ros2-amr-slam-nav2",
                         "report": "assets/pdfs/Rapport_Projet_AMR_ROS2.pdf"
                     },
                     "extraPdfs": [
@@ -1555,15 +2042,23 @@ var portfolioData = {
                     ],
                     "description": "Power stage sizing, multi-sheet KiCad schematics, and MATLAB/Simulink validation of a 4.4 kW 3-phase interleaved synchronous Buck MPPT (24 VDC / 180 A, 97.34% efficiency) and a 230 VAC pure sine wave HF hybrid inverter.",
                     "image": "assets/images/fortico/SchemaGlobalSimulink.png",
-                    "video": "assets/videos/fortico_mppt_simulink.webm",
+                    "video": "assets/videos/fortico_onduleur_hybride.webm",
                     "videos": [
                         {
-                            "title": "MATLAB/Simulink Demo — 4.4 kW 3-Phase Interleaved Synchronous Buck MPPT (120° Phase-Shift & P&O)",
-                            "url": "assets/videos/fortico_mppt_simulink.webm"
+                            "title": "MATLAB/Simulink Demo — Hybrid Inverter 24 VDC → 400 VDC → 230 VAC Pure Sine Wave 50 Hz",
+                            "url": "assets/videos/fortico_onduleur_hybride.webm"
                         },
                         {
-                            "title": "MATLAB/Simulink Demo — Hybrid Inverter 24 VDC → 400 VDC Bus → 230 VAC Pure Sine Wave 50 Hz",
-                            "url": "assets/videos/fortico_onduleur_hybride.webm"
+                            "title": "4.4 kW 3-Phase Interleaved MPPT Simulation — P&O Tracking & Phase Currents (Part 1)",
+                            "url": "assets/videos/fortico_mppt_sim1.webm"
+                        },
+                        {
+                            "title": "Dynamic MPPT Simulation — Irradiance Step & 24 V Battery Regulation (Part 2)",
+                            "url": "assets/videos/fortico_mppt_sim2.webm"
+                        },
+                        {
+                            "title": "Full Transient Co-Simulation — MPPT & Hybrid Inverter Stage (Part 3)",
+                            "url": "assets/videos/fortico_mppt_sim3.webm"
                         }
                     ],
                     "gallery": [
@@ -1618,10 +2113,14 @@ var portfolioData = {
                         "code": "// 200 Hz P&O MPPT Loop + 180 A Thermal Protection (120° interleaved phases on STM32G474 HRTIM)\nvoid MPPT_RunStep_200Hz(MPPT_Handle_t *h, float Vpv, float Ipv, float Vbat, float Ibat) {\n    float Ppv = Vpv * Ipv;\n    float dP = Ppv - h->Ppv_prev;\n    float dV = Vpv - h->Vpv_prev;\n\n    if (Vbat >= VBAT_ABSORPTION_28V8 || Ibat >= IBAT_MAX_180A) {\n        h->duty -= DUTY_STEP_FAST; // Immediate CV/CC derating & overcurrent limit\n    } else if (fabsf(dP) > MPPT_DP_DEADBAND) {\n        h->duty += ((dP > 0.0f && dV > 0.0f) || (dP < 0.0f && dV < 0.0f)) ? +DUTY_STEP : -DUTY_STEP;\n    }\n    h->duty = CLAMP(h->duty, 0.10f, 0.92f);\n    HRTIM_UpdateInterleavedPhases_120Deg(h->duty); // 0°, 120°, 240° @ 40 kHz (120 kHz eff.)\n    h->Ppv_prev = Ppv; h->Vpv_prev = Vpv;\n}"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/mppt-4kw-hybrid-inverter-fortico",
                         "report": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf"
                     },
                     "extraPdfs": [
+                        {
+                            "label": "4.4 kW MPPT Simulation Report — English (PDF)",
+                            "url": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico_EN.pdf"
+                        },
                         {
                             "label": "4.4 kW MPPT Simulation Report (PDF)",
                             "url": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf"
@@ -1717,7 +2216,7 @@ var portfolioData = {
                         "code": "def mrf_potts_icm_segmentation(thermal_roi, mu_k, sigma_k, beta=1.4, max_iter=12):\n    K = len(mu_k)\n    # Pixel-wise Gaussian Maximum Likelihood initialization\n    labels = np.argmin([(thermal_roi - mu_k[k])**2 / (2*sigma_k[k]**2) + np.log(sigma_k[k]) for k in range(K)], axis=0)\n    for _ in range(max_iter):\n        energies = np.zeros((K, *thermal_roi.shape))\n        for k in range(K):\n            u_data = (thermal_roi - mu_k[k])**2 / (2.0 * sigma_k[k]**2) + np.log(sigma_k[k])\n            u_potts = beta * count_different_neighbors_8conn(labels, k)\n            energies[k] = u_data + u_potts\n        labels = np.argmin(energies, axis=0)\n    return labels"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/PROJET_THERMIQUE_2",
                         "report": "assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf"
                     },
                     "extraPdfs": [
@@ -1779,12 +2278,20 @@ var portfolioData = {
                         "code": "%% --- 1. GA POPULATION INITIALIZATION ---\npar = Init(N, npar, range);\nfitness = zeros(N, 1);\ngeneration = 0; terminal = 0;\n\n%% --- 2. EVOLUTIONARY LOOP & SIMULINK EVALUATION (C-MEX 50x) ---\nwhile ~terminal\n    generation = generation + 1;\n    for i = 1:N\n        Kp1 = par(i,1); Ki1 = par(i,2); Kd1 = par(i,3);\n        Kp2 = par(i,4); Ki2 = par(i,5); Kd2 = par(i,6);\n        assignin('base', 'Kp1', Kp1); assignin('base', 'Ki1', Ki1); assignin('base', 'Kd1', Kd1);\n        assignin('base', 'Kp2', Kp2); assignin('base', 'Ki2', Ki2); assignin('base', 'Kd2', Kd2);\n        simOut = sim('GA_PID_2DOF_Sfunction', 'SrcWorkspace', 'current', 'StopTime', '40');\n    end\nend"
                     },
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
-                        "report": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
+                        "github": "https://github.com/scidelo-andriasahy/robot-2dof-fuzzy-gapid-dsp-tms320c6713",
+                        "report": "assets/pdfs/ROBOT2DOF_Scidelo_EN.pdf"
                     },
                     "extraPdfs": [
                         {
-                            "label": "Full Technical Report — 2-DOF Arm & DSP TMS320C6713 (PDF)",
+                            "label": "2-DOF Robotic Arm Fuzzy/GA-PID Control Report — English (PDF)",
+                            "url": "assets/pdfs/ROBOT2DOF_Scidelo_EN.pdf"
+                        },
+                        {
+                            "label": "IEEE Paper: 2-DOF Fuzzy Control & DSP TMS320C6713 — English (PDF)",
+                            "url": "assets/pdfs/DSP_TMS320C6713_2DOF_Fuzzy_Paper_EN.pdf"
+                        },
+                        {
+                            "label": "Complete 2-DOF Robotic Arm Control Report — French (PDF)",
                             "url": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf"
                         }
                     ],
@@ -1806,7 +2313,7 @@ var portfolioData = {
                     ],
                     "description": "End-to-end hardware design (KiCad schematics, 3D PCB routing, BOM) and firmware specs for 4 Fortico embedded boards: 74HC595 Industrial Counter, PID DRV8825 Incubator, 4G/GPS/RFID Fleet Box, and ESP-NOW/MQTT HMI.",
                     "image": "assets/images/fortico/pcb_smart_count_3d.jpg",
-                    "video": "",
+                    "video": "assets/videos/esp32_pcb_kicad_3d.webm",
                     "gallery": [
                         {
                             "src": "assets/images/fortico/pcb_smart_count_3d.jpg",
@@ -1838,7 +2345,7 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "github": "https://github.com/scidelo-andriasahy",
+                        "github": "https://github.com/scidelo-andriasahy/esp32-industrial-iot-pcb-kicad",
                         "report": "assets/pdfs/Schema_KiCad_Smart_Count_ESP32.pdf"
                     },
                     "extraPdfs": [
@@ -1867,7 +2374,13 @@ var portfolioData = {
                             "url": "assets/pdfs/Note_Cadrage_Boitier_IoT_Fortico.pdf"
                         }
                     ],
-                    "details": "\n### R&D Context (<a href=\"https://sitewebfortico.vercel.app/fr\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">Fortico</a>)\nFull **<a href=\"https://www.kicad.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">KiCad</a>** hardware engineering (ERC-verified schematics, PCB layout, 3D models) and firmware specifications around the **<a href=\"https://www.espressif.com/en/products/socs/esp32\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP32</a>** SoC across four industrial boards:\n- **SMART_COUNT Industrial Counter PCB**: Cascaded **<a href=\"https://www.ti.com/product/SN74HC595\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">74HC595</a>** shift registers driving 4 seven-segment displays, ultrasonic part detection, and MQTT reporting.\n- **Automated Smart Incubator**: MOSFET PID thermal regulation, DHT22 humidity control, NEMA 17 egg turning (**<a href=\"https://www.ti.com/product/DRV8825\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DRV8825</a>**), **<a href=\"https://www.analog.com/en/products/ds3231.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DS3231</a>** RTC, and seamless 12V/Battery failover.\n- **Multi-Module Fleet Telematics IoT Box**: **<a href=\"https://www.simcom.com/product/SIM7600X-H.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">SIM7600 4G LTE</a>** cellular modem, NEO-6M GPS, RFID driver authentication, offline microSD buffering, and security relay.\n- **Remote Operator HMI Terminal**: SSD1306 OLED display, rotary encoder, and bidirectional **<a href=\"https://www.espressif.com/en/solutions/low-power-solutions/esp-now\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP-NOW</a> / <a href=\"https://mqtt.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">MQTT</a>** link to the MPPT and hybrid inverter.\n        "
+                    "details": "\n### R&D Context (<a href=\"https://sitewebfortico.vercel.app/fr\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">Fortico</a>)\nFull **<a href=\"https://www.kicad.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">KiCad</a>** hardware engineering (ERC-verified schematics, PCB layout, 3D models) and firmware specifications around the **<a href=\"https://www.espressif.com/en/products/socs/esp32\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP32</a>** SoC across four industrial boards:\n- **SMART_COUNT Industrial Counter PCB**: Cascaded **<a href=\"https://www.ti.com/product/SN74HC595\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">74HC595</a>** shift registers driving 4 seven-segment displays, ultrasonic part detection, and MQTT reporting.\n- **Automated Smart Incubator**: MOSFET PID thermal regulation, DHT22 humidity control, NEMA 17 egg turning (**<a href=\"https://www.ti.com/product/DRV8825\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DRV8825</a>**), **<a href=\"https://www.analog.com/en/products/ds3231.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">DS3231</a>** RTC, and seamless 12V/Battery failover.\n- **Multi-Module Fleet Telematics IoT Box**: **<a href=\"https://www.simcom.com/product/SIM7600X-H.html\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">SIM7600 4G LTE</a>** cellular modem, NEO-6M GPS, RFID driver authentication, offline microSD buffering, and security relay.\n- **Remote Operator HMI Terminal**: SSD1306 OLED display, rotary encoder, and bidirectional **<a href=\"https://www.espressif.com/en/solutions/low-power-solutions/esp-now\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">ESP-NOW</a> / <a href=\"https://mqtt.org/\" target=\"_blank\" rel=\"noopener\" class=\"highlight-link\">MQTT</a>** link to the MPPT and hybrid inverter.\n        ",
+                    "videos": [
+                        {
+                            "title": "3D KiCad PCB Routing & Inspection Walkthrough — ESP32 Embedded Boards",
+                            "url": "assets/videos/esp32_pcb_kicad_3d.webm"
+                        }
+                    ]
                 },
                 {
                     "id": 6,
@@ -1900,7 +2413,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf"
+                        "report": "assets/pdfs/RAPPORT_LABVIEW.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/labview-virtual-oscilloscope-instrumentation"
                     },
                     "extraPdfs": [
                         {
@@ -1946,7 +2460,8 @@ var portfolioData = {
                         }
                     ],
                     "links": {
-                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf"
+                        "report": "assets/pdfs/RAPPORT_H24_THERMO.pdf",
+                        "github": "https://github.com/scidelo-andriasahy/pic16f877a-clock-thermometer-optimized"
                     },
                     "extraPdfs": [
                         {
@@ -1982,106 +2497,476 @@ var portfolioData = {
                             "caption": "Realistic high-speed simulation up to f_max = 10.5 MHz"
                         }
                     ],
-                    "links": {},
-                    "details": "\n### Project Summary\nComplete design of a synchronous JK flip-flop built from **74HC** CMOS gates (74HC74, 74HC08, 74HC32): Moore FSM synthesis (`D = J·Q' + K'·Q`), noise margin verification, maximum frequency estimation (**10.5 MHz**), and dynamic power calculation (**16 mW** at 10 MHz).\n        "
-                }
-            ]
-        },
-        "blog": {
-            "title": "R&D Technical Notes & Open Publications (Zenodo DOI)",
-            "subtitle": "Hardware architecture notes, simulation analyses, timestamped research preprints (Zenodo DOI), and video demonstrations from my engineering work.",
-            "filterAll": "All notes",
-            "items": [
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/jk-flipflop-cmos-74hc-synthesis",
+                        "report": "assets/pdfs/Rapport_Bascule_JK_CMOS_EN.pdf"
+                    },
+                    "details": "\n### Project Summary\nComplete design of a synchronous JK flip-flop built from **74HC** CMOS gates (74HC74, 74HC08, 74HC32): Moore FSM synthesis (`D = J·Q' + K'·Q`), noise margin verification, maximum frequency estimation (**10.5 MHz**), and dynamic power calculation (**16 mW** at 10 MHz).\n        ",
+                    "extraPdfs": [
+                        {
+                            "label": "Full Report — JK Flip-Flop Logic Synthesis & 74HC CMOS — English (PDF)",
+                            "url": "assets/pdfs/Rapport_Bascule_JK_CMOS_EN.pdf"
+                        },
+                        {
+                            "label": "Original Report — French (PDF)",
+                            "url": "assets/pdfs/Rapport_Bascule_JK_CMOS.pdf"
+                        }
+                    ]
+                },
                 {
-                    "id": "architecture-mppt-4kw-stm32g474-esp32",
-                    "slug": "architecture-mppt-4kw-stm32g474-esp32",
-                    "title": "4.4 kW 3-Phase Interleaved Synchronous Buck MPPT Converter (24 VDC / 180 A): 120° Phase-Shift & STM32G474 + ESP32 Dual-Brain Architecture",
-                    "date": "2026-10-28",
-                    "readTime": "9 min read",
+                    "id": 9,
+                    "title": "Three-Phase Induction Motor Modeling & Control (Park abc/dq0, AC Dimmers & V/f Inverter — MATLAB)",
                     "category": "Power Electronics",
                     "tags": [
-                        "STM32G474",
-                        "ESP32",
-                        "3-Phase MPPT P&O",
-                        "KiCad (PCB)",
                         "MATLAB/Simulink",
-                        "Fortico"
+                        "Park (abc/dq0)",
+                        "Power Electronics",
+                        "FFT / NumPy"
                     ],
-                    "coverImage": "assets/images/fortico/SchemaGlobalSimulink.png",
-                    "pdfUrl": "assets/pdfs/Rapport_Simulation_MPPT_4kW_Fortico.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=architecture-mppt-4kw-stm32g474-esp32",
-                    "doi": "R&D Technical Note • Zenodo DOI",
-                    "video": "assets/videos/fortico_mppt_simulink.webm",
-                    "summary": "Power stage sizing and Simulink validation (Fortico R&D) delivering 180 A DC on a 24 VDC battery bus at 97.34% efficiency using three 120° interleaved synchronous Buck phases, UCC21520 isolated drivers, and an STM32G474 (HRTIM) + ESP32 Dual-Brain architecture.",
-                    "content": "### 1. The Physical Challenge: Converting 4,400 W onto a 24 VDC Battery Bus\n\nWhen engineering a **4.4 kW** solar MPPT charge controller for a **24 VDC** battery bank (25.6 V nominal LiFePO4 / 28.8 V absorption), the primary bottleneck is not voltage but **continuous output current: 180 A DC**.\n\nIn a conventional single-phase Buck topology:\n- Conduction losses in MOSFETs (`Rds(on) * I²`) scale quadratically and become thermally prohibitive.\n- A single inductor carrying 180 A DC without magnetic core saturation becomes bulky and costly.\n- Output capacitors endure destructive RMS ripple current stress.\n\n### 2. Selected Topology: 3-Phase 120° Interleaved Synchronous Buck\n\nSplitting the power stage across **3 parallel synchronous Buck legs** driven with **120° PWM phase shifts (`0°`, `120°`, `240°`)** solves all three bottlenecks:\n- **Balanced thermal load**: each phase handles only **60 A**, cutting total conduction losses by a factor of 3.\n- **Harmonic ripple cancellation**: effective output ripple frequency triples (`3 × 40 kHz = 120 kHz`) and net ripple theoretically cancels out at duty cycles `D = 1/3` and `D = 2/3`.\n- **Synchronous rectification**: complementary high-side/low-side switching with hardware dead-time via isolated **UCC21520DW** gate drivers.\n\n### 3. « Dual-Brain » Firmware Architecture: STM32G474RET6 + ESP32-WROOM-32E\n\n- **Hard Real-Time Control Brain (STM32G474RET6)**: running at 170 MHz with the high-resolution timer (**HRTIM**), it generates the 6 complementary 120°-shifted PWM channels, samples **ACS758/ACS770** Hall-effect current sensors synchronously, and runs the 200 Hz Perturb & Observe MPPT loop + 4-stage battery charging state machine (*Bulk, Absorption, Float, Equalization*).\n- **Connectivity & HMI Brain (ESP32-WROOM-32E)**: coupled via galvanically isolated UART to manage Wi-Fi, MQTT, and ESP-NOW telemetry without introducing interrupt jitter to the power stage.\n\n### 4. MATLAB / Simulink Validation Results\n\nDynamic co-simulation confirms **4,388.5 W extracted out of 4,508.7 W available (97.34% conversion efficiency)** with steady-state battery bus voltage ripple kept below **0.15 V**."
-                },
-                {
-                    "id": "markov-mrf-hmm-vs-cnn-unet-thermographie",
-                    "slug": "markov-mrf-hmm-vs-cnn-unet-thermographie",
-                    "title": "Markov Models (MRF, HMM, HSMM) vs. Deep Learning (DenseNet121, U-Net) for Infrared Thermal Predictive Maintenance",
-                    "date": "2026-09-15",
-                    "readTime": "11 min read",
-                    "category": "Industrial AI & Markov",
-                    "tags": [
-                        "Markov Models",
-                        "MRF / HMM / HSMM",
-                        "U-Net",
-                        "DenseNet121",
-                        "MobileNetV2",
-                        "FLIR C5"
-                    ],
-                    "coverImage": "assets/images/sat/05_comparaison_verite_terrain_vs_ia_unet.png",
-                    "pdfUrl": "assets/pdfs/Rapport_PFA_Diagnostic_Thermique_IA_SAT.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=markov-mrf-hmm-vs-cnn-unet-thermographie",
-                    "doi": "PFA Research Dissertation • Zenodo DOI",
+                    "description": "Full RK4 numerical simulation of a squirrel-cage induction machine across stator, rotor, and synchronous Park frames, plus phase-angle / wave-train AC dimmers and constant-flux V/f PWM inverter drives with THD FFT analysis.",
+                    "image": "assets/images/doc/mas/fig_tp1_comparaison_reperes.png",
                     "video": "",
-                    "summary": "Experimental benchmark across 488 FLIR C5 induction-motor thermograms (Smart Automation Technologies): 5 direct CNNs (MobileNetV2 94%), 20 hybrid models (DenseNet121 + KNN/RF 98%), MRF Potts/ICM vs. U-Net segmentation (Dice 0.9851), and absorbing Markov risk chains.",
-                    "content": "### 1. Comparing and Combining Markov Models with Convolutional Neural Networks\n\nInfrared thermography (**FLIR C5**) enables non-contact monitoring of bearing and stator overheating on industrial induction motors. For **Edge IoT** deployment, two complementary paradigms stand out:\n- **Deep Learning (CNN / U-Net)**: excels at extracting hierarchical spatial representations, though requiring labeled training masks.\n- **Probabilistic Markov Models (MRF, HMM, HSMM)**: grounded in statistical physics (Gibbs/Potts energy) and stochastic degradation theory, offering full mathematical interpretability and temporal failure forecasting.\n\n### 2. Experimental Protocol: 488 Thermograms across 6 Health/Load States\n\n- **Direct Classification (5 CNNs)**: **MobileNetV2 reaches 94% accuracy** with an ideal lightweight footprint for embedded Edge gateways.\n- **Hybrid Classification (20 Pipelines)**: deep feature extraction via **DenseNet121 paired with KNN / Random Forest achieves 98% overall accuracy**.\n- **Spatial Hotspot Segmentation**: **U-Net achieves a Dice score of 0.9851 (IoU = 0.9708)**, while the unsupervised **Markov Random Field (MRF Potts optimized via ICM)** accurately isolates critical thermal cores without supervised masks.\n- **Temporal Prognostics**: **Hidden Markov Models (HMM)**, **Hidden Semi-Markov Models (HSMM)** with explicit sojourn durations, and **Absorbing Markov Chains** compute cumulative first-passage failure probabilities."
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/mas/fig_tp1_comparaison_reperes.png",
+                            "caption": "Induction motor transient comparison across stator, rotor & synchronous Park frames"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp1_en_charge.png",
+                            "caption": "Electromechanical load-step response (speed, torque, stator currents)"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp1_decrochage.png",
+                            "caption": "Pull-out torque stall analysis under critical overload"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp2_onduleur_vf.png",
+                            "caption": "Constant V/f scalar speed control via three-phase PWM voltage inverter"
+                        },
+                        {
+                            "src": "assets/images/doc/mas/fig_tp2_comparaison_gradateurs.png",
+                            "caption": "Phase-angle vs. burst-firing AC dimmers and harmonic THD benchmark"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/induction-motor-control-park-inverter-matlab",
+                        "report": "assets/pdfs/Rapport_Commande_Machine_Asynchrone_EN.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Full Induction Motor Control Report — English (PDF)",
+                            "url": "assets/pdfs/Rapport_Commande_Machine_Asynchrone_EN.pdf"
+                        },
+                        {
+                            "label": "Original Report — French (PDF)",
+                            "url": "assets/pdfs/Rapport_Commande_Machine_Asynchrone.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nFull numerical modeling (4th-order Runge-Kutta in MATLAB) of a three-phase induction machine across Park frames (`stator`, `rotor`, `synchronous`), stall torque characterization, and power-converter drive comparison (phase-angle / wave-train dimmers vs. PWM `V/f` inverter with FFT/THD analysis)."
                 },
                 {
-                    "id": "navigation-autonome-amr-ros2-humble-slam-nav2",
-                    "slug": "navigation-autonome-amr-ros2-humble-slam-nav2",
-                    "title": "From Gazebo Digital Twin to Real Deployment: Autonomous Mobile Robot (AMR) with ROS 2 Humble, Graph-SLAM (Ceres) & Nav2",
-                    "date": "2026-07-20",
-                    "readTime": "8 min read",
+                    "id": 10,
+                    "title": "Deep Autoencoders (Vanilla AE, Sparse SAE, Denoising DAE & VAE) for Anomaly Detection",
+                    "category": "Control & Embedded AI",
+                    "tags": [
+                        "Python",
+                        "PyTorch / VAE",
+                        "Neural Networks (ANN / CNN)"
+                    ],
+                    "description": "Mathematical and experimental study of deep autoencoder architectures (AE, SAE, DAE, VAE): latent manifold regularization, denoising reconstruction, variational generation (ELBO), and unsupervised anomaly detection.",
+                    "image": "assets/images/doc/ae/comparaison_modeles.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/ae/comparaison_modeles.png",
+                            "caption": "Comprehensive benchmark comparing Vanilla AE, SAE, DAE, and VAE"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/espace_latent.png",
+                            "caption": "Structured 2D latent space projection learned by the encoder"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/anomalies_9_detectees2.png",
+                            "caption": "Unsupervised anomaly detection via reconstruction-error thresholding"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/generations.png",
+                            "caption": "Continuous generative sampling from the VAE latent distribution"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/distribution_erreurs2.png",
+                            "caption": "Error distribution separation between nominal data and anomalies"
+                        },
+                        {
+                            "src": "assets/images/doc/ae/VAE.png",
+                            "caption": "Probabilistic Variational Autoencoder (VAE) architecture"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/deep-autoencoders-anomaly-detection-vae",
+                        "report": "assets/pdfs/Rapport_Autoencodeurs_IA_EN.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Deep Autoencoders & VAE Research Report — English (PDF)",
+                            "url": "assets/pdfs/Rapport_Autoencodeurs_IA_EN.pdf"
+                        },
+                        {
+                            "label": "Original Report — French (PDF)",
+                            "url": "assets/pdfs/Rapport_Autoencodeurs_IA.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nTheoretical and empirical comparison of **Vanilla Autoencoders**, **Sparse Autoencoders (SAE)** with KL/L1 sparsity penalties, **Denoising Autoencoders (DAE)** for robust manifold learning, and **Variational Autoencoders (VAE)** optimized via ELBO for generative modeling and unsupervised industrial anomaly detection."
+                },
+                {
+                    "id": 11,
+                    "title": "Markov-Vision: Interactive Python Desktop App for MRF Segmentation (Gibbs/Potts) & Texture Synthesis",
+                    "category": "Control & Embedded AI",
+                    "tags": [
+                        "Python",
+                        "Markov Models",
+                        "MRF / HMM / HSMM"
+                    ],
+                    "description": "Multithreaded Python desktop application implementing Markov Random Fields (Potts model) and stochastic Gibbs sampling with real-time global energy convergence curves and realistic texture synthesis.",
+                    "image": "assets/images/doc/cover_markov_vision.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_markov_vision.png",
+                            "caption": "Markov-Vision technical report and software architecture"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/markov-vision",
+                        "report": "assets/pdfs/Rapport_Markov_Vision.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Markov-Vision Technical Report (PDF)",
+                            "url": "assets/pdfs/Rapport_Markov_Vision.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nInteractive Python GUI application (**Markov-Vision**) leveraging **Markov Random Fields (MRF)** and **Gibbs sampling** for real-time K-class image segmentation (adjustable spatial cohesion parameter $\\beta$) and texture synthesis with live energy-convergence plots."
+                },
+                {
+                    "id": 12,
+                    "title": "NMOS Power Switching Driver for Electromagnetic Relays — KiCad PCB & MicroWind IC Layout",
+                    "category": "Power Electronics",
+                    "tags": [
+                        "KiCad (PCB)",
+                        "MicroWind",
+                        "Power Electronics"
+                    ],
+                    "description": "Dual-scale hardware engineering from board level (opto-isolation, flyback diode, DRC-clean KiCad PCB & Gerbers) down to silicon level (custom NMOS W/L sizing in ENSAT Design Kit & MicroWind layout).",
+                    "image": "assets/images/doc/nmos/PCB.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/nmos/PCB.png",
+                            "caption": "Complete KiCad PCB render of the isolated NMOS relay driver"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/Microwind.png",
+                            "caption": "Silicon-level NMOS physical mask layout in MicroWind"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/schema_kicad.png",
+                            "caption": "Opto-isolated schematic (optocoupler, NMOS, relay & flyback protection)"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/ids_vds_on.png",
+                            "caption": "Electrical Ids(Vds) switching characterization in ON state"
+                        },
+                        {
+                            "src": "assets/images/doc/nmos/vue_gerber_top.png",
+                            "caption": "DRC-verified top copper Gerber layout"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/nmos-power-relay-driver-kicad-microwind",
+                        "report": "assets/pdfs/Rapport_Interface_NMOS_Relais_EN.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "NMOS Power Relay Driver Design Report — English (PDF)",
+                            "url": "assets/pdfs/Rapport_Interface_NMOS_Relais_EN.pdf"
+                        },
+                        {
+                            "label": "Original Report — French (PDF)",
+                            "url": "assets/pdfs/Rapport_Interface_NMOS_Relais.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nEnd-to-end power interface design driving electromagnetic relays via an NMOS stage: (1) galvanic optocoupler isolation, inductive kickback protection via freewheeling diode, and DRC-clean **KiCad** PCB routing; (2) custom NMOS `W/L` sizing and silicon mask layout in **MicroWind** (ENSAT Design Kit)."
+                },
+                {
+                    "id": 13,
+                    "title": "200 MHz CMOS Common-Source Analog Amplifier — Sizing & MicroWind Post-Layout Verification",
+                    "category": "Embedded Systems",
+                    "tags": [
+                        "MicroWind",
+                        "74HC CMOS",
+                        "Power Electronics"
+                    ],
+                    "description": "Full analog IC design of a diode-connected PMOS-loaded CMOS common-source amplifier meeting strict targets: Vdd = 5 V, P ≤ 10 mW, Gain Av = 5, output swing ≥ 0.2 V, and 200 MHz bandwidth.",
+                    "image": "assets/images/doc/cmos/MicroWindSchema.jpeg",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cmos/MicroWindSchema.jpeg",
+                            "caption": "CMOS common-source amplifier physical layout in MicroWind"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/MicroWindResultat.jpeg",
+                            "caption": "Post-layout transient simulation validating gain and output swing"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/Gain.png",
+                            "caption": "AC frequency response confirming Gain = 5 and BW = 200 MHz"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/Harmonic.png",
+                            "caption": "Total Harmonic Distortion (THD) spectral analysis"
+                        },
+                        {
+                            "src": "assets/images/doc/cmos/Noise.png",
+                            "caption": "Output thermal and 1/f noise spectral density"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/cmos-common-source-amplifier-200mhz-microwind",
+                        "report": "assets/pdfs/Rapport_Amplificateur_CMOS_200MHz_EN.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "200 MHz CMOS Amplifier Design Report — English (PDF)",
+                            "url": "assets/pdfs/Rapport_Amplificateur_CMOS_200MHz_EN.pdf"
+                        },
+                        {
+                            "label": "Original Report — French (PDF)",
+                            "url": "assets/pdfs/Rapport_Amplificateur_CMOS_200MHz.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nAnalytical transistor sizing and post-layout verification in **MicroWind** of a diode-loaded CMOS common-source amplifier achieving `Vdd = 5 V`, `P <= 10 mW`, `Av = 5`, and `200 MHz` bandwidth."
+                },
+                {
+                    "id": 14,
+                    "title": "Unicycle Mobile Robot Trajectory Tracking via Fuzzy Logic Control (MATLAB / Simulink)",
                     "category": "Robotics & ROS 2",
                     "tags": [
-                        "ROS 2 Humble",
-                        "SLAM Toolbox",
-                        "Ceres Solver",
-                        "Nav2 (A* / DWB)",
-                        "Gazebo",
-                        "URDF/Xacro"
+                        "MATLAB/Simulink",
+                        "Fuzzy Logic (FLC)",
+                        "PID Control"
                     ],
-                    "coverImage": "assets/images/ros2/workflow_amr_ros2.png",
-                    "pdfUrl": "assets/pdfs/Rapport_Projet_AMR_ROS2.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=navigation-autonome-amr-ros2-humble-slam-nav2",
-                    "doi": "Robotics Technical Note • Zenodo DOI",
-                    "video": "assets/videos/ros2_amr_navigation.webm",
-                    "summary": "Complete differential-drive AMR stack under ROS 2 Humble: URDF/Xacro physical modeling, drift-free TF2 transform tree, nonlinear Pose-Graph optimization via Ceres Solver in SLAM Toolbox, and multi-layer 2D Costmap navigation in Nav2.",
-                    "content": "### 1. URDF/Xacro Digital Twin & Deterministic TF2 Synchronization in ROS 2 Humble\n\nReliable autonomous mobile navigation depends on strict geometric and temporal coherence across the **`TF2`** transform tree: `map -> odom -> base_footprint -> base_link -> laser_frame`.\n\nInside **Gazebo** and **RViz2**, our modular **URDF/Xacro** model defines chassis inertia tensors, differential wheel kinematics (`/odom`), and a 360° 2D LiDAR sensor (`/scan`).\n\n### 2. Asynchronous Graph-SLAM with SLAM Toolbox & Ceres Solver\n\nUnlike particle filters that suffer from angular drift in long corridors, **SLAM Toolbox** constructs a **Pose Graph** and invokes the nonlinear least-squares **Ceres Solver** upon every **Loop Closure**, globally correcting accumulated odometry error.\n\n### 3. Global A* Planning & Local DWB Control in Nav2\n\nThe **Nav2** navigation stack couples a `global_costmap` (**NavFn / A*** global path planner) with a real-time `local_costmap` (**DWB — Dynamic Window Approach** controller) to synthesize smooth `/cmd_vel` commands while dynamically avoiding obstacles."
+                    "description": "Non-holonomic unicycle kinematics modeling and Mamdani Fuzzy Inference System (.fis) trajectory tracking controller in MATLAB/Simulink with silent simulation demo video.",
+                    "image": "assets/images/doc/unicycle/unicycle_sim_081445.png",
+                    "video": "assets/videos/unicycle_fuzzy_simulink.webm",
+                    "videos": [
+                        {
+                            "title": "MATLAB/Simulink Demo — Fuzzy Logic Trajectory Tracking for Unicycle Mobile Robot",
+                            "url": "assets/videos/unicycle_fuzzy_simulink.webm"
+                        },
+                        {
+                            "title": "Extended Closed-Loop Simulation — Unicycle XY Convergence & Heading Control",
+                            "url": "assets/videos/unicycle_fuzzy_full_sim.webm"
+                        }
+                    ],
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/unicycle/unicycle_sim_081445.png",
+                            "caption": "Closed-loop Simulink block diagram of the fuzzy unicycle controller"
+                        },
+                        {
+                            "src": "assets/images/doc/unicycle/unicycle_sim_081556.png",
+                            "caption": "XY trajectory convergence and heading angle tracking"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/unicycle-mobile-robot-fuzzy-simulink",
+                        "report": "assets/pdfs/Rapport_Robot_Mobile_Unicycle_Flou.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Unicycle Fuzzy Logic Control Report (PDF)",
+                            "url": "assets/pdfs/Rapport_Robot_Mobile_Unicycle_Flou.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nKinematic modeling of a non-holonomic unicycle mobile robot and synthesis of Mamdani **Fuzzy Logic Controllers** (`MobileRobot_3MF.fis`, `RobotStable11.fis`) achieving smooth position and orientation tracking in **MATLAB/Simulink**."
                 },
                 {
-                    "id": "acceleration-cmex-simulink-commande-floue-dsp-tms320c6713",
-                    "slug": "acceleration-cmex-simulink-commande-floue-dsp-tms320c6713",
-                    "title": "50× Simulink Acceleration via C-MEX S-Functions & Fuzzy Logic / GA-PID Deployment on TI DSP TMS320C6713",
-                    "date": "2026-06-10",
-                    "readTime": "7 min read",
-                    "category": "Control Theory & DSP",
+                    "id": 15,
+                    "title": "2R Robotic Manipulator Forward/Inverse Kinematics (FK/IK) & Trajectory Planning (Simscape Multibody)",
+                    "category": "Robotics & ROS 2",
                     "tags": [
                         "MATLAB/Simulink",
-                        "C-MEX S-Functions",
-                        "DSP TMS320C6713",
-                        "Fuzzy Logic (FLC)",
-                        "GA-PID"
+                        "Simscape Multibody",
+                        "PID Control"
                     ],
-                    "coverImage": "assets/images/capturesimulinkTotal.png",
-                    "pdfUrl": "assets/pdfs/ROBOT2DOF_Scidelo_FR.pdf",
-                    "canonicalUrl": "https://scidelo-andriasahy.github.io/blog/?post=acceleration-cmex-simulink-commande-floue-dsp-tms320c6713",
-                    "doi": "Control & DSP Technical Note • Zenodo DOI",
+                    "description": "3D mechanical modeling in Simscape Multibody, analytical Forward/Inverse Kinematics (FK/IK), and smooth joint/Cartesian trajectory generation for a 2R industrial manipulator.",
+                    "image": "assets/images/doc/cover_robot2r_simscape.png",
                     "video": "",
-                    "summary": "Eliminating interpreted fuzzy-block bottlenecks in Simulink by compiling 2-DOF Lagrangian dynamics and a 49-rule Mamdani controller into a C-MEX S-Function (50× speedup) before C++ deployment on the Texas Instruments TMS320C6713 DSP.",
-                    "content": "### 1. Breaking the Interpreted Bottleneck in Evolutionary Control Optimization\n\nTuning a **Genetic Algorithm PID (GA-PID)** controller on a coupled nonlinear 2-DOF robotic manipulator requires hundreds of consecutive evaluations of the Euler-Lagrange equations (inertia matrix, Coriolis/centrifugal torques, and gravity). Evaluating a 49-rule Mamdani Fuzzy Logic block in interpreted Simulink slows optimization severely.\n\n### 2. Compiled C-MEX S-Function (50× Speedup) & TI DSP TMS320C6713 Deployment\n\nBy rewriting both the nonlinear plant dynamics and the 49-rule fuzzy inference engine in **compiled ANSI C as a C-MEX S-Function (`mex`)**:\n- Simulation runtime is **accelerated 50×**, enabling rapid convergence of the GA-PID ISE/ITAE cost function.\n- The validated C/C++ control law transfers cleanly onto the floating-point **Texas Instruments DSP TMS320C6713** target board."
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_robot2r_simscape.png",
+                            "caption": "2R Manipulator Engineering Report — FK/IK in Simscape Multibody"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/robot-2r-fk-ik-trajectory-simscape",
+                        "report": "assets/pdfs/Rapport_Robot_2R_FK_IK_Simscape.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "2R Robot FK/IK Simscape Report (PDF)",
+                            "url": "assets/pdfs/Rapport_Robot_2R_FK_IK_Simscape.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nComplete 3D multibody modeling of a 2R planar manipulator in **MATLAB/Simulink & Simscape Multibody**: Forward Kinematics (`Robot2R_FK.slx`), Inverse Kinematics (`robot2R_IK.slx`), and closed-loop trajectory control (`Robot2DOF.slx`, `Partie4.slx`)."
+                },
+                {
+                    "id": 16,
+                    "title": "FFT Spectral Analysis & Automated Electric Motor Bearing Fault Detection in Python",
+                    "category": "Instrumentation & Signal",
+                    "tags": [
+                        "Python",
+                        "FFT / NumPy",
+                        "Tkinter"
+                    ],
+                    "description": "Interactive Python/Tkinter predictive maintenance tool generating noisy stator/vibration signals (configurable SNR), computing bearing defect sideband harmonics, and automating FFT fault detection.",
+                    "image": "assets/images/doc/cover_bearing_python.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_bearing_python.png",
+                            "caption": "Spectral FFT bearing fault diagnosis engineering report"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/motor-bearing-fault-detection-python-fft",
+                        "report": "assets/pdfs/Rapport_Detection_Defauts_Roulement_Python.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Python Bearing Fault Detection Report (PDF)",
+                            "url": "assets/pdfs/Rapport_Detection_Defauts_Roulement_Python.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nInteractive desktop application built with **Python (NumPy, Matplotlib, Tkinter)** for early detection of electric motor bearing defects using characteristic sideband frequencies in noisy FFT spectra under varying **SNR** levels."
+                },
+                {
+                    "id": 17,
+                    "title": "Digital System Design & Hardware Performance Optimization in VHDL (Intel Quartus Prime)",
+                    "category": "Embedded Systems",
+                    "tags": [
+                        "VHDL",
+                        "Quartus Prime",
+                        "ModelSim"
+                    ],
+                    "description": "RTL synthesis in VHDL, FPGA logic-area and critical-path timing optimization, synchronous finite-state machines, and post-fit timing verification in Intel Quartus Prime.",
+                    "image": "assets/images/doc/cover_vhdl_quartus.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/cover_vhdl_quartus.png",
+                            "caption": "VHDL digital performance optimization report in Quartus Prime"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/vhdl-digital-systems-quartus-optimization",
+                        "report": "assets/pdfs/Rapport_VHDL_Quartus_Performance.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "VHDL / Quartus Performance Report (PDF)",
+                            "url": "assets/pdfs/Rapport_VHDL_Quartus_Performance.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nDesign and RTL optimization of synthesizable digital circuits in **VHDL** under **Intel Quartus Prime**: FPGA logic utilization analysis, timing closure, synchronous FSMs, and waveform verification."
+                },
+                {
+                    "id": 18,
+                    "title": "Industrial Engineering Project Management — PERT/Gantt, Resource Leveling & EVM (MS Project)",
+                    "category": "Management & Innovation",
+                    "tags": [
+                        "MS Project",
+                        "LaTeX"
+                    ],
+                    "description": "End-to-end industrial scheduling in Microsoft Project: Work Breakdown Structure (WBS), PERT/CPM critical path analysis, resource allocation, cash-flow forecasting, and Earned Value Management (EVM) tracking.",
+                    "image": "assets/images/doc/msproject/gantt_barres.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/msproject/gantt_barres.png",
+                            "caption": "Full Gantt schedule and critical milestones in MS Project"
+                        },
+                        {
+                            "src": "assets/images/doc/msproject/network_diagrame_global.png",
+                            "caption": "Global PERT/CPM network diagram highlighting the critical path"
+                        },
+                        {
+                            "src": "assets/images/doc/msproject/cashflow.png",
+                            "caption": "Cumulative project cash-flow and budget curve"
+                        },
+                        {
+                            "src": "assets/images/doc/msproject/performance1.png",
+                            "caption": "Monthly Earned Value Management (EVM) tracking metrics"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/industrial-project-management-msproject-pert-gantt",
+                        "report": "assets/pdfs/Rapport_MSProject_Gestion_EN.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "MS Project Engineering Management Report — English (PDF)",
+                            "url": "assets/pdfs/Rapport_MSProject_Gestion_EN.pdf"
+                        },
+                        {
+                            "label": "Original Report — French (PDF)",
+                            "url": "assets/pdfs/Rapport_MSProject_Gestion.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nComplete industrial project control plan in **Microsoft Project**: WBS decomposition, duration estimation, Gantt & PERT network diagrams, resource leveling, and monthly EVM cost/schedule performance monitoring."
+                },
+                {
+                    "id": 19,
+                    "title": "Continuum Santé: Connected e-Health Patient Monitoring Platform & Venture Design",
+                    "category": "Management & Innovation",
+                    "tags": [
+                        "Business Model Canvas",
+                        "Android Studio"
+                    ],
+                    "description": "Product strategy, field validation hypotheses, Business Model Canvas, and financial plan for a connected mobile e-Health platform bridging chronic-care patients and physicians between consultations.",
+                    "image": "assets/images/doc/continuum/bmc_continuum.png",
+                    "video": "",
+                    "gallery": [
+                        {
+                            "src": "assets/images/doc/continuum/bmc_continuum.png",
+                            "caption": "Continuum Santé Business Model Canvas V2"
+                        },
+                        {
+                            "src": "assets/images/doc/continuum/Logo.jpeg",
+                            "caption": "Brand visual identity for Continuum Santé"
+                        }
+                    ],
+                    "links": {
+                        "github": "https://github.com/scidelo-andriasahy/continuum-sante-connected-health-platform",
+                        "report": "assets/pdfs/Rapport_Continuum_Sante.pdf"
+                    },
+                    "extraPdfs": [
+                        {
+                            "label": "Continuum Santé Full Venture Report (PDF)",
+                            "url": "assets/pdfs/Rapport_Continuum_Sante.pdf"
+                        },
+                        {
+                            "label": "Business Model Canvas V2 (PDF)",
+                            "url": "assets/pdfs/Business_Model_Canvas_Continuum_Sante.pdf"
+                        },
+                        {
+                            "label": "Market Validation Hypotheses (PDF)",
+                            "url": "assets/pdfs/Hypotheses_Validation_Continuum_Sante.pdf"
+                        }
+                    ],
+                    "details": "### Project Summary\nEnd-to-end venture engineering (from ideation to financial modeling) for **Continuum Santé**, a connected health platform ensuring continuous patient-physician follow-up between medical visits."
                 }
             ]
         },
@@ -2184,7 +3069,9 @@ var portfolioData = {
                     ],
                     "bullets": [
                         "Led hands-on robotics (<a href='https://www.arduino.cc/' target='_blank' rel='noopener' class='highlight-link'>Arduino</a>), electronics, and algorithmic workshops for young learners."
-                    ]
+                    ],
+                    "image": "assets/images/Steam_Academy.jpeg",
+                    "imageCaption": "Hands-on educational robotics & programming workshop — STEAM Academy Tangier"
                 },
                 {
                     "type": "pro",
@@ -2486,7 +3373,81 @@ var portfolioData = {
             "linkedin": "LinkedIn",
             "github": "GitHub Source",
             "report": "Download PDF Report"
-        }
+        },
+        "bibliography": [
+            {
+                "title": "Analog Integrated Circuit Design",
+                "author": "T. Chan Carusone, D. Johns & K. Martin (Wiley)",
+                "tag": "CMOS Microelectronics",
+                "url": "https://www.wiley.com/en-us/Analog+Integrated+Circuit+Design%2C+2nd+Edition-p-9780470770108"
+            },
+            {
+                "title": "Control Systems: Linear, Nonlinear & State-Space Representations",
+                "author": "Yves Granjon (2nd Ed., Dunod)",
+                "tag": "Control Theory",
+                "url": "https://www.dunod.com/"
+            },
+            {
+                "title": "MOS Transistor Variability Simulation",
+                "author": "Pascal Lemoigne — Ph.D. Thesis, IM2NP & STMicroelectronics",
+                "tag": "MOS Physics",
+                "url": "https://www.im2np.fr/"
+            },
+            {
+                "title": "Intelligent Controller Design via Genetic Approaches",
+                "author": "Ouahib Guenounou — Ph.D. Thesis, Univ. Paul Sabatier (HAL)",
+                "tag": "GA & Fuzzy",
+                "url": "https://theses.hal.science/tel-00392473v1"
+            },
+            {
+                "title": "Optimisation of a Fuzzy Logic Controller Using Genetic Algorithms",
+                "author": "Joseph Foran (M.Eng. Report)",
+                "tag": "Fuzzy Logic",
+                "url": "https://www.mathworks.com/products/fuzzy-logic.html"
+            },
+            {
+                "title": "On-line PID Controller Tuning using Genetic Algorithms",
+                "author": "Ian Griffin (M.Eng. Electronic Systems)",
+                "tag": "GA-PID",
+                "url": "https://www.mathworks.com/discovery/genetic-algorithm.html"
+            },
+            {
+                "title": "The PID Controller Design Using Genetic Algorithm",
+                "author": "Saifudin Bin Mohamed Ibrahim (USQ)",
+                "tag": "PID Control",
+                "url": "https://www.mathworks.com/discovery/pid-control.html"
+            },
+            {
+                "title": "Power Electronics: Converters, Applications, and Design",
+                "author": "Ned Mohan, T. Undeland & W. Robbins (Wiley)",
+                "tag": "Power Electronics",
+                "url": "https://www.wiley.com/"
+            },
+            {
+                "title": "Pattern Recognition and Machine Learning",
+                "author": "Christopher M. Bishop (Springer)",
+                "tag": "AI & Markov Models",
+                "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/"
+            },
+            {
+                "title": "STM32G474 Reference Manual (RM0440 — HRTIM & Power Control)",
+                "author": "STMicroelectronics Official Documentation",
+                "tag": "Embedded Systems",
+                "url": "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+            },
+            {
+                "title": "ROS 2 Humble & Nav2 Official Engineering Documentation",
+                "author": "Open Robotics / Nav2 Stack",
+                "tag": "Autonomous Robotics",
+                "url": "https://navigation.ros.org/"
+            },
+            {
+                "title": "Smart Territory Development & Innovation Challenge (TDC 2026)",
+                "author": "Open Innovation & Sustainable Industry",
+                "tag": "Innovation",
+                "url": "https://ensat.ac.ma/Portail/"
+            }
+        ]
     }
 };
 

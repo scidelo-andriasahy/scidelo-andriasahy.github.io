@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tsikomia Scidelo ANDRIASAHY | Ingénieur Systèmes Embarqués, Robotique ROS 2 &amp; Électronique de Puissance</title>
-    <meta name="description" content="Portfolio R&amp;D de Tsikomia Scidelo ANDRIASAHY, élève-ingénieur d'État GSEA (ENSA Tanger). Systèmes embarqués (STM32G474, DSP TMS320C6713, ESP32), convertisseur MPPT 4,4 kW &amp; onduleur hybride, robotique ROS 2 Humble, diagnostic thermique IA (Markov vs CNN) et conception PCB KiCad.">
+    <meta name="description" content="Portfolio d'ingénierie de Tsikomia Scidelo ANDRIASAHY, élève-ingénieur d'État GSEA (ENSA Tanger). Systèmes embarqués (STM32G474, DSP TMS320C6713, ESP32, VHDL), électronique de puissance (MPPT 4,4 kW, Onduleur Hybride, CMOS/NMOS MicroWind), robotique ROS 2 Humble, instrumentation LabVIEW et IA industrielle.">
     <meta name="author" content="Tsikomia Scidelo ANDRIASAHY">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="4Z_cfuRWyp6oYU6obg6lGoiMHIKpEBH8_JR8VhZO7j8" />
     <link rel="canonical" href="https://scidelo-andriasahy.github.io/">
-    <link rel="alternate" type="application/rss+xml" title="Tsikomia Scidelo ANDRIASAHY — Notes Techniques R&amp;D (RSS)" href="https://scidelo-andriasahy.github.io/feed.xml">
 
     <!-- Open Graph / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scidelo-andriasahy.github.io/">
     <meta property="og:title" content="Tsikomia Scidelo ANDRIASAHY | Embedded Systems, ROS 2 Robotics &amp; Power Electronics">
-    <meta property="og:description" content="State Engineering Student (ENSA Tangier — GSEA): STM32/DSP/ESP32, 4.4 kW MPPT &amp; Hybrid Inverter, ROS 2 Humble AMR, Thermal AI (Markov vs. CNN), and Open Science Technical Notes.">
+    <meta property="og:description" content="State Engineering Student (ENSA Tangier — GSEA): STM32/DSP/ESP32, 4.4 kW MPPT &amp; Hybrid Inverter, ROS 2 Humble AMR, Thermal AI (Markov vs. CNN), MicroWind CMOS, and LabVIEW.">
     <meta property="og:image" content="https://scidelo-andriasahy.github.io/assets/images/portrait_studio_dark.png">
 
     <!-- Google Fonts -->
@@ -51,7 +50,6 @@
                     <li><a href="#about" id="nav-about">À propos</a></li>
                     <li><a href="#skills" id="nav-skills">Compétences</a></li>
                     <li><a href="#projects" id="nav-projects">Projets</a></li>
-                    <li><a href="#blog" id="nav-blog">Notes R&amp;D</a></li>
                     <li><a href="#experience" id="nav-experience">Expériences</a></li>
                     <li><a href="#cv" id="nav-cv">Formation</a></li>
                     <li><a href="#certificates" id="nav-certificates">Certificats</a></li>
@@ -70,13 +68,13 @@
     </header>
 
     <main>
-        <!-- Hero avec animation vectorielle légère (Grille PCB + Traces Cyan + Onde PWM) fondue vers #0B1120 -->
+        <!-- Hero avec animation vectorielle légère (Grille PCB + Traces Cyan + Onde) fondue vers #0B1120 -->
         <div class="hero-wrapper">
             <canvas id="hero-canvas" aria-hidden="true"></canvas>
             <section id="hero" class="container hero fade-in visible">
                 <div class="hero-content" id="hero-content"></div>
                 <div class="hero-image" id="hero-image">
-                    <img src="assets/images/portrait_studio_dark.png" alt="Tsikomia Scidelo ANDRIASAHY — Portrait Studio">
+                    <img src="assets/images/portrait_studio_dark.png" alt="Tsikomia Scidelo ANDRIASAHY — Portrait Studio" class="zoomable-img">
                 </div>
             </section>
         </div>
@@ -95,18 +93,14 @@
             <h2 class="section-title">Projets Techniques &amp; R&amp;D</h2>
             <div class="filter-bar" id="category-filters"></div>
             <div class="grid" id="projects-grid"></div>
-        </section>
-
-        <section id="blog" class="container fade-in visible">
-            <h2 class="section-title">Notes Techniques R&amp;D &amp; Publications Ouvertes (DOI Zenodo)</h2>
-            <div id="blog-intro"></div>
-            <div class="grid" id="blog-grid"></div>
+            <div class="expand-toggle-wrap" id="projects-toggle-wrap"></div>
         </section>
 
         <section id="experience" class="container fade-in visible">
             <h2 class="section-title">Expériences Professionnelles &amp; Engagements</h2>
             <div class="filter-bar" id="experience-filters"></div>
             <div class="grid" id="experience-timeline"></div>
+            <div class="expand-toggle-wrap" id="experience-toggle-wrap"></div>
         </section>
 
         <section id="cv" class="container fade-in visible">
@@ -114,6 +108,7 @@
             <div class="timeline" id="education-timeline"></div>
             <div style="margin-top: 2.75rem; text-align: center; display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap;">
                 <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn" download id="download-cv-btn">Télécharger le CV (PDF — FR)</a>
+                <a href="assets/pdfs/Dossier_Portfolio_Complet_ANDRIASAHY_FR.pdf" class="btn btn-outline" target="_blank" id="download-dossier-btn">📑 Dossier Portfolio Complet (PDF Cliquable)</a>
                 <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn btn-outline" target="_blank" id="view-cv-btn">Consulter le CV en ligne</a>
                 <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.tex" class="btn btn-outline" download id="download-tex-btn">Code Source CV (.tex LaTeX)</a>
             </div>
@@ -122,6 +117,16 @@
         <section id="certificates" class="container fade-in visible">
             <h2 class="section-title">Certifications, Attestations Officielles &amp; Distinctions</h2>
             <div id="certificates-content"></div>
+        </section>
+
+        <!-- Bandeau défilant horizontal sobre : Références techniques & Bibliographie de travail -->
+        <section id="bibliography" class="bibliography-section">
+            <div class="container bib-header">
+                <h3 class="bib-label" id="bib-section-title">Références techniques &amp; Bibliographie de travail</h3>
+            </div>
+            <div class="marquee-viewport">
+                <div class="marquee-track" id="bibliography-marquee"></div>
+            </div>
         </section>
     </main>
 
@@ -140,12 +145,22 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
+    <!-- Lightbox Améliorée : Zoom + / - / 1:1 & Défilement Complet (Scroll X/Y) pour grandes images -->
     <div id="lightbox" class="lightbox" style="display:none;">
-        <span class="close-lightbox">&times;</span>
-        <button id="lightbox-prev" class="lightbox-nav" style="display:none;">&#10094;</button>
-        <button id="lightbox-next" class="lightbox-nav" style="display:none;">&#10095;</button>
-        <div style="position: absolute; bottom: 2rem; display: flex; justify-content: center; width: 100%; z-index: 10001;" id="lightbox-actions"></div>
-        <img id="lightbox-img" src="" alt="Aperçu agrandi">
+        <div class="lightbox-toolbar">
+            <button type="button" class="lb-tool-btn" id="lb-zoom-out" title="Zoom -">−</button>
+            <span id="lb-zoom-level" style="font-size: 0.8rem; font-weight: 700; min-width: 48px; text-align: center;">Fit</span>
+            <button type="button" class="lb-tool-btn" id="lb-zoom-in" title="Zoom +">+</button>
+            <button type="button" class="lb-tool-btn" id="lb-zoom-reset" title="Adapter à l'écran">⊡ Fit</button>
+            <button type="button" class="lb-tool-btn" id="lb-zoom-100" title="Taille réelle / Défiler">100%</button>
+        </div>
+        <span class="close-lightbox" title="Fermer (Échap)">&times;</span>
+        <button id="lightbox-prev" class="lightbox-nav" style="display:none;" aria-label="Image précédente">&#10094;</button>
+        <button id="lightbox-next" class="lightbox-nav" style="display:none;" aria-label="Image suivante">&#10095;</button>
+        <div id="lightbox-stage" class="lightbox-stage">
+            <img id="lightbox-img" src="" alt="Aperçu agrandi">
+        </div>
+        <div class="lightbox-caption-bar" id="lightbox-actions"></div>
     </div>
 
     <script src="data/content.js"></script>

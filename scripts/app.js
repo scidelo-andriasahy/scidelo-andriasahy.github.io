@@ -1,15 +1,17 @@
 var portfolioData = window.portfolioData;
 
 let currentLang = 'fr';
+let currentProjectCategory = 'all';
 let currentExpFilter = 'all';
+let showAllProjects = false;
+let showAllExperiences = false;
 
-const isSubDir = window.location.pathname.includes('/blog/');
+const INITIAL_PROJECTS_COUNT = 3;
+const INITIAL_EXP_COUNT = 3;
+
 function resolvePath(p) {
     if (!p) return '';
-    if (p.startsWith('http://') || p.startsWith('https://') || p.startsWith('mailto:') || p.startsWith('tel:') || p.startsWith('#')) {
-        return p;
-    }
-    return isSubDir ? `../${p}` : p;
+    return p;
 }
 
 function resolveEntityUrl(label) {
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupBackToTop();
     setupMobileMenu();
     setupKeyboardShortcuts();
+    setupLightboxControls();
     initHeroCanvas();
     checkUrlDeepLink();
 });
@@ -75,7 +78,6 @@ function initHeroCanvas() {
         const traceBase = isDark ? 'rgba(56, 189, 248, 0.11)' : 'rgba(2, 132, 199, 0.1)';
         const pulseColor = isDark ? 'rgba(56, 189, 248, 0.65)' : 'rgba(2, 132, 199, 0.55)';
 
-        // 1. Millimeter PCB Grid (opacity ~0.05)
         ctx.strokeStyle = gridColor;
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -83,7 +85,6 @@ function initHeroCanvas() {
         for (let y = 0; y < h; y += 36) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
         ctx.stroke();
 
-        // 2. Three PCB Routing Traces + Slow Glowing Signal Pulses
         traces.forEach((pts, i) => {
             ctx.strokeStyle = traceBase;
             ctx.lineWidth = 1.25;
@@ -103,7 +104,6 @@ function initHeroCanvas() {
             ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2); ctx.fill();
         });
 
-        // 3. Subtle Sinusoidal Signal Wave near bottom of Hero (opacity ~0.08)
         ctx.strokeStyle = isDark ? 'rgba(56, 189, 248, 0.08)' : 'rgba(2, 132, 199, 0.08)';
         ctx.lineWidth = 1.5;
         ctx.beginPath();
@@ -121,11 +121,8 @@ function initHeroCanvas() {
 
 function checkUrlDeepLink() {
     const params = new URLSearchParams(window.location.search);
-    const postSlug = params.get('post');
     const projectId = params.get('project');
-    if (postSlug) {
-        setTimeout(() => window.openBlogPost(postSlug), 120);
-    } else if (projectId) {
+    if (projectId) {
         setTimeout(() => window.openProject(Number(projectId)), 120);
     }
 }
@@ -203,15 +200,9 @@ function updateLangUI() {
     setNav('nav-about', nav.about);
     setNav('nav-skills', nav.skills);
     setNav('nav-projects', nav.projects);
-    setNav('nav-blog', nav.blog);
     setNav('nav-experience', nav.experience);
     setNav('nav-cv', nav.cv);
     setNav('nav-certificates', nav.certificates);
-
-    const backLink = document.getElementById('back-to-portfolio-link');
-    if (backLink) {
-        backLink.innerHTML = currentLang === 'fr' ? '&larr; Retour au Portfolio Principal' : '&larr; Back to Main Portfolio';
-    }
 }
 
 function getSkillIcon(iconName) {
@@ -228,26 +219,24 @@ function renderContent() {
     const data = portfolioData[currentLang];
     const ui = data.ui;
 
-    // Section Titles
     document.querySelectorAll('.section-title').forEach(el => {
         const pid = el.parentElement.id;
         if (pid === 'about') el.textContent = data.about.title;
         if (pid === 'skills' && data.skills) el.textContent = data.skills.title;
         if (pid === 'projects') el.textContent = data.projects.title;
-        if (pid === 'blog' && data.blog) el.textContent = data.blog.title;
         if (pid === 'experience') el.textContent = data.experience.title;
         if (pid === 'cv') el.textContent = data.education.title;
         if (pid === 'certificates') el.textContent = data.certificates.title;
     });
 
-    // Hero (Clean CTA Hierarchy: 1 Primary CTA + 1 Secondary CTA + Minimalist Social Icons)
+    // Hero
     const heroContent = document.getElementById('hero-content');
     if (heroContent) {
         const linkedinUrl = data.identity.contacts.linkedin;
         const githubUrl = data.identity.contacts.github;
         const youtubeUrl = data.identity.contacts.youtube;
         const cvPdfUrl = resolvePath(data.identity.cvPdf);
-        const blogUrl = isSubDir ? 'index.html' : 'blog/index.html';
+        const dossierPdfUrl = resolvePath(data.identity.dossierPdf);
 
         heroContent.innerHTML = `
             <div>
@@ -266,8 +255,10 @@ function renderContent() {
                         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         ${ui.primaryCta}
                     </a>
-                    <a href="#projects" class="btn btn-outline">${ui.secondaryCta}</a>
-                    <a href="mailto:${data.identity.contacts.email}" class="highlight-link" style="font-size: 0.94rem; margin-left: 0.25rem;">${ui.contactCta} &rarr;</a>
+                    <a href="${dossierPdfUrl}" class="btn btn-outline" target="_blank" rel="noopener">
+                        📑 ${ui.dossierBtn}
+                    </a>
+                    <a href="#projects" class="highlight-link" style="font-size: 0.94rem; margin-left: 0.25rem;">${ui.secondaryCta} &rarr;</a>
                 </div>
                 <div class="hero-socials">
                     <a href="${linkedinUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">
@@ -279,9 +270,6 @@ function renderContent() {
                     <a href="${youtubeUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="YouTube (@ScideloEngineering)">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
                     </a>
-                    <a href="${blogUrl}" class="social-icon-btn" title="${ui.openBlogPortal}">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-                    </a>
                     <a href="mailto:${data.identity.contacts.email}" class="social-icon-btn" title="${data.identity.contacts.email}">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     </a>
@@ -290,11 +278,8 @@ function renderContent() {
         `;
     }
 
-    // Hero Portrait (Studio Dark)
     const heroImage = document.querySelector('#hero-image img');
-    if (heroImage) {
-        heroImage.src = resolvePath(data.identity.image);
-    }
+    if (heroImage) heroImage.src = resolvePath(data.identity.image);
 
     // About
     const aboutText = document.getElementById('about-text');
@@ -346,11 +331,10 @@ function renderContent() {
         `).join('');
     }
 
-    filterProjects('all');
-    renderBlogSection();
+    filterProjects(currentProjectCategory);
     filterExperiences(currentExpFilter);
 
-    // Education & Bilingual CV Links (FR PDF/TEX vs EN PDF/TEX)
+    // Education & Bilingual CV / Full Clickable Dossier PDF Buttons
     const educationTimeline = document.getElementById('education-timeline');
     if (educationTimeline) {
         educationTimeline.innerHTML = data.education.items.map(e => `
@@ -364,10 +348,13 @@ function renderContent() {
 
         const cvPdfPath = resolvePath(data.identity.cvPdf);
         const cvTexPath = resolvePath(data.identity.cvTex);
+        const dossierPath = resolvePath(data.identity.dossierPdf);
         const dlBtn = document.getElementById('download-cv-btn');
+        const dossierBtn = document.getElementById('download-dossier-btn');
         const viewBtn = document.getElementById('view-cv-btn');
         const texBtn = document.getElementById('download-tex-btn');
         if (dlBtn) { dlBtn.textContent = data.education.downloadCV; dlBtn.href = cvPdfPath; }
+        if (dossierBtn) { dossierBtn.textContent = `📑 ${ui.dossierBtn}`; dossierBtn.href = dossierPath; }
         if (viewBtn) { viewBtn.textContent = ui.viewCvLabel; viewBtn.href = cvPdfPath; }
         if (texBtn) { texBtn.textContent = ui.texCvLabel; texBtn.href = cvTexPath; }
     }
@@ -386,12 +373,12 @@ function renderContent() {
         `).join('');
     }
 
-    // Dynamic Bilingual Footer (Clean & Private — no exposed automation details)
+    // Sober Horizontal Bibliography Marquee (Just before Footer)
+    renderBibliography();
+
+    // Footer
     const footer = document.getElementById('site-footer');
     if (footer) {
-        const blogHref = isSubDir ? 'index.html' : 'blog/index.html';
-        const rssHref = resolvePath('feed.xml');
-        const adminHref = resolvePath('admin.html');
         footer.innerHTML = `
             <p style="font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">Tsikomia Scidelo ANDRIASAHY — ${ui.footerRole}</p>
             <p style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; align-items: center;">
@@ -400,112 +387,31 @@ function renderContent() {
                 <a href="${data.identity.contacts.linkedin}" target="_blank" rel="noopener" class="highlight-link">LinkedIn</a> •
                 <a href="${data.identity.contacts.github}" target="_blank" rel="noopener" class="highlight-link">GitHub</a> •
                 <a href="${data.identity.contacts.youtube}" target="_blank" rel="noopener" class="highlight-link">YouTube</a> •
-                <a href="${blogHref}" class="highlight-link">${data.nav.blog}</a> •
-                <a href="${rssHref}" target="_blank" rel="noopener" class="highlight-link">${ui.rssLabel}</a>
+                <a href="${resolvePath(data.identity.dossierPdf)}" target="_blank" rel="noopener" class="highlight-link">📑 ${ui.dossierBtn}</a>
             </p>
-            <p style="font-size: 0.82rem; opacity: 0.72;">&copy; 2026 Tsikomia Scidelo ANDRIASAHY. ${ui.footerRights} • <a href="${adminHref}" style="color: var(--text-muted); text-decoration: none;">🔒 ${ui.footerStudio}</a></p>
+            <p style="font-size: 0.82rem; opacity: 0.72;">&copy; 2026 Tsikomia Scidelo ANDRIASAHY. ${ui.footerRights} • <a href="admin.html" style="color: var(--text-muted); text-decoration: none;">🔒 ${ui.footerStudio}</a></p>
         `;
     }
 }
 
-// Streamlined R&D Technical Notes & Open Science Section (Zero Marketing/Blogging Clutter)
-function renderBlogSection() {
+function renderBibliography() {
     const data = portfolioData[currentLang];
-    const ui = data.ui;
-    const blogIntro = document.getElementById('blog-intro');
-    const blogGrid = document.getElementById('blog-grid');
-    if (!data.blog) return;
+    const titleEl = document.getElementById('bib-section-title');
+    const track = document.getElementById('bibliography-marquee');
+    if (!track || !data.bibliography) return;
+    if (titleEl) titleEl.textContent = data.ui.bibTitle;
 
-    if (blogIntro) {
-        const blogPortalHref = isSubDir ? 'index.html' : 'blog/index.html';
-        const rssHref = resolvePath('feed.xml');
-        const ytUrl = data.identity.contacts.youtube;
-        blogIntro.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
-                <p style="color: var(--text-muted); font-size: 1rem; max-width: 720px; line-height: 1.65;">${data.blog.subtitle}</p>
-                <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
-                    ${!isSubDir ? `<a href="${blogPortalHref}" class="btn btn-outline" style="padding: 0.5rem 1.1rem; font-size: 0.84rem;">${ui.openBlogPortal} ↗</a>` : ''}
-                    <a href="${ytUrl}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.5rem 1.1rem; font-size: 0.84rem;">▶ YouTube R&amp;D</a>
-                    <a href="${rssHref}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.5rem 1.1rem; font-size: 0.84rem;">RSS</a>
-                </div>
-            </div>
-        `;
-    }
+    const cardsHtml = data.bibliography.map(b => `
+        <a href="${b.url}" target="_blank" rel="noopener" class="bib-card">
+            <span class="bib-card-tag">${b.tag}</span>
+            <span class="bib-card-title">${b.title}</span>
+            <span class="bib-card-author">${b.author}</span>
+        </a>
+    `).join('');
 
-    if (blogGrid && data.blog.items) {
-        blogGrid.innerHTML = data.blog.items.map(post => {
-            const hasVideo = Boolean(post.video && post.video.trim() !== '');
-            const hasPdf = Boolean(post.pdfUrl && post.pdfUrl.trim() !== '');
-            return `
-                <div class="card" onclick="openBlogPost('${post.slug}')">
-                    <div style="height: 205px; background: #0B1120; overflow: hidden; position: relative;">
-                        <img src="${resolvePath(post.coverImage)}" alt="${post.title}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: var(--transition);">
-                        <div style="position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; pointer-events: none;">
-                            <span style="background: rgba(11, 17, 32, 0.85); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 6px;">${post.category}</span>
-                            <div style="display: flex; gap: 0.35rem;">
-                                ${hasVideo ? `<span style="background: rgba(239, 68, 68, 0.9); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px;">▶ ${currentLang === 'fr' ? 'Vidéo' : 'Video'}</span>` : ''}
-                                ${hasPdf ? `<span style="background: rgba(2, 132, 199, 0.9); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px;">PDF</span>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content" style="display: flex; flex-direction: column; flex: 1;">
-                        <div style="font-size: 0.78rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.4rem;">${post.date} • ${post.readTime} • ${post.doi}</div>
-                        <h3 class="card-title" style="font-size: 1.18rem;">${post.title}</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.55;">${post.summary}</p>
-                        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; margin-bottom: 0.9rem;">
-                            ${(post.tags || []).slice(0, 3).map(t => renderClickableBadge(t, 'tag')).join('')}
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
-                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan);">${ui.readArticle} &rarr;</span>
-                            ${hasPdf ? `<a href="${resolvePath(post.pdfUrl)}" target="_blank" rel="noopener" class="highlight-link" style="font-size: 0.8rem;" onclick="event.stopPropagation();">PDF ↗</a>` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
+    // Duplicate track items once for seamless infinite CSS loop
+    track.innerHTML = cardsHtml + cardsHtml;
 }
-
-window.openBlogPost = (slug) => {
-    const data = portfolioData[currentLang];
-    if (!data.blog || !data.blog.items) return;
-    const post = data.blog.items.find(b => b.slug === slug || b.id === slug);
-    if (!post) return;
-
-    const modal = document.getElementById('project-modal');
-    const modalBody = document.getElementById('modal-body');
-    if (!modal || !modalBody) return;
-
-    const hasPdf = Boolean(post.pdfUrl && post.pdfUrl.trim() !== '');
-    const isFr = currentLang === 'fr';
-
-    modalBody.innerHTML = `
-        <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
-                <span style="font-size: 0.84rem; color: var(--accent-cyan); font-weight: 700;">${post.category} • ${post.date} • ${post.readTime}</span>
-                <span class="tag">${post.doi}</span>
-            </div>
-            <h1 style="font-size: clamp(1.6rem, 3.3vw, 2.35rem); margin-bottom: 1.2rem; line-height: 1.25;">${post.title}</h1>
-            <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
-                ${(post.tags || []).map(t => renderClickableBadge(t, 'tag')).join('')}
-            </div>
-            <div style="margin-bottom: 2rem; border-radius: 16px; overflow: hidden; background: #0B1120;">
-                <img src="${resolvePath(post.coverImage)}" alt="${post.title}" style="width: 100%; max-height: 460px; object-fit: contain; display: block; margin: 0 auto;">
-            </div>
-            ${renderVideoEmbed(post.video)}
-            <div class="project-details-content" style="font-size: 1.04rem; line-height: 1.82;">
-                ${formatMarkdown(post.content)}
-            </div>
-            <div style="margin-top: 2.25rem; display: flex; gap: 0.85rem; flex-wrap: wrap;">
-                ${hasPdf ? `<a href="${resolvePath(post.pdfUrl)}" class="btn" target="_blank" rel="noopener">${isFr ? 'Télécharger le Rapport Technique (PDF)' : 'Download Full Technical Report (PDF)'}</a>` : ''}
-                <a href="${resolvePath('feed.xml')}" target="_blank" rel="noopener" class="btn btn-outline">RSS</a>
-            </div>
-        </div>
-    `;
-
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-};
 
 function renderCertificateCard(c) {
     const images = (c.images || (c.image ? [c.image] : [])).map(resolvePath);
@@ -524,7 +430,7 @@ function renderCertificateCard(c) {
             <div class="cert-gallery" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; width: 100%; scrollbar-width: none;">
                 ${images.map((imgUrl, i) => `
                     <div style="flex: 0 0 100%; scroll-snap-align: start; position: relative; height: 100%;">
-                        <img src="${imgUrl}" alt="${c.title} - ${i + 1}" data-pdf="${links[i] || ''}" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;">
+                        <img src="${imgUrl}" alt="${c.title} - ${i + 1}" data-pdf="${links[i] || ''}" class="zoomable-img" style="width: 100%; height: 100%; object-fit: contain; padding: 0.4rem;">
                     </div>
                 `).join('')}
             </div>
@@ -537,7 +443,7 @@ function renderCertificateCard(c) {
         ).join('');
     } else if (hasImages) {
         const linkStr = links[0] || '';
-        galleryHtml = `<img src="${images[0]}" alt="${c.title}" data-pdf="${linkStr}" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;">`;
+        galleryHtml = `<img src="${images[0]}" alt="${c.title}" data-pdf="${linkStr}" class="zoomable-img" style="width: 100%; height: 100%; object-fit: contain; padding: 0.4rem;">`;
         pdfBtnHtml = linkStr ? `<a href="${linkStr}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.42rem 0.95rem; font-size: 0.8rem;">${btnText}</a>` : '';
     } else {
         galleryHtml = `
@@ -578,35 +484,41 @@ function setupFilters() {
     });
 
     const buttons = [
-        { key: 'all', label: data.projects.filterAll },
+        { key: 'all', label: `${data.projects.filterAll} (${data.projects.items.length})` },
         ...Array.from(categoryMap.entries()).map(([key, label]) => ({ key, label }))
     ];
 
     filterBar.innerHTML = buttons.map(b => `
-        <button class="filter-btn ${b.key === 'all' ? 'active' : ''}" data-category="${b.key}">${b.label}</button>
+        <button class="filter-btn ${b.key === currentProjectCategory ? 'active' : ''}" data-category="${b.key}">${b.label}</button>
     `).join('');
 
     filterBar.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             filterBar.querySelector('.active')?.classList.remove('active');
             btn.classList.add('active');
-            filterProjects(btn.dataset.category);
+            currentProjectCategory = btn.dataset.category;
+            showAllProjects = false;
+            filterProjects(currentProjectCategory);
         });
     });
 }
 
-// Project Cards: Strictly Limited to 3 Key Differentiating Tags per Card (Full tags shown inside Modal!)
+// Show ONLY 3 Projects initially + Expand ("Voir tous les projets") & Collapse ("Réduire") Button!
 function filterProjects(category) {
     const data = portfolioData[currentLang];
     const projectsGrid = document.getElementById('projects-grid');
+    const toggleWrap = document.getElementById('projects-toggle-wrap');
     if (!projectsGrid) return;
 
     const filtered = category === 'all'
         ? data.projects.items
         : data.projects.items.filter(p => p.category.trim().toLowerCase() === category);
 
+    const visibleItems = showAllProjects ? filtered : filtered.slice(0, INITIAL_PROJECTS_COUNT);
+    const hiddenCount = Math.max(0, filtered.length - INITIAL_PROJECTS_COUNT);
     const isFr = currentLang === 'fr';
-    projectsGrid.innerHTML = filtered.map(p => {
+
+    projectsGrid.innerHTML = visibleItems.map(p => {
         const hasVideo = Boolean((p.video && p.video.trim() !== '') || (p.videos && p.videos.length > 0));
         const pdfCount = (p.extraPdfs && p.extraPdfs.length) ? p.extraPdfs.length : (p.links && p.links.report ? 1 : 0);
         const topTags = (p.tags || []).slice(0, 3);
@@ -634,6 +546,21 @@ function filterProjects(category) {
             </div>
         `;
     }).join('');
+
+    if (toggleWrap) {
+        if (hiddenCount > 0) {
+            toggleWrap.innerHTML = showAllProjects
+                ? `<button type="button" class="btn btn-outline" id="toggle-projects-btn">↑ ${data.ui.showLessProjects}</button>`
+                : `<button type="button" class="btn btn-outline" id="toggle-projects-btn">↓ ${data.ui.showMoreProjects} (+${hiddenCount})</button>`;
+            document.getElementById('toggle-projects-btn').onclick = () => {
+                showAllProjects = !showAllProjects;
+                filterProjects(currentProjectCategory);
+                if (!showAllProjects) document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+            };
+        } else {
+            toggleWrap.innerHTML = '';
+        }
+    }
 }
 
 function setupExperienceFilters() {
@@ -656,21 +583,27 @@ function setupExperienceFilters() {
             expFilterBar.querySelector('.active')?.classList.remove('active');
             btn.classList.add('active');
             currentExpFilter = btn.dataset.expType;
+            showAllExperiences = false;
             filterExperiences(currentExpFilter);
         });
     });
 }
 
+// Show ONLY 3 Experiences initially + Expand & Collapse Button + STEAM Academy Zoomable Photo!
 function filterExperiences(type) {
     const data = portfolioData[currentLang];
     const experienceTimeline = document.getElementById('experience-timeline');
+    const toggleWrap = document.getElementById('experience-toggle-wrap');
     if (!experienceTimeline) return;
 
     const filtered = type === 'all'
         ? data.experience.items
         : data.experience.items.filter(e => (e.type || 'pro') === type);
 
-    experienceTimeline.innerHTML = filtered.map(e => {
+    const visibleItems = showAllExperiences ? filtered : filtered.slice(0, INITIAL_EXP_COUNT);
+    const hiddenCount = Math.max(0, filtered.length - INITIAL_EXP_COUNT);
+
+    experienceTimeline.innerHTML = visibleItems.map(e => {
         const orgHtml = e.organizationUrl
             ? `<a href="${e.organizationUrl}" target="_blank" rel="noopener" class="highlight-link">${e.organization} ↗</a>`
             : e.organization;
@@ -679,6 +612,12 @@ function filterExperiences(type) {
             ? `<ul style="margin-left: 1.15rem; margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.55;">
                 ${e.bullets.map(b => `<li style="margin-bottom: 0.4rem;">${b}</li>`).join('')}
                </ul>`
+            : '';
+
+        const photoHtml = e.image
+            ? `<div class="exp-photo-wrap">
+                 <img src="${resolvePath(e.image)}" alt="${e.imageCaption || e.organization}" class="zoomable-img">
+               </div>`
             : '';
 
         const tagsHtml = e.tags && e.tags.length
@@ -701,7 +640,8 @@ function filterExperiences(type) {
                         <span class="tag">${e.type === 'assoc' ? 'Leadership' : 'R&D / Pro'}</span>
                     </div>
                     <h3 style="font-size: 1.18rem; margin-bottom: 0.35rem;">${e.role}</h3>
-                    <p style="color: var(--text-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 0.9rem;">${orgHtml}${locationStr}</p>
+                    <p style="color: var(--text-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 0.75rem;">${orgHtml}${locationStr}</p>
+                    ${photoHtml}
                     ${bulletsHtml}
                     ${tagsHtml}
                     ${proofsHtml}
@@ -709,18 +649,33 @@ function filterExperiences(type) {
             </div>
         `;
     }).join('');
+
+    if (toggleWrap) {
+        if (hiddenCount > 0) {
+            toggleWrap.innerHTML = showAllExperiences
+                ? `<button type="button" class="btn btn-outline" id="toggle-exp-btn">↑ ${data.ui.showLessExp}</button>`
+                : `<button type="button" class="btn btn-outline" id="toggle-exp-btn">↓ ${data.ui.showMoreExp} (+${hiddenCount})</button>`;
+            document.getElementById('toggle-exp-btn').onclick = () => {
+                showAllExperiences = !showAllExperiences;
+                filterExperiences(currentExpFilter);
+                if (!showAllExperiences) document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+            };
+        } else {
+            toggleWrap.innerHTML = '';
+        }
+    }
 }
 
 function renderVideoEmbed(videoUrl, customTitle = '') {
     if (!videoUrl || !videoUrl.trim()) return '';
     const trimmed = resolvePath(videoUrl.trim());
-    const heading = customTitle || (currentLang === 'fr' ? 'Démonstration Vidéo' : 'Video Demonstration');
+    const heading = customTitle || (currentLang === 'fr' ? 'Démonstration Vidéo (Sans Audio)' : 'Video Demonstration (Silent)');
 
     const ytMatch = trimmed.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
     if (ytMatch) {
         return `
             <div style="margin: 2rem 0;">
-                <h4 style="margin-bottom: 0.8rem; font-size: 1.15rem; color: var(--accent-cyan);">▶ ${heading}</h4>
+                <h4 style="margin-bottom: 0.8rem; font-size: 1.1rem; color: var(--accent-cyan);">▶ ${heading}</h4>
                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; background: #000;">
                     <iframe src="https://www.youtube.com/embed/${ytMatch[1]}" title="YouTube video player" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
                 </div>
@@ -731,15 +686,15 @@ function renderVideoEmbed(videoUrl, customTitle = '') {
     const mime = trimmed.toLowerCase().endsWith('.webm') ? 'video/webm' : 'video/mp4';
     return `
         <div style="margin: 2rem 0;">
-            <h4 style="margin-bottom: 0.8rem; font-size: 1.15rem; color: var(--accent-cyan);">▶ ${heading}</h4>
-            <video controls preload="metadata" style="width: 100%; max-height: 500px; border-radius: 16px; background: #000;">
+            <h4 style="margin-bottom: 0.8rem; font-size: 1.1rem; color: var(--accent-cyan);">▶ ${heading}</h4>
+            <video controls muted playsinline preload="metadata" style="width: 100%; max-height: 500px; border-radius: 16px; background: #000;">
                 <source src="${trimmed}" type="${mime}">
             </video>
         </div>
     `;
 }
 
-// Detailed Project Modal (Shows Full Technologies, Bilingual Gallery Captions, Videos & PDFs)
+// Detailed Project Modal (All Images Zoomable + Scrollable in Lightbox!)
 window.openProject = (id) => {
     const data = portfolioData[currentLang];
     const p = data.projects.items.find(proj => proj.id === id);
@@ -751,14 +706,14 @@ window.openProject = (id) => {
 
     const galleryHtml = p.gallery && p.gallery.length
         ? `
-            <h3 style="margin: 2.25rem 0 1rem; font-size: 1.45rem; color: var(--accent-cyan);">${isFr ? 'Galerie Technique, Schémas & Courbes (Cliquez pour agrandir)' : 'Technical Gallery, Schematics & Plots (Click to zoom)'}</h3>
+            <h3 style="margin: 2.25rem 0 1rem; font-size: 1.45rem; color: var(--accent-cyan);">${isFr ? 'Galerie Technique, Schémas & Courbes (Cliquez pour zoomer & défiler)' : 'Technical Gallery, Schematics & Plots (Click to zoom & scroll)'}</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 16px; margin: 1.25rem 0;">
                 ${p.gallery.map(item => {
                     const src = resolvePath(typeof item === 'string' ? item : item.src);
                     const cap = typeof item === 'string' ? p.title : (item.caption || p.title);
                     return `
                         <figure class="gallery-figure">
-                            <img src="${src}" alt="${cap}">
+                            <img src="${src}" alt="${cap}" class="zoomable-img">
                             <figcaption class="gallery-caption">${cap}</figcaption>
                         </figure>
                     `;
@@ -784,14 +739,14 @@ window.openProject = (id) => {
         : (p.links && p.links.report ? `<a href="${resolvePath(p.links.report)}" class="btn btn-outline" style="padding: 0.5rem 1.05rem; font-size: 0.84rem;" target="_blank" rel="noopener">📄 ${data.actions.report} ↗</a>` : '');
 
     modalBody.innerHTML = `
-        <div>
+        <div class="modal-project-wrapper">
             <span style="font-size: 0.84rem; color: var(--accent-cyan); font-weight: 700; display: block; margin-bottom: 0.5rem;">${p.category}</span>
             <h1 style="font-size: clamp(1.65rem, 3.6vw, 2.45rem); margin-bottom: 1.15rem;">${p.title}</h1>
             <div style="margin-bottom: 1.75rem; display: flex; gap: 0.45rem; flex-wrap: wrap;">
                 ${p.tags.map(t => renderClickableBadge(t, 'tag')).join('')}
             </div>
-            <div style="margin-bottom: 1.75rem; border-radius: 16px; overflow: hidden; background: #0B1120;">
-                <img src="${resolvePath(p.image)}" alt="${p.title}" style="width: 100%; max-height: 480px; object-fit: contain; display: block; margin: 0 auto;">
+            <div style="margin-bottom: 1.75rem; border-radius: 16px; overflow: hidden; background: #0B1120; border: 1px solid var(--border-color);">
+                <img src="${resolvePath(p.image)}" alt="${p.title}" class="zoomable-img" style="width: 100%; max-height: 480px; object-fit: contain; display: block; margin: 0 auto;">
             </div>
             ${(extraPdfsHtml || hasValidGithub) ? `
                 <div style="margin-bottom: 1.75rem; padding: 1.15rem; border-radius: 14px; background: rgba(56,189,248,0.06); border: 1px solid var(--border-color);">
@@ -843,27 +798,90 @@ function formatMarkdown(text) {
         .replace(/\n\n/g, '<br><br>');
 }
 
-// Lightbox
+// ============================================================================
+// UPGRADED SCROLLABLE & ZOOMABLE LIGHTBOX (Works on ALL Single & Gallery Images!)
+// ============================================================================
 let lightboxImages = [];
 let lightboxCurrentIndex = 0;
+let lbZoomMode = 'fit'; // 'fit' or numeric scale (e.g., 1.0, 1.5, 2.0)
+
+function applyLightboxZoom() {
+    const stage = document.getElementById('lightbox-stage');
+    const img = document.getElementById('lightbox-img');
+    const label = document.getElementById('lb-zoom-level');
+    if (!stage || !img) return;
+
+    if (lbZoomMode === 'fit') {
+        stage.classList.remove('zoomed');
+        img.style.width = '';
+        if (label) label.textContent = 'Fit';
+    } else {
+        stage.classList.add('zoomed');
+        const natW = img.naturalWidth || 1000;
+        img.style.width = Math.round(natW * lbZoomMode) + 'px';
+        if (label) label.textContent = Math.round(lbZoomMode * 100) + '%';
+    }
+}
+
+function setupLightboxControls() {
+    document.getElementById('lb-zoom-in')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lbZoomMode = (lbZoomMode === 'fit') ? 1.25 : Math.min(3.5, +(lbZoomMode + 0.35).toFixed(2));
+        applyLightboxZoom();
+    });
+    document.getElementById('lb-zoom-out')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (lbZoomMode === 'fit') return;
+        const next = +(lbZoomMode - 0.35).toFixed(2);
+        lbZoomMode = (next <= 0.6) ? 'fit' : next;
+        applyLightboxZoom();
+    });
+    document.getElementById('lb-zoom-reset')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lbZoomMode = 'fit';
+        applyLightboxZoom();
+    });
+    document.getElementById('lb-zoom-100')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lbZoomMode = 1.0;
+        applyLightboxZoom();
+    });
+    document.getElementById('lightbox-img')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lbZoomMode = (lbZoomMode === 'fit') ? 1.0 : 'fit';
+        applyLightboxZoom();
+    });
+    document.getElementById('lightbox-stage')?.addEventListener('click', (e) => {
+        if (e.target.id === 'lightbox-stage') closeLightbox();
+    });
+}
 
 document.addEventListener('click', (e) => {
-    if (e.target.tagName === 'IMG' && (e.target.closest('.project-details-content') || e.target.closest('.cert-gallery') || e.target.closest('.hero-image'))) {
-        const gallery = e.target.closest('.cert-gallery') || e.target.closest('.project-details-content');
-        if (gallery) {
-            lightboxImages = Array.from(gallery.querySelectorAll('img'));
-            lightboxCurrentIndex = lightboxImages.indexOf(e.target);
-        } else {
-            lightboxImages = [e.target];
-            lightboxCurrentIndex = 0;
-        }
-        updateLightbox();
+    const target = e.target;
+    if (target.tagName !== 'IMG') return;
+    if (target.id === 'lightbox-img') return;
+
+    // Allow zooming ANY .zoomable-img (single certs, STEAM Academy photo, modal cover, gallery figures, hero portrait!)
+    const isZoomable = target.classList.contains('zoomable-img')
+        || Boolean(target.closest('.project-details-content') || target.closest('.cert-gallery') || target.closest('.hero-image'));
+    if (!isZoomable) return;
+
+    const groupContainer = target.closest('.cert-gallery') || target.closest('.modal-project-wrapper');
+    if (groupContainer) {
+        lightboxImages = Array.from(groupContainer.querySelectorAll('img.zoomable-img, .project-details-content img'));
+        // Deduplicate preserving order
+        lightboxImages = Array.from(new Set(lightboxImages));
+        lightboxCurrentIndex = Math.max(0, lightboxImages.indexOf(target));
+    } else {
+        lightboxImages = [target];
+        lightboxCurrentIndex = 0;
     }
+    updateLightbox();
 });
 
 function updateLightbox() {
     const img = lightboxImages[lightboxCurrentIndex];
-    if (img) openLightbox(img.src, img.dataset.pdf, lightboxImages.length > 1);
+    if (img) openLightbox(img.src, img.dataset.pdf, img.alt, lightboxImages.length > 1);
 }
 
 document.getElementById('lightbox-prev')?.addEventListener('click', (e) => {
@@ -882,7 +900,7 @@ document.getElementById('lightbox-next')?.addEventListener('click', (e) => {
     }
 });
 
-function openLightbox(src, pdfUrl, showNav = false) {
+function openLightbox(src, pdfUrl, captionText = '', showNav = false) {
     const lightbox = document.getElementById('lightbox');
     const img = document.getElementById('lightbox-img');
     const actions = document.getElementById('lightbox-actions');
@@ -890,12 +908,17 @@ function openLightbox(src, pdfUrl, showNav = false) {
     const nextBtn = document.getElementById('lightbox-next');
 
     if (lightbox && img) {
+        lbZoomMode = 'fit';
         img.src = src;
+        applyLightboxZoom();
+
         if (actions) {
-            const btnText = currentLang === 'fr' ? 'Ouvrir le PDF lié ↗' : 'Open related PDF ↗';
-            actions.innerHTML = (pdfUrl && pdfUrl !== 'undefined' && pdfUrl.trim() !== '')
-                ? `<a href="${pdfUrl}" target="_blank" rel="noopener" class="btn" style="font-size: 0.95rem;">${btnText}</a>`
+            const btnText = currentLang === 'fr' ? '📄 Ouvrir le PDF lié ↗' : '📄 Open related PDF ↗';
+            const capHtml = captionText ? `<span style="background: rgba(11,17,32,0.85); color: #e2e8f0; padding: 0.45rem 1rem; border-radius: 50px; font-size: 0.84rem; border: 1px solid rgba(255,255,255,0.16);">${escapeHtml(captionText)}</span>` : '';
+            const pdfHtml = (pdfUrl && pdfUrl !== 'undefined' && pdfUrl.trim() !== '')
+                ? `<a href="${pdfUrl}" target="_blank" rel="noopener" class="btn" style="font-size: 0.88rem; padding: 0.55rem 1.25rem;">${btnText}</a>`
                 : '';
+            actions.innerHTML = capHtml + pdfHtml;
         }
         if (prevBtn && nextBtn) {
             prevBtn.style.display = showNav ? 'flex' : 'none';
@@ -907,15 +930,15 @@ function openLightbox(src, pdfUrl, showNav = false) {
 }
 
 document.querySelector('.close-lightbox')?.addEventListener('click', closeLightbox);
-document.getElementById('lightbox')?.addEventListener('click', (e) => {
-    if (e.target.id === 'lightbox') closeLightbox();
-});
 
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
+    const modal = document.getElementById('project-modal');
     if (lightbox) {
         lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        if (!modal || modal.style.display !== 'block') {
+            document.body.style.overflow = 'auto';
+        }
         lightboxImages = [];
     }
 }
@@ -924,7 +947,7 @@ function setupKeyboardShortcuts() {
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
             e.preventDefault();
-            window.location.href = resolvePath('admin.html');
+            window.location.href = 'admin.html';
             return;
         }
         const lightbox = document.getElementById('lightbox');

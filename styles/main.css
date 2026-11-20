@@ -619,10 +619,16 @@ section {
 
 .gallery-figure img {
     width: 100%;
-    height: 185px;
-    object-fit: cover;
+    height: 210px;
+    object-fit: contain;
+    padding: 0.45rem;
     background: #0B1120;
     cursor: zoom-in;
+    transition: transform 0.25s ease;
+}
+
+.gallery-figure:hover img {
+    transform: scale(1.02);
 }
 
 .gallery-caption {
@@ -810,13 +816,27 @@ section {
 }
 
 .close-lightbox {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
+    position: fixed;
+    top: 1.15rem;
+    right: 1.75rem;
+    z-index: 10006;
     color: white;
-    font-size: 3rem;
+    font-size: 2.8rem;
     cursor: pointer;
     line-height: 1;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(11, 17, 32, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.close-lightbox:hover {
+    background: var(--accent-cyan);
+    color: #0B1120;
 }
 
 .lightbox-nav {
@@ -943,4 +963,225 @@ section {
 @media (max-width: 520px) {
     .logo { font-size: 0.92rem; max-width: 56%; overflow: hidden; text-overflow: ellipsis; }
     .grid { grid-template-columns: 1fr; }
+}
+
+
+/* Sober Horizontal Bibliography Marquee (Slow Scroll + Pause on Hover) */
+.bibliography-section {
+    padding: 55px 0 65px;
+    border-top: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.bib-header {
+    text-align: center;
+    margin-bottom: 1.85rem;
+}
+
+.bib-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.marquee-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    animation: bibMarquee 75s linear infinite;
+}
+
+.marquee-viewport:hover .marquee-track,
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes bibMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: auto;
+    }
+}
+
+.bib-card {
+    flex: 0 0 320px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: var(--transition);
+}
+
+.bib-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+}
+
+.bib-card-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-cyan);
+}
+
+.bib-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.35;
+}
+
+.bib-card-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Expand / Collapse Section Toggle Row */
+.expand-toggle-wrap {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+/* Scrollable & Zoomable Lightbox Upgrade (Fixes Cropped Tall Images & Single-Image Zoom) */
+.lightbox {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    cursor: default;
+}
+
+.lightbox-toolbar {
+    position: fixed;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10005;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(11, 17, 32, 0.88);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 0.45rem 0.9rem;
+    border-radius: 50px;
+    color: #f8fafc;
+}
+
+.lb-tool-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #f8fafc;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lb-tool-btn:hover {
+    background: var(--accent-cyan);
+    color: #0B1120;
+    border-color: var(--accent-cyan);
+}
+
+.lightbox-stage {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4.75rem 2.5rem 5.25rem;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lightbox-stage.zoomed {
+    display: block;
+    text-align: center;
+    padding: 5rem 2rem 5.5rem;
+}
+
+.lightbox-stage img {
+    max-width: 90vw;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    cursor: zoom-in;
+    transition: width 0.18s ease;
+    flex-shrink: 0;
+}
+
+.lightbox-stage.zoomed img {
+    display: inline-block;
+    max-width: none;
+    max-height: none;
+    height: auto;
+    cursor: zoom-out;
+}
+
+.lightbox-caption-bar {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10005;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90vw;
+}
+
+.zoomable-img {
+    cursor: zoom-in !important;
+}
+
+.exp-photo-wrap {
+    margin: 0.75rem 0 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: #0B1120;
+}
+
+.exp-photo-wrap img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
 }
