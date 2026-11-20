@@ -256,7 +256,7 @@ function renderContent() {
                         ${ui.primaryCta}
                     </a>
                     <a href="${dossierPdfUrl}" class="btn btn-outline" target="_blank" rel="noopener">
-                        📑 ${ui.dossierBtn}
+                        📄 ${ui.dossierBtn}
                     </a>
                     <a href="#projects" class="highlight-link" style="font-size: 0.94rem; margin-left: 0.25rem;">${ui.secondaryCta} &rarr;</a>
                 </div>
@@ -354,7 +354,7 @@ function renderContent() {
         const viewBtn = document.getElementById('view-cv-btn');
         const texBtn = document.getElementById('download-tex-btn');
         if (dlBtn) { dlBtn.textContent = data.education.downloadCV; dlBtn.href = cvPdfPath; }
-        if (dossierBtn) { dossierBtn.textContent = `📑 ${ui.dossierBtn}`; dossierBtn.href = dossierPath; }
+        if (dossierBtn) { dossierBtn.textContent = `📄 ${ui.dossierBtn}`; dossierBtn.href = dossierPath; }
         if (viewBtn) { viewBtn.textContent = ui.viewCvLabel; viewBtn.href = cvPdfPath; }
         if (texBtn) { texBtn.textContent = ui.texCvLabel; texBtn.href = cvTexPath; }
     }
@@ -387,7 +387,7 @@ function renderContent() {
                 <a href="${data.identity.contacts.linkedin}" target="_blank" rel="noopener" class="highlight-link">LinkedIn</a> •
                 <a href="${data.identity.contacts.github}" target="_blank" rel="noopener" class="highlight-link">GitHub</a> •
                 <a href="${data.identity.contacts.youtube}" target="_blank" rel="noopener" class="highlight-link">YouTube</a> •
-                <a href="${resolvePath(data.identity.dossierPdf)}" target="_blank" rel="noopener" class="highlight-link">📑 ${ui.dossierBtn}</a>
+                <a href="${resolvePath(data.identity.dossierPdf)}" target="_blank" rel="noopener" class="highlight-link">📄 ${ui.dossierBtn}</a>
             </p>
             <p style="font-size: 0.82rem; opacity: 0.72;">&copy; 2026 Tsikomia Scidelo ANDRIASAHY. ${ui.footerRights} • <a href="admin.html" style="color: var(--text-muted); text-decoration: none;">🔒 ${ui.footerStudio}</a></p>
         `;
@@ -403,9 +403,12 @@ function renderBibliography() {
 
     const cardsHtml = data.bibliography.map(b => `
         <a href="${b.url}" target="_blank" rel="noopener" class="bib-card">
-            <span class="bib-card-tag">${b.tag}</span>
-            <span class="bib-card-title">${b.title}</span>
-            <span class="bib-card-author">${b.author}</span>
+            ${b.image ? `<img src="${resolvePath(b.image)}" alt="${b.title}" class="bib-thumb" loading="lazy">` : ''}
+            <div class="bib-card-body">
+                <span class="bib-card-tag">${b.tag}</span>
+                <span class="bib-card-title">${b.title}</span>
+                <span class="bib-card-author">${b.author}</span>
+            </div>
         </a>
     `).join('');
 
@@ -549,9 +552,20 @@ function filterProjects(category) {
 
     if (toggleWrap) {
         if (hiddenCount > 0) {
+            const statusText = showAllProjects
+                ? (isFr ? `Tous les ${filtered.length} projets affichés` : `Showing all ${filtered.length} projects`)
+                : (isFr ? `Affichage de ${visibleItems.length} sur ${filtered.length} projets` : `Showing ${visibleItems.length} of ${filtered.length} projects`);
+            const chevDown = '<svg class="expand-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+            const chevUp = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>';
             toggleWrap.innerHTML = showAllProjects
-                ? `<button type="button" class="btn btn-outline" id="toggle-projects-btn">↑ ${data.ui.showLessProjects}</button>`
-                : `<button type="button" class="btn btn-outline" id="toggle-projects-btn">↓ ${data.ui.showMoreProjects} (+${hiddenCount})</button>`;
+                ? `<span class="expand-status-hint">${statusText}</span>
+                   <div class="expand-toggle-bar">
+                       <button type="button" class="btn-expand-less" id="toggle-projects-btn">${chevUp} ${data.ui.showLessProjects}</button>
+                   </div>`
+                : `<span class="expand-status-hint">${statusText}</span>
+                   <div class="expand-toggle-bar">
+                       <button type="button" class="btn-expand-more" id="toggle-projects-btn">${data.ui.showMoreProjects} <span class="expand-count-pill">+${hiddenCount}</span> ${chevDown}</button>
+                   </div>`;
             document.getElementById('toggle-projects-btn').onclick = () => {
                 showAllProjects = !showAllProjects;
                 filterProjects(currentProjectCategory);
@@ -652,9 +666,21 @@ function filterExperiences(type) {
 
     if (toggleWrap) {
         if (hiddenCount > 0) {
+            const isFr = currentLang === 'fr';
+            const statusText = showAllExperiences
+                ? (isFr ? `Toutes les ${filtered.length} expériences affichées` : `Showing all ${filtered.length} experiences`)
+                : (isFr ? `Affichage de ${visibleItems.length} sur ${filtered.length} expériences` : `Showing ${visibleItems.length} of ${filtered.length} experiences`);
+            const chevDown = '<svg class="expand-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+            const chevUp = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>';
             toggleWrap.innerHTML = showAllExperiences
-                ? `<button type="button" class="btn btn-outline" id="toggle-exp-btn">↑ ${data.ui.showLessExp}</button>`
-                : `<button type="button" class="btn btn-outline" id="toggle-exp-btn">↓ ${data.ui.showMoreExp} (+${hiddenCount})</button>`;
+                ? `<span class="expand-status-hint">${statusText}</span>
+                   <div class="expand-toggle-bar">
+                       <button type="button" class="btn-expand-less" id="toggle-exp-btn">${chevUp} ${data.ui.showLessExp}</button>
+                   </div>`
+                : `<span class="expand-status-hint">${statusText}</span>
+                   <div class="expand-toggle-bar">
+                       <button type="button" class="btn-expand-more" id="toggle-exp-btn">${data.ui.showMoreExp} <span class="expand-count-pill">+${hiddenCount}</span> ${chevDown}</button>
+                   </div>`;
             document.getElementById('toggle-exp-btn').onclick = () => {
                 showAllExperiences = !showAllExperiences;
                 filterExperiences(currentExpFilter);

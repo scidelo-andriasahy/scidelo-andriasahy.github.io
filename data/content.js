@@ -153,7 +153,7 @@ var portfolioData = {
             "footerRole": "Ingénieur Systèmes Embarqués, Robotique ROS 2, Électronique de Puissance & IA",
             "footerRights": "Tous droits réservés.",
             "footerStudio": "Espace Privé",
-            "dossierBtn": "Dossier Portfolio Complet (PDF Cliquable)",
+            "dossierBtn": "CV Détaillé Complet (PDF)",
             "showMoreProjects": "Voir tous les projets",
             "showLessProjects": "Réduire les projets",
             "showMoreExp": "Voir toutes les expériences",
@@ -184,7 +184,7 @@ var portfolioData = {
                 "phone": "+212 777 647 362"
             },
             "image": "assets/images/portrait_studio_dark.png",
-            "dossierPdf": "assets/pdfs/Dossier_Portfolio_Complet_ANDRIASAHY_FR.pdf"
+            "dossierPdf": "assets/pdfs/CV_Detaille_ANDRIASAHY_FR.pdf"
         },
         "about": {
             "title": "Profil & Objectif PFE",
@@ -1720,73 +1720,85 @@ var portfolioData = {
                 "title": "Analog Integrated Circuit Design",
                 "author": "T. Chan Carusone, D. Johns & K. Martin (Wiley)",
                 "tag": "Microélectronique CMOS",
-                "url": "https://www.wiley.com/en-us/Analog+Integrated+Circuit+Design%2C+2nd+Edition-p-9780470770108"
+                "url": "https://www.wiley.com/en-us/Analog+Integrated+Circuit+Design%2C+2nd+Edition-p-9780470770108",
+                "image": "assets/images/bib/bib_carusone_cmos.png"
             },
             {
                 "title": "Automatique — Systèmes linéaires, non linéaires & représentation d'état",
                 "author": "Yves Granjon (2e éd., Dunod)",
                 "tag": "Automatique",
-                "url": "https://www.dunod.com/"
+                "url": "https://www.dunod.com/",
+                "image": "assets/images/bib/bib_granjon_auto.png"
             },
             {
                 "title": "Simulation de la variabilité du transistor MOS",
                 "author": "Pascal Lemoigne — Thèse IM2NP & STMicroelectronics",
                 "tag": "Physique MOS",
-                "url": "https://www.im2np.fr/"
+                "url": "https://www.im2np.fr/",
+                "image": "assets/images/bib/bib_lemoigne_mos.png"
             },
             {
                 "title": "Conception de contrôleurs intelligents par approche génétique",
                 "author": "Ouahib Guenounou — Thèse Univ. Paul Sabatier (HAL)",
                 "tag": "GA & Flou",
-                "url": "https://theses.hal.science/tel-00392473v1"
+                "url": "https://theses.hal.science/tel-00392473v1",
+                "image": "assets/images/bib/bib_guenounou_ga.png"
             },
             {
                 "title": "Optimisation of a Fuzzy Logic Controller Using Genetic Algorithms",
                 "author": "Joseph Foran (M.Eng. Report)",
                 "tag": "Logique Floue",
-                "url": "https://www.mathworks.com/products/fuzzy-logic.html"
+                "url": "https://www.mathworks.com/products/fuzzy-logic.html",
+                "image": "assets/images/bib/bib_foran_fuzzy.png"
             },
             {
                 "title": "On-line PID Controller Tuning using Genetic Algorithms",
                 "author": "Ian Griffin (M.Eng. Electronic Systems)",
                 "tag": "GA-PID",
-                "url": "https://www.mathworks.com/discovery/genetic-algorithm.html"
+                "url": "https://www.mathworks.com/discovery/genetic-algorithm.html",
+                "image": "assets/images/bib/bib_griffin_pid.png"
             },
             {
                 "title": "The PID Controller Design Using Genetic Algorithm",
                 "author": "Saifudin Bin Mohamed Ibrahim (USQ)",
                 "tag": "Commande PID",
-                "url": "https://www.mathworks.com/discovery/pid-control.html"
+                "url": "https://www.mathworks.com/discovery/pid-control.html",
+                "image": "assets/images/bib/bib_ibrahim_pid.png"
             },
             {
                 "title": "Power Electronics: Converters, Applications, and Design",
                 "author": "Ned Mohan, T. Undeland & W. Robbins (Wiley)",
                 "tag": "Électronique de Puissance",
-                "url": "https://www.wiley.com/"
+                "url": "https://www.wiley.com/",
+                "image": "assets/images/bib/bib_mohan_power.svg"
             },
             {
                 "title": "Pattern Recognition and Machine Learning",
                 "author": "Christopher M. Bishop (Springer)",
                 "tag": "IA & Modèles de Markov",
-                "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/"
+                "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/",
+                "image": "assets/images/bib/bib_bishop_prml.svg"
             },
             {
                 "title": "STM32G474 Reference Manual (RM0440 — HRTIM & Power Control)",
                 "author": "STMicroelectronics Official Documentation",
                 "tag": "Systèmes Embarqués",
-                "url": "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+                "url": "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+                "image": "assets/images/bib/bib_stm32_rm0440.svg"
             },
             {
                 "title": "ROS 2 Humble & Nav2 Official Engineering Documentation",
                 "author": "Open Robotics / Nav2 Stack",
                 "tag": "Robotique Autonome",
-                "url": "https://navigation.ros.org/"
+                "url": "https://navigation.ros.org/",
+                "image": "assets/images/bib/bib_ros2_nav2.svg"
             },
             {
                 "title": "Smart Territory Development & Innovation Challenge (TDC 2026)",
                 "author": "Open Innovation & Agro-industrie durable",
                 "tag": "Innovation",
-                "url": "https://ensat.ac.ma/Portail/"
+                "url": "https://ensat.ac.ma/Portail/",
+                "image": "assets/images/bib/bib_tdc_2026.png"
             }
         ]
     },
@@ -1808,7 +1820,7 @@ var portfolioData = {
             "footerRole": "Embedded Systems, ROS 2 Robotics, Power Electronics & Industrial AI Engineer",
             "footerRights": "All rights reserved.",
             "footerStudio": "Private Workspace",
-            "dossierBtn": "Complete Portfolio Dossier (Clickable PDF)",
+            "dossierBtn": "Comprehensive Engineering CV (PDF)",
             "showMoreProjects": "Show all projects",
             "showLessProjects": "Show fewer projects",
             "showMoreExp": "Show all experiences",
@@ -1839,7 +1851,7 @@ var portfolioData = {
                 "phone": "+212 777 647 362"
             },
             "image": "assets/images/portrait_studio_dark.png",
-            "dossierPdf": "assets/pdfs/Dossier_Portfolio_Complet_ANDRIASAHY_EN.pdf"
+            "dossierPdf": "assets/pdfs/CV_Detaille_ANDRIASAHY_EN.pdf"
         },
         "about": {
             "title": "Profile & PFE Engineering Objective",
@@ -3379,73 +3391,85 @@ var portfolioData = {
                 "title": "Analog Integrated Circuit Design",
                 "author": "T. Chan Carusone, D. Johns & K. Martin (Wiley)",
                 "tag": "CMOS Microelectronics",
-                "url": "https://www.wiley.com/en-us/Analog+Integrated+Circuit+Design%2C+2nd+Edition-p-9780470770108"
+                "url": "https://www.wiley.com/en-us/Analog+Integrated+Circuit+Design%2C+2nd+Edition-p-9780470770108",
+                "image": "assets/images/bib/bib_carusone_cmos.png"
             },
             {
                 "title": "Control Systems: Linear, Nonlinear & State-Space Representations",
                 "author": "Yves Granjon (2nd Ed., Dunod)",
                 "tag": "Control Theory",
-                "url": "https://www.dunod.com/"
+                "url": "https://www.dunod.com/",
+                "image": "assets/images/bib/bib_granjon_auto.png"
             },
             {
                 "title": "MOS Transistor Variability Simulation",
                 "author": "Pascal Lemoigne — Ph.D. Thesis, IM2NP & STMicroelectronics",
                 "tag": "MOS Physics",
-                "url": "https://www.im2np.fr/"
+                "url": "https://www.im2np.fr/",
+                "image": "assets/images/bib/bib_lemoigne_mos.png"
             },
             {
                 "title": "Intelligent Controller Design via Genetic Approaches",
                 "author": "Ouahib Guenounou — Ph.D. Thesis, Univ. Paul Sabatier (HAL)",
                 "tag": "GA & Fuzzy",
-                "url": "https://theses.hal.science/tel-00392473v1"
+                "url": "https://theses.hal.science/tel-00392473v1",
+                "image": "assets/images/bib/bib_guenounou_ga.png"
             },
             {
                 "title": "Optimisation of a Fuzzy Logic Controller Using Genetic Algorithms",
                 "author": "Joseph Foran (M.Eng. Report)",
                 "tag": "Fuzzy Logic",
-                "url": "https://www.mathworks.com/products/fuzzy-logic.html"
+                "url": "https://www.mathworks.com/products/fuzzy-logic.html",
+                "image": "assets/images/bib/bib_foran_fuzzy.png"
             },
             {
                 "title": "On-line PID Controller Tuning using Genetic Algorithms",
                 "author": "Ian Griffin (M.Eng. Electronic Systems)",
                 "tag": "GA-PID",
-                "url": "https://www.mathworks.com/discovery/genetic-algorithm.html"
+                "url": "https://www.mathworks.com/discovery/genetic-algorithm.html",
+                "image": "assets/images/bib/bib_griffin_pid.png"
             },
             {
                 "title": "The PID Controller Design Using Genetic Algorithm",
                 "author": "Saifudin Bin Mohamed Ibrahim (USQ)",
                 "tag": "PID Control",
-                "url": "https://www.mathworks.com/discovery/pid-control.html"
+                "url": "https://www.mathworks.com/discovery/pid-control.html",
+                "image": "assets/images/bib/bib_ibrahim_pid.png"
             },
             {
                 "title": "Power Electronics: Converters, Applications, and Design",
                 "author": "Ned Mohan, T. Undeland & W. Robbins (Wiley)",
                 "tag": "Power Electronics",
-                "url": "https://www.wiley.com/"
+                "url": "https://www.wiley.com/",
+                "image": "assets/images/bib/bib_mohan_power.svg"
             },
             {
                 "title": "Pattern Recognition and Machine Learning",
                 "author": "Christopher M. Bishop (Springer)",
                 "tag": "AI & Markov Models",
-                "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/"
+                "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/",
+                "image": "assets/images/bib/bib_bishop_prml.svg"
             },
             {
                 "title": "STM32G474 Reference Manual (RM0440 — HRTIM & Power Control)",
                 "author": "STMicroelectronics Official Documentation",
                 "tag": "Embedded Systems",
-                "url": "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+                "url": "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+                "image": "assets/images/bib/bib_stm32_rm0440.svg"
             },
             {
                 "title": "ROS 2 Humble & Nav2 Official Engineering Documentation",
                 "author": "Open Robotics / Nav2 Stack",
                 "tag": "Autonomous Robotics",
-                "url": "https://navigation.ros.org/"
+                "url": "https://navigation.ros.org/",
+                "image": "assets/images/bib/bib_ros2_nav2.svg"
             },
             {
                 "title": "Smart Territory Development & Innovation Challenge (TDC 2026)",
                 "author": "Open Innovation & Sustainable Industry",
                 "tag": "Innovation",
-                "url": "https://ensat.ac.ma/Portail/"
+                "url": "https://ensat.ac.ma/Portail/",
+                "image": "assets/images/bib/bib_tdc_2026.png"
             }
         ]
     }
