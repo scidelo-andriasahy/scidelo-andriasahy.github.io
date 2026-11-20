@@ -45,12 +45,32 @@ def load_data():
     return json.loads(raw[start:end])
 
 
+LINK_RE = re.compile(r"<a\s+[^>]*href=['\"]([^'\"]+)['\"][^>]*>(.*?)</a>", re.IGNORECASE | re.DOTALL)
+
+
 def strip_html(s):
     return html.unescape(re.sub(r"<[^>]+>", "", str(s or ""))).strip()
 
 
 def esc(s):
     return html.escape(str(s or ""), quote=True)
+
+
+def render_rich(s):
+    """Preserve embedded <a href='...'>text</a> as clean clickable links and strip/escape all other text safely."""
+    s = str(s or "")
+    out = []
+    last = 0
+    for m in LINK_RE.finditer(s):
+        before = html.unescape(re.sub(r"<[^>]+>", "", s[last:m.start()]))
+        out.append(esc(before))
+        href = abs_url(m.group(1))
+        label = strip_html(m.group(2))
+        out.append(f'<a href="{esc(href)}">{esc(label)}</a>')
+        last = m.end()
+    tail = html.unescape(re.sub(r"<[^>]+>", "", s[last:]))
+    out.append(esc(tail))
+    return "".join(out)
 
 
 def abs_url(u):
@@ -179,19 +199,19 @@ def build_html(data, lang):
     exp_blocks = []
     for e in d.get("experience", {}).get("items", []):
         org_url = e.get("organizationUrl", "")
-        org_html = f'<a href="{esc(org_url)}">{esc(e["organization"])}</a>' if org_url else esc(e["organization"])
-        loc = f' · {esc(e["location"])}' if e.get("location") else ""
-        bullets = "".join(f'<li>{esc(strip_html(b))}</li>' for b in e.get("bullets", []))
+        org_html = f'<a href="{esc(org_url)}">{esc(strip_html(e["organization"]))}</a>' if org_url else render_rich(e["organization"])
+        loc = f' · {esc(strip_html(e["location"]))}' if e.get("location") else ""
+        bullets = "".join(f'<li>{render_rich(b)}</li>' for b in e.get("bullets", []))
         tags = "".join(f'<span class="mini-tag">{esc(t)}</span>' for t in e.get("tags", []))
         proofs = ""
         if e.get("proofs"):
-            plinks = " · ".join(f'<a href="{esc(abs_url(pr["url"]))}">{esc(pr["label"])}</a>' for pr in e["proofs"])
+            plinks = " · ".join(f'<a href="{esc(abs_url(pr["url"]))}">{esc(strip_html(pr["label"]))}</a>' for pr in e["proofs"])
             proofs = f'<div class="inline-links">{plinks}</div>'
         exp_blocks.append(f"""
         <div class="entry">
             <div class="entry-head">
                 <div>
-                    <span class="entry-title">{esc(e["role"])}</span>
+                    <span class="entry-title">{render_rich(e["role"])}</span>
                     <span class="entry-org"> — {org_html}{loc}</span>
                 </div>
                 <span class="entry-date">{esc(e["period"])}</span>
@@ -220,10 +240,10 @@ def build_html(data, lang):
         proj_blocks.append(f"""
         <div class="entry proj-entry">
             <div class="entry-head">
-                <div class="entry-title">{esc(p["title"])}</div>
+                <div class="entry-title">{render_rich(p["title"])}</div>
                 <span class="cat-pill">{esc(p["category"])}</span>
             </div>
-            <p class="entry-desc">{esc(strip_html(p["description"]))}</p>
+            <p class="entry-desc">{render_rich(p["description"])}</p>
             <div class="proj-meta">
                 <div class="mini-tags">{tags_html}</div>
                 <div class="inline-links">{" · ".join(links_arr)}</div>
@@ -233,11 +253,11 @@ def build_html(data, lang):
     # Build Education
     edu_blocks = []
     for ed in d.get("education", {}).get("items", []):
-        det = f'<p class="entry-desc">{esc(strip_html(ed.get("details", "")))}</p>' if ed.get("details") else ""
+        det = f'<p class="entry-desc">{render_rich(ed.get("details", ""))}</p>' if ed.get("details") else ""
         edu_blocks.append(f"""
         <div class="entry">
             <div class="entry-head">
-                <div><span class="entry-title">{esc(ed["degree"])}</span> <span class="entry-org">— {esc(strip_html(ed["institution"]))}</span></div>
+                <div><span class="entry-title">{render_rich(ed["degree"])}</span> <span class="entry-org">— {render_rich(ed["institution"])}</span></div>
                 <span class="entry-date">{esc(ed["period"])}</span>
             </div>
             {det}
@@ -251,12 +271,12 @@ def build_html(data, lang):
             c_links = []
             for idx, lnk in enumerate(c.get("links", [])):
                 lbl = (c.get("linkLabels") or [])[idx] if idx < len(c.get("linkLabels") or []) else "PDF"
-                c_links.append(f'<a href="{esc(abs_url(lnk))}">{esc(lbl)}</a>')
+                c_links.append(f'<a href="{esc(abs_url(lnk))}">{esc(strip_html(lbl))}</a>')
             if c.get("verifyUrl"):
                 c_links.append(f'<a href="{esc(c["verifyUrl"])}">{"Vérifier" if is_fr else "Verify"}</a>')
             lstr = f' <span class="inline-links">[{" · ".join(c_links)}]</span>' if c_links else ""
-            items_li.append(f'<li><strong>{esc(c["title"])}</strong> — {esc(c["issuer"])} <span class="muted">({esc(c["date"])})</span>{lstr}</li>')
-        cert_blocks.append(f'<div class="cert-group"><div class="cert-sub">{esc(sec["title"])}</div><ul class="bullet-list">{"".join(items_li)}</ul></div>')
+            items_li.append(f'<li><strong>{render_rich(c["title"])}</strong> — {render_rich(c["issuer"])} <span class="muted">({esc(c["date"])})</span>{lstr}</li>')
+        cert_blocks.append(f'<div class="cert-group"><div class="cert-sub">{esc(strip_html(sec["title"]))}</div><ul class="bullet-list">{"".join(items_li)}</ul></div>')
 
     # Build Bibliography
     bib_items = "".join(
@@ -264,9 +284,9 @@ def build_html(data, lang):
         for b in d.get("bibliography", [])
     )
 
-    inst_clean = strip_html(ident.get("institution", ""))
-    about_clean = strip_html(about.get("text", ""))
-    pfe_clean = strip_html(about.get("pfeHighlight", ""))
+    inst_rich = render_rich(ident.get("institution", ""))
+    about_rich = render_rich(about.get("text", ""))
+    pfe_rich = render_rich(about.get("pfeHighlight", ""))
 
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
@@ -539,7 +559,7 @@ def build_html(data, lang):
     <div class="head-info">
       <div class="cv-name">{esc(ident["name"])}</div>
       <div class="cv-role">{esc(ident["title"])}</div>
-      <div class="cv-sub">{esc(ident["location"])} · {esc(inst_clean)}</div>
+      <div class="cv-sub">{esc(ident["location"])} · {inst_rich}</div>
       <div class="avail-badge">{esc(ident.get("availabilityBadge", ""))}</div>
       <div class="contact-bar">
         <a href="mailto:{esc(contacts.get('email', ''))}">{esc(contacts.get('email', ''))}</a>
@@ -553,8 +573,8 @@ def build_html(data, lang):
   </header>
 
   <h2>{esc(sec_profile)}</h2>
-  <p class="profile-text">{esc(about_clean)}</p>
-  <div class="pfe-box"><strong>{esc(lbl_avail)} :</strong> {esc(pfe_clean)}</div>
+  <p class="profile-text">{about_rich}</p>
+  <div class="pfe-box"><strong>{esc(lbl_avail)} :</strong> {pfe_rich}</div>
   <div class="specs-row"><span class="specs-lbl">{esc(lbl_spec)} :</span> {specs_html}</div>
 
   <h2>{esc(sec_skills)}</h2>
