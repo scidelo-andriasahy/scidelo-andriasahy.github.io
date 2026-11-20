@@ -302,19 +302,19 @@ var portfolioData = {
                     ],
                     "description": "Jumeau numérique URDF/Xacro sous Gazebo, cartographie Graph-SLAM (Ceres Solver) et navigation autonome Nav2 validés avec vidéos de simulation et graphes ROS 2.",
                     "image": "assets/images/ros2/nav_rviz.png",
-                    "video": "assets/videos/ros2_amr_nav2_sim.webm",
+                    "video": "https://youtu.be/BdZKrr3qsLc",
                     "videos": [
                         {
                             "title": "Navigation Autonome Nav2, Planification A*/DWB & Évitement d'Obstacles (RViz2 / Gazebo)",
-                            "url": "assets/videos/ros2_amr_nav2_sim.webm"
+                            "url": "https://youtu.be/BdZKrr3qsLc"
                         },
                         {
                             "title": "Présentation du Robot Mobile Autonome en 3D (Gazebo / URDF)",
-                            "url": "assets/videos/ros2_amr_3d_presentation.webm"
+                            "url": "https://youtu.be/I3Rd_GUxf5A"
                         },
                         {
                             "title": "Téléopération Temps Réel, Scan LiDAR 360° & Cartographie Graph-SLAM",
-                            "url": "assets/videos/ros2_amr_teleop.webm"
+                            "url": "https://youtu.be/ymCe_PgwFqU"
                         }
                     ],
                     "gallery": [
@@ -387,23 +387,23 @@ var portfolioData = {
                     ],
                     "description": "Dimensionnement, schémas KiCad multi-feuilles et simulation MATLAB/Simulink d'un Buck synchrone triphasé entrelacé 4,4 kW (24 VDC / 180 A, rendement 97,34 %) et d'un onduleur hybride HF 230 VAC pur sinus.",
                     "image": "assets/images/fortico/SchemaGlobalSimulink.png",
-                    "video": "assets/videos/fortico_onduleur_hybride.webm",
+                    "video": "https://youtu.be/MCnFn3AhC5s",
                     "videos": [
                         {
                             "title": "Simulation MATLAB/Simulink — Onduleur Hybride 24 VDC → 400 VDC → 230 VAC Pur Sinus 50 Hz",
-                            "url": "assets/videos/fortico_onduleur_hybride.webm"
+                            "url": "https://youtu.be/MCnFn3AhC5s"
                         },
                         {
                             "title": "Simulation MPPT Triphasé Entrelacé 4,4 kW — Poursuite P&O & Courants de Phase (Partie 1)",
-                            "url": "assets/videos/fortico_mppt_sim1.webm"
+                            "url": "https://youtu.be/fxoDP3Xo3PM"
                         },
                         {
                             "title": "Simulation Dynamique MPPT — Variation d'Irradiance & Régulation Bus Batterie (Partie 2)",
-                            "url": "assets/videos/fortico_mppt_sim2.webm"
+                            "url": "https://youtu.be/TfraTzRFJ6o"
                         },
                         {
                             "title": "Simulation Dynamique MPPT & Onduleur — Régime Transitoire Complet (Partie 3)",
-                            "url": "assets/videos/fortico_mppt_sim3.webm"
+                            "url": "https://youtu.be/btSQjixNidw"
                         }
                     ],
                     "gallery": [
@@ -654,7 +654,7 @@ var portfolioData = {
                     ],
                     "description": "Conception matérielle (schémas KiCad, routage PCB 3D, BOM) et spécifications firmware de 4 produits embarqués chez Fortico : Compteur 74HC595, Couveuse PID DRV8825, Boîtier 4G/GPS/RFID et IHM ESP-NOW/MQTT.",
                     "image": "assets/images/fortico/pcb_smart_count_3d.jpg",
-                    "video": "assets/videos/esp32_pcb_kicad_3d.webm",
+                    "video": "https://youtu.be/-a-3MGmodos",
                     "gallery": [
                         {
                             "src": "assets/images/fortico/pcb_smart_count_3d.jpg",
@@ -719,7 +719,7 @@ var portfolioData = {
                     "videos": [
                         {
                             "title": "Visite 3D & Routage PCB sous KiCad — Cartes Embarquées ESP32 (videoPCB)",
-                            "url": "assets/videos/esp32_pcb_kicad_3d.webm"
+                            "url": "https://youtu.be/-a-3MGmodos"
                         }
                     ]
                 },
@@ -1100,15 +1100,15 @@ var portfolioData = {
                     ],
                     "description": "Modélisation cinématique non-holonome d'un robot mobile unicycle et synthèse de contrôleurs à Logique Floue (.fis) pour le suivi de trajectoire autonome sous MATLAB/Simulink avec vidéo de simulation.",
                     "image": "assets/images/doc/unicycle/unicycle_sim_081445.png",
-                    "video": "assets/videos/unicycle_fuzzy_simulink.webm",
+                    "video": "https://youtu.be/6zdbtt15iCY",
                     "videos": [
                         {
                             "title": "Simulation MATLAB/Simulink — Suivi de Trajectoire du Robot Mobile Unicycle par Logique Floue",
-                            "url": "assets/videos/unicycle_fuzzy_simulink.webm"
+                            "url": "https://youtu.be/6zdbtt15iCY"
                         },
                         {
                             "title": "Simulation Complète Boucle Fermée — Convergence XY & Orientation du Robot Unicycle",
-                            "url": "assets/videos/unicycle_fuzzy_full_sim.webm"
+                            "url": "https://youtu.be/taYZ8TGvZNM"
                         }
                     ],
                     "gallery": [
@@ -1957,19 +1957,19 @@ var portfolioData = {
                     ],
                     "description": "Gazebo URDF/Xacro digital twin, asynchronous Graph-SLAM (Ceres Solver), and autonomous Nav2 obstacle avoidance validated with simulation videos and ROS 2 node graphs.",
                     "image": "assets/images/ros2/nav_rviz.png",
-                    "video": "assets/videos/ros2_amr_nav2_sim.webm",
+                    "video": "https://youtu.be/BdZKrr3qsLc",
                     "videos": [
                         {
                             "title": "Autonomous Nav2 Navigation, A*/DWB Path Planning & Obstacle Avoidance (RViz2 / Gazebo)",
-                            "url": "assets/videos/ros2_amr_nav2_sim.webm"
+                            "url": "https://youtu.be/BdZKrr3qsLc"
                         },
                         {
                             "title": "3D Autonomous Mobile Robot Presentation (Gazebo / URDF)",
-                            "url": "assets/videos/ros2_amr_3d_presentation.webm"
+                            "url": "https://youtu.be/I3Rd_GUxf5A"
                         },
                         {
                             "title": "Real-Time Teleoperation, 360° LiDAR Scanning & Graph-SLAM Mapping",
-                            "url": "assets/videos/ros2_amr_teleop.webm"
+                            "url": "https://youtu.be/ymCe_PgwFqU"
                         }
                     ],
                     "gallery": [
@@ -2042,23 +2042,23 @@ var portfolioData = {
                     ],
                     "description": "Power stage sizing, multi-sheet KiCad schematics, and MATLAB/Simulink validation of a 4.4 kW 3-phase interleaved synchronous Buck MPPT (24 VDC / 180 A, 97.34% efficiency) and a 230 VAC pure sine wave HF hybrid inverter.",
                     "image": "assets/images/fortico/SchemaGlobalSimulink.png",
-                    "video": "assets/videos/fortico_onduleur_hybride.webm",
+                    "video": "https://youtu.be/MCnFn3AhC5s",
                     "videos": [
                         {
                             "title": "MATLAB/Simulink Demo — Hybrid Inverter 24 VDC → 400 VDC → 230 VAC Pure Sine Wave 50 Hz",
-                            "url": "assets/videos/fortico_onduleur_hybride.webm"
+                            "url": "https://youtu.be/MCnFn3AhC5s"
                         },
                         {
                             "title": "4.4 kW 3-Phase Interleaved MPPT Simulation — P&O Tracking & Phase Currents (Part 1)",
-                            "url": "assets/videos/fortico_mppt_sim1.webm"
+                            "url": "https://youtu.be/fxoDP3Xo3PM"
                         },
                         {
                             "title": "Dynamic MPPT Simulation — Irradiance Step & 24 V Battery Regulation (Part 2)",
-                            "url": "assets/videos/fortico_mppt_sim2.webm"
+                            "url": "https://youtu.be/TfraTzRFJ6o"
                         },
                         {
                             "title": "Full Transient Co-Simulation — MPPT & Hybrid Inverter Stage (Part 3)",
-                            "url": "assets/videos/fortico_mppt_sim3.webm"
+                            "url": "https://youtu.be/btSQjixNidw"
                         }
                     ],
                     "gallery": [
@@ -2313,7 +2313,7 @@ var portfolioData = {
                     ],
                     "description": "End-to-end hardware design (KiCad schematics, 3D PCB routing, BOM) and firmware specs for 4 Fortico embedded boards: 74HC595 Industrial Counter, PID DRV8825 Incubator, 4G/GPS/RFID Fleet Box, and ESP-NOW/MQTT HMI.",
                     "image": "assets/images/fortico/pcb_smart_count_3d.jpg",
-                    "video": "assets/videos/esp32_pcb_kicad_3d.webm",
+                    "video": "https://youtu.be/-a-3MGmodos",
                     "gallery": [
                         {
                             "src": "assets/images/fortico/pcb_smart_count_3d.jpg",
@@ -2378,7 +2378,7 @@ var portfolioData = {
                     "videos": [
                         {
                             "title": "3D KiCad PCB Routing & Inspection Walkthrough — ESP32 Embedded Boards",
-                            "url": "assets/videos/esp32_pcb_kicad_3d.webm"
+                            "url": "https://youtu.be/-a-3MGmodos"
                         }
                     ]
                 },
@@ -2759,15 +2759,15 @@ var portfolioData = {
                     ],
                     "description": "Non-holonomic unicycle kinematics modeling and Mamdani Fuzzy Inference System (.fis) trajectory tracking controller in MATLAB/Simulink with silent simulation demo video.",
                     "image": "assets/images/doc/unicycle/unicycle_sim_081445.png",
-                    "video": "assets/videos/unicycle_fuzzy_simulink.webm",
+                    "video": "https://youtu.be/6zdbtt15iCY",
                     "videos": [
                         {
                             "title": "MATLAB/Simulink Demo — Fuzzy Logic Trajectory Tracking for Unicycle Mobile Robot",
-                            "url": "assets/videos/unicycle_fuzzy_simulink.webm"
+                            "url": "https://youtu.be/6zdbtt15iCY"
                         },
                         {
                             "title": "Extended Closed-Loop Simulation — Unicycle XY Convergence & Heading Control",
-                            "url": "assets/videos/unicycle_fuzzy_full_sim.webm"
+                            "url": "https://youtu.be/taYZ8TGvZNM"
                         }
                     ],
                     "gallery": [
