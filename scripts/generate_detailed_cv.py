@@ -152,7 +152,7 @@ def build_html(data, lang):
         portrait_html = f'<img src="data:image/{ext};base64,{b64}" alt="{esc(ident["name"])}" class="portrait">'
 
     # Titles & labels (clean, executive, zero mention of "liens cliquables" or "1 projet = 1 repo")
-    doc_subtitle = "Curriculum Vitae Détaillé — Ingénieur Systèmes Embarqués, Robotique & Électronique de Puissance" if is_fr else "Comprehensive Engineering Curriculum Vitae"
+    doc_subtitle = "Portfolio PDF Complet & CV Détaillé — Ingénieur Systèmes Embarqués, Robotique & Électronique de Puissance" if is_fr else "Complete PDF Engineering Portfolio & Comprehensive CV"
     sec_profile = "Profil & Objectif PFE" if is_fr else "Profile & PFE Engineering Objective"
     sec_skills = "Compétences Techniques, Outils & Environnements" if is_fr else "Technical Skills, Tools & Engineering Environments"
     sec_lang_int = "Langues & Centres d'Intérêt" if is_fr else "Languages & Personal Interests"
@@ -171,9 +171,9 @@ def build_html(data, lang):
     lbl_details = "Fiche projet" if is_fr else "Project page"
     today_str = datetime.date.today().strftime("%d/%m/%Y" if is_fr else "%Y-%m-%d")
     footer_note = (
-        f"CV Détaillé généré automatiquement depuis le portfolio en ligne ({SITE_URL}) — Mise à jour : {today_str}"
+        f"Portfolio PDF Complet généré automatiquement depuis le site en ligne ({SITE_URL}) — Mise à jour : {today_str}"
         if is_fr
-        else f"Comprehensive CV automatically generated from the online portfolio ({SITE_URL}) — Updated: {today_str}"
+        else f"Complete PDF Portfolio automatically generated from the online portfolio ({SITE_URL}) — Updated: {today_str}"
     )
 
     # Build Specialties chips

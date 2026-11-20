@@ -203,6 +203,7 @@ function updateLangUI() {
     setNav('nav-experience', nav.experience);
     setNav('nav-cv', nav.cv);
     setNav('nav-certificates', nav.certificates);
+    setNav('nav-contact', nav.contact || 'Contact');
 }
 
 function getSkillIcon(iconName) {
@@ -252,26 +253,30 @@ function renderContent() {
                 </div>
                 <div class="hero-cta-row">
                     <a href="${cvPdfUrl}" class="btn" download>
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                         ${ui.primaryCta}
                     </a>
                     <a href="${dossierPdfUrl}" class="btn btn-outline" target="_blank" rel="noopener">
                         📄 ${ui.dossierBtn}
                     </a>
-                    <a href="#projects" class="highlight-link" style="font-size: 0.94rem; margin-left: 0.25rem;">${ui.secondaryCta} &rarr;</a>
+                    <a href="#contact" class="highlight-link" style="font-size: 0.94rem; margin-left: 0.25rem;">${ui.contactCta} &rarr;</a>
                 </div>
                 <div class="hero-socials">
-                    <a href="${linkedinUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    <a href="${linkedinUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn" aria-label="${currentLang === 'fr' ? 'Profil LinkedIn de Tsikomia Scidelo ANDRIASAHY' : 'LinkedIn profile of Tsikomia Scidelo ANDRIASAHY'}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span class="sr-only">LinkedIn</span>
                     </a>
-                    <a href="${githubUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="GitHub">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    <a href="${githubUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="GitHub" aria-label="${currentLang === 'fr' ? 'Dépôts GitHub de Tsikomia Scidelo ANDRIASAHY' : 'GitHub repositories of Tsikomia Scidelo ANDRIASAHY'}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        <span class="sr-only">GitHub</span>
                     </a>
-                    <a href="${youtubeUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="YouTube (@ScideloEngineering)">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                    <a href="${youtubeUrl}" target="_blank" rel="noopener" class="social-icon-btn" title="YouTube" aria-label="${currentLang === 'fr' ? 'Chaîne YouTube Ingénierie de Tsikomia Scidelo ANDRIASAHY' : 'YouTube Engineering Channel of Tsikomia Scidelo ANDRIASAHY'}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        <span class="sr-only">YouTube</span>
                     </a>
-                    <a href="mailto:${data.identity.contacts.email}" class="social-icon-btn" title="${data.identity.contacts.email}">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a href="mailto:${data.identity.contacts.email}" class="social-icon-btn" title="${data.identity.contacts.email}" aria-label="${currentLang === 'fr' ? 'Envoyer un email à ' + data.identity.contacts.email : 'Send an email to ' + data.identity.contacts.email}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <span class="sr-only">Email</span>
                     </a>
                 </div>
             </div>
@@ -279,7 +284,12 @@ function renderContent() {
     }
 
     const heroImage = document.querySelector('#hero-image img');
-    if (heroImage) heroImage.src = resolvePath(data.identity.image);
+    if (heroImage) {
+        heroImage.src = resolvePath(data.identity.image);
+        heroImage.alt = currentLang === 'fr'
+            ? 'Portrait professionnel de Tsikomia Scidelo ANDRIASAHY — Ingénieur GSEA'
+            : 'Professional studio portrait of Tsikomia Scidelo ANDRIASAHY — GSEA Engineer';
+    }
 
     // About
     const aboutText = document.getElementById('about-text');
@@ -374,8 +384,11 @@ function renderContent() {
         initCertCarousels();
     }
 
-    // Sober Horizontal Bibliography Marquee (Just before Footer)
+    // Sober Horizontal Bibliography Marquee (Just before Contact & Footer)
     renderBibliography();
+
+    // Direct Mobile-Friendly Contact Section
+    renderContactSection();
 
     // Footer
     const footer = document.getElementById('site-footer');
@@ -388,11 +401,131 @@ function renderContent() {
                 <a href="${data.identity.contacts.linkedin}" target="_blank" rel="noopener" class="highlight-link">LinkedIn</a> •
                 <a href="${data.identity.contacts.github}" target="_blank" rel="noopener" class="highlight-link">GitHub</a> •
                 <a href="${data.identity.contacts.youtube}" target="_blank" rel="noopener" class="highlight-link">YouTube</a> •
-                <a href="${resolvePath(data.identity.dossierPdf)}" target="_blank" rel="noopener" class="highlight-link">📄 ${ui.dossierBtn}</a>
+                <a href="${resolvePath(data.identity.dossierPdf)}" target="_blank" rel="noopener" class="highlight-link">📄 ${ui.dossierBtn}</a> •
+                <a href="#contact" class="highlight-link">✉️ ${ui.contactCta}</a>
             </p>
             <p style="font-size: 0.82rem; opacity: 0.72;">&copy; 2026 Tsikomia Scidelo ANDRIASAHY. ${ui.footerRights} • <a href="admin.html" style="color: var(--text-muted); text-decoration: none;">🔒 ${ui.footerStudio}</a></p>
         `;
     }
+}
+
+function renderContactSection() {
+    const data = portfolioData[currentLang];
+    const container = document.getElementById('contact-section-inner');
+    if (!container) return;
+
+    const isFr = currentLang === 'fr';
+    const email = data.identity.contacts.email;
+    const phoneRaw = (data.identity.contacts.phone || '+212 777 647 362').trim();
+    const phoneDigits = phoneRaw.replace(/[^0-9]/g, '');
+    const linkedin = data.identity.contacts.linkedin;
+
+    const copy = isFr ? {
+        title: 'Prise de Contact Directe',
+        subtitle: 'Disponible dès mi-janvier 2027 pour un stage PFE (4 à 6 mois) ou une collaboration R&D. Contactez-moi en un clic depuis votre smartphone ou via ce formulaire rapide.',
+        btnEmail: 'Envoyer un email',
+        btnCall: 'Appeler',
+        btnWhatsapp: 'WhatsApp',
+        btnCopy: 'Copier l’email',
+        copied: '✅ Adresse copiée !',
+        nameLbl: 'Nom / Entreprise',
+        namePh: 'Ex. Prénom Nom — Entreprise',
+        emailLbl: 'Votre email',
+        emailPh: 'vous@entreprise.com',
+        subjLbl: 'Objet',
+        subjDefault: 'Opportunité Stage PFE / Collaboration R&D',
+        msgLbl: 'Message',
+        msgPh: 'Décrivez brièvement votre besoin, poste PFE ou sujet technique...',
+        submitBtn: '✉️ Ouvrir dans mon application Mail',
+        sentHint: 'Votre client email s’est ouvert avec votre message pré-rempli. Sinon, écrivez directement à '
+    } : {
+        title: 'Direct Contact',
+        subtitle: 'Available from mid-January 2027 for a 4–6 month Final-Year Engineering Internship (PFE) or R&D collaboration. Reach out in one tap from mobile or via the quick form.',
+        btnEmail: 'Send Email',
+        btnCall: 'Call',
+        btnWhatsapp: 'WhatsApp',
+        btnCopy: 'Copy Email',
+        copied: '✅ Email copied!',
+        nameLbl: 'Name / Company',
+        namePh: 'e.g. Jane Doe — Company',
+        emailLbl: 'Your Email',
+        emailPh: 'you@company.com',
+        subjLbl: 'Subject',
+        subjDefault: 'PFE Engineering Internship / R&D Opportunity',
+        msgLbl: 'Message',
+        msgPh: 'Briefly share your opportunity, PFE topic, or engineering question...',
+        submitBtn: '✉️ Open in Mail App',
+        sentHint: 'Your email client has opened with your pre-filled message. You can also write directly to '
+    };
+
+    container.innerHTML = `
+        <div class="contact-card">
+            <div class="contact-grid">
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 0.9rem;">${copy.title}</h2>
+                    <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;">${copy.subtitle}</p>
+                    <div class="contact-quick-actions">
+                        <a href="mailto:${email}?subject=${encodeURIComponent(copy.subjDefault)}" class="contact-action-btn primary" aria-label="${copy.btnEmail}">✉️ ${copy.btnEmail}</a>
+                        <a href="tel:+${phoneDigits}" class="contact-action-btn" aria-label="${copy.btnCall} ${phoneRaw}">📞 ${copy.btnCall}</a>
+                        <a href="https://wa.me/${phoneDigits}" target="_blank" rel="noopener" class="contact-action-btn" aria-label="${copy.btnWhatsapp}">💬 ${copy.btnWhatsapp}</a>
+                        <button type="button" class="contact-action-btn" id="copy-email-btn" aria-label="${copy.btnCopy}">📋 ${copy.btnCopy}</button>
+                    </div>
+                    <p style="margin-top: 1.15rem; font-size: 0.86rem; color: var(--text-muted);">
+                        📧 <a href="mailto:${email}" class="highlight-link">${email}</a> · 📱 ${phoneRaw} · <a href="${linkedin}" target="_blank" rel="noopener" class="highlight-link">LinkedIn ↗</a>
+                    </p>
+                </div>
+                <form class="contact-form" id="quick-contact-form">
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label for="cf-name">${copy.nameLbl}</label>
+                            <input type="text" id="cf-name" placeholder="${copy.namePh}" required>
+                        </div>
+                        <div class="contact-field">
+                            <label for="cf-email">${copy.emailLbl}</label>
+                            <input type="email" id="cf-email" placeholder="${copy.emailPh}" required>
+                        </div>
+                    </div>
+                    <div class="contact-field">
+                        <label for="cf-subject">${copy.subjLbl}</label>
+                        <input type="text" id="cf-subject" value="${copy.subjDefault}" required>
+                    </div>
+                    <div class="contact-field">
+                        <label for="cf-message">${copy.msgLbl}</label>
+                        <textarea id="cf-message" placeholder="${copy.msgPh}" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="justify-content: center; width: 100%;">${copy.submitBtn}</button>
+                    <div class="contact-feedback" id="cf-feedback" role="status" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    `;
+
+    const copyBtn = document.getElementById('copy-email-btn');
+    copyBtn?.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(email);
+            copyBtn.textContent = copy.copied;
+            setTimeout(() => { copyBtn.textContent = `📋 ${copy.btnCopy}`; }, 2500);
+        } catch {
+            window.location.href = `mailto:${email}`;
+        }
+    });
+
+    const form = document.getElementById('quick-contact-form');
+    form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cf-name').value.trim();
+        const from = document.getElementById('cf-email').value.trim();
+        const subj = document.getElementById('cf-subject').value.trim();
+        const msg = document.getElementById('cf-message').value.trim();
+        const body = `${msg}\n\n---\n${name} (${from})`;
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+        const fb = document.getElementById('cf-feedback');
+        if (fb) {
+            fb.innerHTML = `${copy.sentHint}<a href="mailto:${email}" style="color: inherit; text-decoration: underline;">${email}</a>.`;
+            fb.style.display = 'block';
+        }
+    });
 }
 
 function renderBibliography() {

@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/main.css?v=20261120b">
+    <link rel="stylesheet" href="styles/main.css?v=20261120c">
 
     <script type="application/ld+json">
     {
@@ -53,6 +53,7 @@
                     <li><a href="#experience" id="nav-experience">Expériences</a></li>
                     <li><a href="#cv" id="nav-cv">Formation</a></li>
                     <li><a href="#certificates" id="nav-certificates">Certificats</a></li>
+                    <li><a href="#contact" id="nav-contact">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
@@ -108,7 +109,7 @@
             <div class="timeline" id="education-timeline"></div>
             <div style="margin-top: 2.75rem; text-align: center; display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap;">
                 <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn" download id="download-cv-btn">Télécharger le CV (PDF — FR)</a>
-                <a href="assets/pdfs/CV_Detaille_ANDRIASAHY_FR.pdf" class="btn btn-outline" target="_blank" id="download-dossier-btn">📄 CV Détaillé Complet (PDF)</a>
+                <a href="assets/pdfs/CV_Detaille_ANDRIASAHY_FR.pdf" class="btn btn-outline" target="_blank" rel="noopener" id="download-dossier-btn">📄 Portfolio PDF Complet</a>
                 <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.pdf" class="btn btn-outline" target="_blank" id="view-cv-btn">Consulter le CV en ligne</a>
                 <a href="assets/pdfs/CV_ANDRIASAHY_Tsikomia_Scidelo.tex" class="btn btn-outline" download id="download-tex-btn">Code Source CV (.tex LaTeX)</a>
             </div>
@@ -127,6 +128,11 @@
             <div class="marquee-viewport">
                 <div class="marquee-track" id="bibliography-marquee"></div>
             </div>
+        </section>
+
+        <!-- Accès direct au contact (Optimisé Smartphone & Recruteurs) -->
+        <section id="contact" class="container contact-section fade-in visible">
+            <div id="contact-section-inner"></div>
         </section>
     </main>
 
@@ -163,8 +169,8 @@
         <div class="lightbox-caption-bar" id="lightbox-actions"></div>
     </div>
 
-    <script src="data/content.js?v=20261120b"></script>
-    <script src="scripts/app.js?v=20261120b"></script>
+    <script src="data/content.js?v=20261120c"></script>
+    <script src="scripts/app.js?v=20261120c"></script>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c7e51db804874defb2791c7cca849aa8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

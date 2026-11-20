@@ -142,7 +142,8 @@ var portfolioData = {
             "projects": "Projets",
             "experience": "Expériences",
             "cv": "Formation",
-            "certificates": "Certificats"
+            "certificates": "Certificats",
+            "contact": "Contact"
         },
         "ui": {
             "primaryCta": "Télécharger le CV (PDF)",
@@ -153,7 +154,7 @@ var portfolioData = {
             "footerRole": "Ingénieur Systèmes Embarqués, Robotique ROS 2, Électronique de Puissance & IA",
             "footerRights": "Tous droits réservés.",
             "footerStudio": "Espace Privé",
-            "dossierBtn": "CV Détaillé Complet (PDF)",
+            "dossierBtn": "Portfolio PDF Complet",
             "showMoreProjects": "Voir tous les projets",
             "showLessProjects": "Réduire les projets",
             "showMoreExp": "Voir toutes les expériences",
@@ -1809,7 +1810,8 @@ var portfolioData = {
             "projects": "Projects",
             "experience": "Experience",
             "cv": "Education",
-            "certificates": "Certificates"
+            "certificates": "Certificates",
+            "contact": "Contact"
         },
         "ui": {
             "primaryCta": "Download Resume (PDF)",
@@ -1820,7 +1822,7 @@ var portfolioData = {
             "footerRole": "Embedded Systems, ROS 2 Robotics, Power Electronics & Industrial AI Engineer",
             "footerRights": "All rights reserved.",
             "footerStudio": "Private Workspace",
-            "dossierBtn": "Comprehensive Engineering CV (PDF)",
+            "dossierBtn": "Complete PDF Portfolio",
             "showMoreProjects": "Show all projects",
             "showLessProjects": "Show fewer projects",
             "showMoreExp": "Show all experiences",
