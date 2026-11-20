@@ -191,6 +191,9 @@ function updateLangUI() {
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) langToggle.textContent = currentLang === 'fr' ? 'EN' : 'FR';
     document.documentElement.lang = currentLang;
+    document.title = currentLang === 'fr'
+        ? 'Tsikomia Scidelo ANDRIASAHY | Ingénieur Systèmes Embarqués, Robotique ROS 2 & Électronique de Puissance'
+        : 'Tsikomia Scidelo ANDRIASAHY | Embedded Systems, ROS 2 Robotics & Power Electronics Engineer';
 
     const nav = portfolioData[currentLang].nav;
     const setNav = (id, text) => {
@@ -470,9 +473,11 @@ function renderContactSection() {
                         <a href="https://wa.me/${phoneDigits}" target="_blank" rel="noopener" class="contact-action-btn" aria-label="${copy.btnWhatsapp}">💬 ${copy.btnWhatsapp}</a>
                         <button type="button" class="contact-action-btn" id="copy-email-btn" aria-label="${copy.btnCopy}">📋 ${copy.btnCopy}</button>
                     </div>
-                    <p style="margin-top: 1.15rem; font-size: 0.86rem; color: var(--text-muted);">
-                        📧 <a href="mailto:${email}" class="highlight-link">${email}</a> · 📱 ${phoneRaw} · <a href="${linkedin}" target="_blank" rel="noopener" class="highlight-link">LinkedIn ↗</a>
-                    </p>
+                    <div style="margin-top: 1.15rem; font-size: 0.86rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 0.45rem 1rem; align-items: center;">
+                        <span style="white-space: nowrap;">📧 <a href="mailto:${email}" class="highlight-link">${email}</a></span>
+                        <span style="white-space: nowrap;">📱 <a href="tel:+${phoneDigits}" class="highlight-link">${phoneRaw}</a></span>
+                        <span style="white-space: nowrap;"><a href="${linkedin}" target="_blank" rel="noopener" class="highlight-link">LinkedIn ↗</a></span>
+                    </div>
                 </div>
                 <form class="contact-form" id="quick-contact-form">
                     <div class="contact-form-row">
