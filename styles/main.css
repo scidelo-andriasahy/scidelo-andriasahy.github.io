@@ -1320,3 +1320,115 @@ section {
     display: block;
     cursor: zoom-in;
 }
+
+/* Smooth Auto-Sliding Horizontal Certificate Carousel */
+.cert-carousel-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cert-gallery-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.cert-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cert-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.45rem 0.45rem 1.4rem;
+    display: block;
+}
+
+.cert-counter-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 12;
+    pointer-events: none;
+    background: rgba(11, 17, 32, 0.82);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 0.18rem 0.6rem;
+    border-radius: 50px;
+    color: #f8fafc;
+    font-size: 0.72rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+}
+
+.cert-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 14;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(11, 17, 32, 0.78);
+    color: #f8fafc;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.78;
+    transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.cert-carousel-wrap:hover .cert-nav-btn {
+    opacity: 1;
+}
+
+.cert-nav-btn:hover {
+    background: var(--accent-cyan);
+    color: #0b1120;
+    border-color: var(--accent-cyan);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.cert-nav-prev { left: 8px; }
+.cert-nav-next { right: 8px; }
+
+.cert-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 14;
+    display: flex;
+    gap: 6px;
+    background: rgba(11, 17, 32, 0.72);
+    padding: 4px 8px;
+    border-radius: 99px;
+}
+
+.cert-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.38);
+    cursor: pointer;
+    transition: width 0.25s ease, background 0.25s ease;
+}
+
+.cert-dot.active {
+    width: 18px;
+    border-radius: 99px;
+    background: var(--accent-cyan);
+}

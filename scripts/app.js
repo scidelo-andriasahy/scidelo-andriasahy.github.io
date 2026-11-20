@@ -371,6 +371,7 @@ function renderContent() {
                 </div>
             </div>
         `).join('');
+        initCertCarousels();
     }
 
     // Sober Horizontal Bibliography Marquee (Just before Footer)
@@ -430,15 +431,20 @@ function renderCertificateCard(c) {
     if (hasMultipleImages) {
         const labels = c.linkLabels || links.map((_, i) => `Document ${i + 1} (PDF)`);
         galleryHtml = `
-            <div class="cert-gallery" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; width: 100%; scrollbar-width: none;">
-                ${images.map((imgUrl, i) => `
-                    <div style="flex: 0 0 100%; scroll-snap-align: start; position: relative; height: 100%;">
-                        <img src="${imgUrl}" alt="${c.title} - ${i + 1}" data-pdf="${links[i] || ''}" class="zoomable-img" style="width: 100%; height: 100%; object-fit: contain; padding: 0.4rem;">
-                    </div>
-                `).join('')}
-            </div>
-            <div style="position: absolute; top: 10px; right: 10px; z-index: 10; pointer-events: none; background: rgba(11,17,32,0.75); padding: 0.2rem 0.6rem; border-radius: 50px; color: white; font-size: 0.72rem;">
-                1/${images.length} &harr;
+            <div class="cert-carousel-wrap" data-total="${images.length}">
+                <div class="cert-gallery cert-gallery-track">
+                    ${images.map((imgUrl, i) => `
+                        <div class="cert-slide">
+                            <img src="${imgUrl}" alt="${c.title} - ${i + 1}" data-pdf="${links[i] || ''}" class="zoomable-img">
+                        </div>
+                    `).join('')}
+                </div>
+                <button type="button" class="cert-nav-btn cert-nav-prev" aria-label="Précédent">&#10094;</button>
+                <button type="button" class="cert-nav-btn cert-nav-next" aria-label="Suivant">&#10095;</button>
+                <div class="cert-counter-badge">1/${images.length} &harr;</div>
+                <div class="cert-dots">
+                    ${images.map((_, i) => `<button type="button" class="cert-dot ${i === 0 ? 'active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`).join('')}
+                </div>
             </div>
         `;
         pdfBtnHtml = links.map((lnk, idx) =>
@@ -473,6 +479,60 @@ function renderCertificateCard(c) {
             </div>
         </div>
     `;
+}
+
+let certCarouselTimers = [];
+
+function initCertCarousels() {
+    certCarouselTimers.forEach(t => clearInterval(t));
+    certCarouselTimers = [];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.cert-carousel-wrap').forEach((wrap, cardIdx) => {
+        const track = wrap.querySelector('.cert-gallery-track');
+        const badge = wrap.querySelector('.cert-counter-badge');
+        const dots = wrap.querySelectorAll('.cert-dot');
+        const prevBtn = wrap.querySelector('.cert-nav-prev');
+        const nextBtn = wrap.querySelector('.cert-nav-next');
+        const total = Number(wrap.dataset.total) || 1;
+        if (!track || total <= 1) return;
+
+        let idx = 0;
+        let paused = false;
+
+        const goTo = (nextIdx) => {
+            idx = (nextIdx + total) % total;
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            if (badge) badge.innerHTML = `${idx + 1}/${total} &harr;`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        };
+
+        prevBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goTo(idx - 1);
+        });
+        nextBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goTo(idx + 1);
+        });
+        dots.forEach(d => {
+            d.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goTo(Number(d.dataset.slide));
+            });
+        });
+
+        wrap.addEventListener('mouseenter', () => { paused = true; });
+        wrap.addEventListener('mouseleave', () => { paused = false; });
+
+        if (!reduceMotion) {
+            // Stagger start slightly across cards for natural rhythm
+            const timer = setInterval(() => {
+                if (!paused) goTo(idx + 1);
+            }, 3400 + (cardIdx % 3) * 450);
+            certCarouselTimers.push(timer);
+        }
+    });
 }
 
 function setupFilters() {
